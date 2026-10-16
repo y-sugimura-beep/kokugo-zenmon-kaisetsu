@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>「随筆文を読む③」A問題｜本文の言葉から答えを作ろう</title>
+<style>
+:root{
+  --bg:#fff8e7; --ink:#3b3024; --sub:#7a6a55; --card:#ffffff;
+  --c1:#ff7b54; --cl1:#ffe6dc; --cd1:#c94f2c;
+  --c2:#ffb02e; --cl2:#fff1cf; --cd2:#b87400;
+  --c3:#4cc37a; --cl3:#dff7e7; --cd3:#1f8a4c;
+  --c4:#4aa8ff; --cl4:#dfefff; --cd4:#1f6fc4;
+  --c5:#9b7bff; --cl5:#ebe4ff; --cd5:#6b4fd1;
+  --c6:#ff6fa8; --cl6:#ffe1ee; --cd6:#c93d78;
+  --ans:#fff6b3; --ansb:#f2b600;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  display:flex;flex-direction:column;height:100dvh;overflow:hidden;
+  background:var(--bg);
+  background-image:radial-gradient(#ffd9a8 1.6px,transparent 1.7px),radial-gradient(#ffd9a8 1.6px,transparent 1.7px);
+  background-size:28px 28px;background-position:0 0,14px 14px;
+  color:var(--ink);
+  font-family:"Hiragino Maru Gothic ProN","Hiragino Maru Gothic Pro","Hiragino Sans","BIZ UDPGothic","Yu Gothic","YuGothic","Meiryo","Noto Sans CJK JP",sans-serif;
+  -webkit-text-size-adjust:100%;
+}
+/* ===== 上のバー（横書き） ===== */
+header.top{
+  flex:none;writing-mode:horizontal-tb;background:#fff;border-bottom:3px dashed #ffd27a;
+  padding:calc(8px + env(safe-area-inset-top,0px)) 16px 8px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;
+}
+.ttl{font-weight:800;font-size:clamp(15px,2.4vmin,20px);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.ttl .badge{background:#ff7b54;color:#fff;border-radius:999px;padding:2px 10px;font-size:.8em}
+nav.chips{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.chip{white-space:nowrap;text-decoration:none;color:#fff;background:var(--c);border-radius:999px;padding:3px 11px;font-weight:700;font-size:13px;box-shadow:0 2px 0 rgba(0,0,0,.12)}
+.chip:active{transform:translateY(2px);box-shadow:none}
+#allbtn{font:inherit;font-weight:700;font-size:13px;border:2px solid #f2b600;background:var(--ans);color:#6b4f00;border-radius:999px;padding:4px 12px;cursor:pointer}
+.bar{flex:none;height:6px;background:#ffe8c2}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff7b54,#ffb02e,#4cc37a,#4aa8ff,#9b7bff,#ff6fa8);transition:width .15s}
+/* ===== 本文（縦書き） ===== */
+main.book{
+  flex:1;min-height:0;writing-mode:vertical-rl;text-orientation:mixed;
+  overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;
+  padding:18px 22px 18px 22px;
+  font-size:clamp(16px,2.3vmin,21px);line-height:2;letter-spacing:.05em;
+  font-feature-settings:"palt" 0;
+}
+.card{
+  background:var(--card);border:3px solid var(--c,#ffb02e);border-radius:22px;
+  padding:26px 28px;margin-left:30px;box-shadow:0 6px 0 var(--cl,#ffe6c7),0 10px 24px rgba(120,80,20,.08);
+}
+.card:last-child{margin-left:4px}
+.intro{--c:#ffb02e;--cl:#fff1cf}
+.outro{--c:#4cc37a;--cl:#dff7e7}
+.mascot{font-size:2.6em;line-height:1;text-orientation:upright;margin-left:.3em}
+h2{margin:0 0 0 1.2em;font-size:1.25em;line-height:1.6}
+.intro-h{color:#b87400;background:var(--cl);border-radius:999px;padding:.5em .35em;inline-size:fit-content}
+.q h2{display:flex;flex-direction:row;align-items:center;gap:.7em;background:var(--c);color:#fff;border-radius:999px;padding:.6em .45em;margin-left:1.4em}
+.qnum{background:#fff;color:var(--cd);border-radius:999px;padding:.35em .2em;font-weight:900;display:inline-flex;flex-direction:row;align-items:center;gap:.2em}
+.qe{text-orientation:upright;font-size:1.3em;line-height:1}
+.qtitle{font-weight:800;text-shadow:0 1px 0 rgba(0,0,0,.15)}
+h3{font-size:1.05em;margin:.6em 0 .2em 1em;color:var(--cd,#b87400);background:var(--cl,#fff1cf);border-radius:999px;padding:.35em .3em;inline-size:fit-content;line-height:1.7;font-weight:800}
+.h3e{text-orientation:upright;margin-bottom:.3em}
+p{margin:0 0 0 .9em}
+strong{color:var(--cd,#c94f2c);font-weight:900;background:linear-gradient(to right,transparent 55%,var(--cl,#ffe6dc) 55%)}
+.tcy{text-combine-upright:all;-webkit-text-combine:horizontal}
+ruby{ruby-align:center} rt{font-size:.5em;color:var(--sub);letter-spacing:0;opacity:.95}
+blockquote{
+  margin:.2em 0 .2em 1em;padding:.6em .7em;background:#f7f4ee;border-right:6px solid var(--c,#ffb02e);border-radius:14px;
+  color:#4a3f33;font-weight:600;
+}
+blockquote p{margin-left:1em} blockquote p:first-child{margin-left:0}
+ul{margin:.2em 0 .2em 1em;padding:0;list-style:none}
+ul.plain li{margin-left:.6em;padding-right:1.1em;position:relative}
+ul.plain li::before{content:"●";position:absolute;right:0;top:.05em;color:var(--c,#ffb02e);font-size:.7em}
+ul.choices li{margin-left:.8em;background:#faf9f6;border-radius:16px;padding:.7em .6em;border:2px dashed #e5ddd0}
+.opt-head{display:flex;flex-direction:row;align-items:center;gap:.5em}
+.kana{display:inline-block;background:var(--c,#ffb02e);color:#fff;font-weight:900;border-radius:50%;width:1.7em;height:1.7em;line-height:1.7em;text-align:center;text-orientation:upright;letter-spacing:0;flex:none}
+.opt{font-weight:700}
+.opt-body{margin-left:.7em;color:#5a4d3e}
+/* 答え */
+.answer{margin:.4em 0 .4em 1.1em;display:flex;flex-direction:column;align-items:stretch}
+.ans-tag{background:var(--ansb);color:#fff;font-weight:900;border-radius:999px;padding:.4em .2em;inline-size:fit-content;margin-left:.5em;text-align:center}
+.ans-wrap{position:relative;background:var(--ans);border:3px solid var(--ansb);border-radius:18px;padding:.8em .7em;}
+.ans-body{font-weight:900;font-size:1.08em;color:#5a3d00;transition:filter .35s;}
+.ans-body .note{display:block;margin-left:.6em;font-size:.8em;font-weight:700;color:#8a6a1a}
+ol.num{margin:0;padding:0;list-style:none} ol.num li{margin-left:.5em} ol.num li:first-child{margin-left:0}
+.ans-body ol.num li{margin-left:.9em} .ans-body ol.num li:first-child{margin-left:0}
+ol.num .n{text-orientation:upright;color:var(--cd,#b87400);font-weight:900;margin-bottom:.2em}
+.tg{position:absolute;opacity:0;width:0;height:0;margin:0;pointer-events:none}
+.tg:not(:checked) ~ .ans-body{filter:blur(7px);user-select:none}
+.tg:checked ~ .reveal{display:none}
+.reveal{position:absolute;inset:0;margin:auto;display:block;inline-size:fit-content;block-size:fit-content;font:inherit;font-weight:800;font-size:.9em;
+  writing-mode:horizontal-tb;background:#fff;border:2px solid var(--ansb);border-radius:999px;padding:8px 14px;cursor:pointer;box-shadow:0 3px 0 var(--ansb);white-space:nowrap}
+.reveal:active{transform:translateY(2px);box-shadow:none}
+/* まとめ */
+ul.timeline li{margin-left:.8em;background:var(--cl);border-radius:16px;padding:.6em .5em;font-weight:700}
+.feel{text-orientation:upright;font-size:1.4em;line-height:1;margin-bottom:.35em;display:inline-block}
+.ending{margin-left:1.2em;font-weight:900;color:#1f8a4c;font-size:1.1em}
+/* ヒント */
+.hint{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);writing-mode:horizontal-tb;
+  background:#3b3024;color:#fff;border-radius:999px;padding:8px 16px;font-size:13px;font-weight:700;opacity:.92;animation:bob 1.2s ease-in-out infinite;pointer-events:none;white-space:nowrap}
+.hint.gone{display:none}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-6px)}}
+@media (max-width:600px){
+  header.top{gap:6px 8px}
+  .ttl{flex-basis:100%}
+  nav.chips{margin-left:0;flex:1 1 0;min-width:0;flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+  nav.chips::-webkit-scrollbar{display:none}
+  #allbtn{flex:none;font-size:12px;padding:4px 10px}
+  main.book{padding:12px 14px}
+  .card{padding:18px 18px;border-radius:18px;margin-left:18px}
+  .ttl{font-size:15px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="ttl"><span class="badge">国語 No.30</span>「随筆文を読む③」A問題</div>
+  <nav class="chips"><a class="chip" href="#q1" style="--c:var(--c1)">問1</a><a class="chip" href="#q2" style="--c:var(--c2)">問2</a><a class="chip" href="#q3" style="--c:var(--c3)">問3</a><a class="chip" href="#q4" style="--c:var(--c4)">問4</a><a class="chip" href="#q5" style="--c:var(--c5)">問5</a></nav>
+  <button id="allbtn" type="button">答えをぜんぶ見る</button>
+</header>
+<div class="bar"><i id="prog"></i></div>
+<main class="book" id="book">
+<section class="card intro"><div class="mascot">🧒💭</div><h2 class="intro-h">本文の言葉から答えを作ろう</h2><p>これ、いきなり答えを思いつこうとしなくて大丈夫。先に<ruby>設問<rt>せつもん</rt></ruby>をばらして、「何を答える？」「本文のどこへ戻る？」「どの言葉が<ruby>根拠<rt>こんきょ</rt></ruby>？」「<ruby>答案<rt>とうあん</rt></ruby>をどんな形にする？」の順で見ていけば、答えは本文から作れる。</p><p><span class="tcy">5</span>問とも、その順で一緒に見ていこう。</p></section><section class="card q" id="q1" style="--c:var(--c1);--cl:var(--cl1);--cd:var(--cd1)"><h2><span class="qnum"><span class="qe">🔍</span>問<span class="tcy">1</span></span><span class="qtitle">なぜ「暗い生活」を思いうかべると考えたの？</span></h2><h3><span class="h3e">🤔</span>まず、何を聞かれてる？</h3><p>ここで聞かれているのは、ネパールの子どもたちが本当に暗い生活をしているかどうかではないんよね。</p><p>聞かれているのは、<ruby>筆者<rt>ひっしゃ</rt></ruby>が「読む人は、なにか暗い生活を思いうかべるかもしれない」と考えた理由。<span class="tcy">4</span>つの<ruby>選択肢<rt>せんたくし</rt></ruby>から、本文にいちばん合うものを選ぶ問題やね。</p><h3><span class="h3e">📖</span>本文へ戻るなら、<ruby>傍線<rt>ぼうせん</rt></ruby>①のすぐ前</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>①の前には、子どもたちの暮らしがこう書かれている。</p><blockquote><p>約二時間山を登りおりして学校に通っていた。</p></blockquote><blockquote><p>学校からもどると、牛や馬のえさやり、そして弟たちの世話もしていた。</p></blockquote><p>学校へ行くのにも時間がかかるし、帰ってからも家の仕事がある。<ruby>筆者<rt>ひっしゃ</rt></ruby>は、これをネパールの子どもの<ruby>価値観<rt>かちかん</rt></ruby>で見たんやなくて、日本の子どもの<ruby>価値観<rt>かちかん</rt></ruby>から見ている。だから「日本の子どもには、つらい暮らしに見えるかもしれない」と考えたわけやね。ここまで読めたら、<ruby>選択肢<rt>せんたくし</rt></ruby>をかなりしぼれそう。</p><h3><span class="h3e">💡</span><span class="tcy">4</span>つとも、最後まで本文と合うか見てみる</h3><ul class="choices"><li><div class="opt-head"><span class="kana">ア</span></div><div class="opt-body">は、「満足に食べるものがない」「むりやり働かされる」と書いてある。でも、本文にはそんなことは書かれていない。苦しそう、という感じだけで選ぶと、本文にない事情まで足すことになる。</div></li></ul><ul class="choices"><li><div class="opt-head"><span class="kana">イ</span></div><div class="opt-body">は、日本の子どもが「塾や習いごとに行くのがあたりまえ」だから、帰って働くのをおかしいと感じる、という理由。でも、傍線①の前に塾や習いごとの話は出てこない。これも本文にない理由が入っている。</div></li></ul><ul class="choices"><li><div class="opt-head"><span class="kana">ウ</span></div><div class="opt-body">は、学校から帰っても遊ばず、親の手助けをして働く姿がつらく見える、という内容。これは「牛や馬のえさやり」「弟たちの世話」とちゃんとつながる。</div></li></ul><ul class="choices"><li><div class="opt-head"><span class="kana">エ</span></div><div class="opt-body">は、「山を登りおりして通学する」ところだけは合っている。でも、「日本の子どもたちも同じ経験をしている」「自由もなく仕方なく働いている」とは書かれていない。一部分が合っていても、選択肢全体では選べないね。</div></li></ul><p>最後まで本文と合うのはウ。答え方は<ruby>記号<rt>きごう</rt></ruby>指定だから、<ruby>答案<rt>とうあん</rt></ruby>には一字だけ書けばいい。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans1"><div class="ans-body">ウ</div><label class="reveal" for="ans1">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q2" style="--c:var(--c2);--cl:var(--cl2);--cd:var(--cd2)"><h2><span class="qnum"><span class="qe">✏️</span>問<span class="tcy">2</span></span><span class="qtitle">「もうたいへんだ」の理由はどこ？</span></h2><h3><span class="h3e">💡</span><ruby>設問<rt>せつもん</rt></ruby>をばらすと、<ruby>条件<rt>じょうけん</rt></ruby>は<span class="tcy">4</span>つ</h3><ul class="plain"><li>「もうたいへんだ」となった理由を探す。</li><li>文中から抜き出す。</li><li><span class="tcy">30</span>字以内にする。</li><li>後ろに「しまったから。」をつなげる。</li></ul><p>自分の言葉で理由を作る問題ではないんやね。本文から、後ろの言葉につながるところを探せばいい。</p><h3><span class="h3e">💡</span><ruby>傍線<rt>ぼうせん</rt></ruby>②の後まで読んでみる</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>の前だけだと、「何がたいへんなの？」がまだ分からない。だから、その後に何が起きたかを読んでいく。</p><p>すると、ここが見つかる。</p><blockquote><p>日本人をはじめて見る子どもたちの好奇心の的になってしまって</p></blockquote><p><ruby>筆者<rt>ひっしゃ</rt></ruby>は、日本人を初めて見る子どもたちから<ruby>一斉<rt>いっせい</rt></ruby>に<ruby>興味<rt>きょうみ</rt></ruby>を持たれた。それで「もうたいへんだ」となったわけやね。</p><p>「たいへん」といっても、暗くて困ったという感じではなさそう。その後に「とても楽しい時を過ごすことができた」とあるから、にぎやかで楽しいたいへんさなんやと思えばつながる。</p><h3><span class="h3e">📖</span>どこまで抜けばいい？</h3><p>本文どおり「なってしまって」まで抜くと、後ろの指定とつないだときに、</p><blockquote><p>なってしまってしまったから</p></blockquote><p>となってしまう。「しまって」が重なるから、抜き出すのは「なって」まででいい。</p><blockquote><p>日本人をはじめて見る子どもたちの好奇心の的になって</p></blockquote><p>これで<span class="tcy">25</span>字。<span class="tcy">30</span>字以内にも入っているし、「しまったから。」にも自然につながる。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans2"><div class="ans-body">日本人をはじめて見る子どもたちの好奇心の的になって</div><label class="reveal" for="ans2">👆 タップして答えを見る</label></div></div><p>つなげると、「日本人をはじめて見る子どもたちの<ruby>好奇心<rt>こうきしん</rt></ruby>の的になってしまったから。」になるよ。</p></section><section class="card q" id="q3" style="--c:var(--c3);--cl:var(--cl3);--cd:var(--cd3)"><h2><span class="qnum"><span class="qe">🔥</span>問<span class="tcy">3</span></span><span class="qtitle">「言われなくても」に合う二字は？</span></h2><h3><span class="h3e">💡</span><ruby>空欄<rt>くうらん</rt></ruby>だけでなく、前後をつなげて読む</h3><p>本文は、こうなっている。</p><blockquote><p>言われなくても子どもたちは〔　〕的に仕事を手伝っている</p></blockquote><p><ruby>空欄<rt>くうらん</rt></ruby>の後ろに「的に」があるから、二字を入れて「〇〇的に」という言葉を作る問題やね。</p><h3><span class="h3e">💡</span>手がかりは「言われなくても」</h3><p>これな、「だれかに言われたから手伝う」んやなくて、自分から進んで手伝っている、ってことやね。</p><p>そこで「〔　〕的に」へ入る言葉を考えると、「自主的に」がつながる。「自主」には、人に言われる前に自分で考えて行う、という意味があるからやね。</p><p><ruby>空欄<rt>くうらん</rt></ruby>の後ろに「的に」がもうあるので、<ruby>答案<rt>とうあん</rt></ruby>には「自主」の二字だけを書けばいい。</p><p>ただ、この問題は意味が合えば別の言葉も使える。「<ruby>自発<rt>じはつ</rt></ruby>」「<ruby>積極<rt>せっきょく</rt></ruby>」も<ruby>別解<rt>べっかい</rt></ruby>として認められている。正解表の中心になる答えは「自主」やね。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans3"><div class="ans-body">自主<span class="note">※「自発」「積極」も可。</span></div><label class="reveal" for="ans3">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q4" style="--c:var(--c4);--cl:var(--cl4);--cd:var(--cd4)"><h2><span class="qnum"><span class="qe">👉</span>問<span class="tcy">4</span></span><span class="qtitle">「いろいろなこと」の中身は何？</span></h2><h3><span class="h3e">📖</span>探すものと<ruby>条件<rt>じょうけん</rt></ruby>を分ける</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>④の「いろいろなこと」では、まだ中身が分からない。<ruby>設問<rt>せつもん</rt></ruby>は、その<ruby>具体的<rt>ぐたいてき</rt></ruby>な内容を聞いている。</p><p><ruby>条件<rt>じょうけん</rt></ruby>は、次の<span class="tcy">3</span>つ。</p><ul class="plain"><li>文中のことばを使う。</li><li><span class="tcy">10</span>字以内にする。</li><li><span class="tcy">3</span>つ答える。</li></ul><p>長い説明を<span class="tcy">3</span>つ書くのではなく、「何を学んだか」だけを<span class="tcy">10</span>字以内で切り出す問題やね。</p><h3><span class="h3e">💡</span>「いろいろ」の中身は、<ruby>傍線<rt>ぼうせん</rt></ruby>④のすぐ後ろ</h3><p>後ろを読むと、学んでいることが<span class="tcy">3</span>つ、順番に並んでいる。</p><blockquote><p>動物を飼うことから、<strong>生き物の命の大切さ</strong>を感じ取っている</p></blockquote><blockquote><p>働くことから、<strong>親の仕事のたいへんさ</strong>を学び取る</p></blockquote><blockquote><p>いっしょに働く仲間をとおして、<strong>社会のしくみ</strong>をはだで感じ取る</p></blockquote><p>「動物を飼うこと」「働くこと」「いっしょに働く仲間」は、学ぶきっかけや方法のほう。聞かれているのは「どのようなことを学んでいるか」だから、その後ろにある太字の部分を取ればいい。</p><p>字数も見ておくと、</p><ul class="plain"><li>生き物の命の大切さ……<span class="tcy">9</span>字</li><li>親の仕事のたいへんさ……<span class="tcy">10</span>字</li><li>社会のしくみ……<span class="tcy">6</span>字</li></ul><p><span class="tcy">3</span>つとも本文の言葉で、<span class="tcy">10</span>字以内に収まっている。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans4"><div class="ans-body"><ol class="num"><li><span class="n">①</span>生き物の命の大切さ</li><li><span class="n">②</span>親の仕事のたいへんさ</li><li><span class="n">③</span>社会のしくみ</li></ol></div><label class="reveal" for="ans4">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q5" style="--c:var(--c5);--cl:var(--cl5);--cd:var(--cd5)"><h2><span class="qnum"><span class="qe">🕳️</span>問<span class="tcy">5</span></span><span class="qtitle">教科書にないことを、何から学んでいる？</span></h2><h3><span class="h3e">💡</span>「これ」を<ruby>具体的<rt>ぐたいてき</rt></ruby>な言葉に置きかえる</h3><p><ruby>設問<rt>せつもん</rt></ruby>の「これ」は、<ruby>傍線<rt>ぼうせん</rt></ruby>⑤を指している。</p><blockquote><p>教科書には書いていないさまざまなこと</p></blockquote><p>だから、<ruby>設問<rt>せつもん</rt></ruby>を言いかえると、こうなる。</p><blockquote><p>アジアの子どもたちは、教科書には書いていないさまざまなことを、何から学んでいるのか。</p></blockquote><p>これで、探すのは「何を」ではなく「何から」だと分かるね。</p><h3><span class="h3e">💡</span>すぐ前の一文だけやなく、段落全体をまとめる</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>⑤のすぐ前には「親や社会をとおして」とある。ここだけ見たら、「親や社会から」でよさそうに見える。</p><p>でも、この問題は「何から学んだの？」と、学びのもとになったものを聞いている。そこで、もう少し前まで戻ってみる。</p><p>子どもたちは、動物を飼ったり、親の仕事を手伝ったり、仲間といっしょに働いたりしていた。つまり、ただ親や社会から話を聞いたんやなくて、<strong>親を手伝う中で実際に経験したこと</strong>から学んでいる。</p><p>そのまとめになる言葉が、直前の段落にある「人間社会の<ruby>実体験<rt>じったいけん</rt></ruby>」。これと、前から続いている「親の手助け」を合わせれば、正解の形が見えてくる。</p><h3><span class="h3e">💡</span><span class="tcy">15</span>字以内の<ruby>答案<rt>とうあん</rt></ruby>にする</h3><p>使う材料は、この二つ。</p><ul class="plain"><li>親の手助け</li><li><ruby>実体験<rt>じったいけん</rt></ruby></li></ul><p>これを「何から」に合う形でつなげると、</p><blockquote><p>親の手助けという実体験から。</p></blockquote><p><ruby>句点<rt>くてん</rt></ruby>まで入れて<span class="tcy">14</span>字。<span class="tcy">15</span>字以内に入ってる。</p><p>「親や社会から学んでいる」でも意味は近そうに見えるけど、それやと「どんな<ruby>経験<rt>けいけん</rt></ruby>から学んだのか」まで言えていない。ここは、段落に並んだ具体例をまとめて「親の手助けという<ruby>実体験<rt>じったいけん</rt></ruby>」とするのが正解やね。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans5"><div class="ans-body">親の手助けという実体験から。</div><label class="reveal" for="ans5">👆 タップして答えを見る</label></div></div></section><section class="card outro" id="outro"><h2 class="intro-h">🧭 五問をならべてみると</h2><p><span class="tcy">5</span>問とも、やったことは同じやったね。</p><p><ruby>設問<rt>せつもん</rt></ruby>から<ruby>条件<rt>じょうけん</rt></ruby>を拾う。本文の戻る場所を決める。<ruby>根拠<rt>こんきょ</rt></ruby>になる言葉を見つける。最後に、字数や文末を<ruby>答案<rt>とうあん</rt></ruby>の形に合わせる。</p><p>答えがすぐ浮かばなくても、ここまで順番にたどれば大丈夫。「なんとなくこれかな」ではなく、「本文のこの言葉があるから、この答え」と決められるようになるよ。</p><div class="ending">🎊 おつかれさま！　ここまで読めたらバッチリやで 🎊</div></section>
+</main>
+<div class="hint" id="hint">👈 左にスクロールして読んでいこう</div>
+<script>
+(function(){
+  var book=document.getElementById('book'),prog=document.getElementById('prog'),hint=document.getElementById('hint');
+  // マウスホイールの上下 → 左右スクロール
+  book.addEventListener('wheel',function(e){
+    if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){ book.scrollLeft-=e.deltaY; e.preventDefault(); }
+  },{passive:false});
+  function upd(){
+    var max=book.scrollWidth-book.clientWidth; var x=Math.abs(book.scrollLeft);
+    prog.style.width=(max>0?Math.min(100,x/max*100):0)+'%';
+    if(x>40) hint.classList.add('gone');
+  }
+  book.addEventListener('scroll',upd); window.addEventListener('resize',upd); upd();
+  // 答えをぜんぶ見る／かくす（個別のタップはCSSだけで動く）
+  var all=document.getElementById('allbtn'),shown=false;
+  all.addEventListener('click',function(){
+    shown=!shown;
+    document.querySelectorAll('.tg').forEach(function(c){ c.checked=shown; });
+    all.textContent=shown?'答えをかくす':'答えをぜんぶ見る';
+  });
+  // 問番号ジャンプ（縦書きなので、カードの右端を画面の右端にそろえる）
+  function jump(sel,smooth){
+    var t=document.querySelector(sel); if(!t) return;
+    var pad=parseFloat(getComputedStyle(book).paddingRight)||0;
+    var d=t.getBoundingClientRect().right-(book.getBoundingClientRect().right-pad);
+    book.scrollBy({left:d,top:0,behavior:smooth?'smooth':'auto'});
+    hint.classList.add('gone');
+  }
+  document.querySelectorAll('.chip').forEach(function(a){
+    a.addEventListener('click',function(e){ e.preventDefault(); jump(a.getAttribute('href'),true); });
+  });
+  // 右端（はじまり）から表示。#q3 のように指定があればそこへ
+  function start(){ if(location.hash){ jump(location.hash,false); } else { book.scrollLeft=0; } upd(); }
+  start(); window.addEventListener('load',start);
+})();
+</script>
+</body>
+</html>

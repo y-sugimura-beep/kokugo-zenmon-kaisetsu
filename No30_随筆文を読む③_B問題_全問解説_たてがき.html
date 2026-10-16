@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>「随筆文を読む③」B問題｜答えの形を先に決めて、本文から持ってこよう</title>
+<style>
+:root{
+  --bg:#fff8e7; --ink:#3b3024; --sub:#7a6a55; --card:#ffffff;
+  --c1:#ff7b54; --cl1:#ffe6dc; --cd1:#c94f2c;
+  --c2:#ffb02e; --cl2:#fff1cf; --cd2:#b87400;
+  --c3:#4cc37a; --cl3:#dff7e7; --cd3:#1f8a4c;
+  --c4:#4aa8ff; --cl4:#dfefff; --cd4:#1f6fc4;
+  --c5:#9b7bff; --cl5:#ebe4ff; --cd5:#6b4fd1;
+  --c6:#ff6fa8; --cl6:#ffe1ee; --cd6:#c93d78;
+  --ans:#fff6b3; --ansb:#f2b600;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  display:flex;flex-direction:column;height:100dvh;overflow:hidden;
+  background:var(--bg);
+  background-image:radial-gradient(#ffd9a8 1.6px,transparent 1.7px),radial-gradient(#ffd9a8 1.6px,transparent 1.7px);
+  background-size:28px 28px;background-position:0 0,14px 14px;
+  color:var(--ink);
+  font-family:"Hiragino Maru Gothic ProN","Hiragino Maru Gothic Pro","Hiragino Sans","BIZ UDPGothic","Yu Gothic","YuGothic","Meiryo","Noto Sans CJK JP",sans-serif;
+  -webkit-text-size-adjust:100%;
+}
+/* ===== 上のバー（横書き） ===== */
+header.top{
+  flex:none;writing-mode:horizontal-tb;background:#fff;border-bottom:3px dashed #ffd27a;
+  padding:calc(8px + env(safe-area-inset-top,0px)) 16px 8px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;
+}
+.ttl{font-weight:800;font-size:clamp(15px,2.4vmin,20px);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.ttl .badge{background:#ff7b54;color:#fff;border-radius:999px;padding:2px 10px;font-size:.8em}
+nav.chips{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.chip{white-space:nowrap;text-decoration:none;color:#fff;background:var(--c);border-radius:999px;padding:3px 11px;font-weight:700;font-size:13px;box-shadow:0 2px 0 rgba(0,0,0,.12)}
+.chip:active{transform:translateY(2px);box-shadow:none}
+#allbtn{font:inherit;font-weight:700;font-size:13px;border:2px solid #f2b600;background:var(--ans);color:#6b4f00;border-radius:999px;padding:4px 12px;cursor:pointer}
+.bar{flex:none;height:6px;background:#ffe8c2}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff7b54,#ffb02e,#4cc37a,#4aa8ff,#9b7bff,#ff6fa8);transition:width .15s}
+/* ===== 本文（縦書き） ===== */
+main.book{
+  flex:1;min-height:0;writing-mode:vertical-rl;text-orientation:mixed;
+  overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;
+  padding:18px 22px 18px 22px;
+  font-size:clamp(16px,2.3vmin,21px);line-height:2;letter-spacing:.05em;
+  font-feature-settings:"palt" 0;
+}
+.card{
+  background:var(--card);border:3px solid var(--c,#ffb02e);border-radius:22px;
+  padding:26px 28px;margin-left:30px;box-shadow:0 6px 0 var(--cl,#ffe6c7),0 10px 24px rgba(120,80,20,.08);
+}
+.card:last-child{margin-left:4px}
+.intro{--c:#ffb02e;--cl:#fff1cf}
+.outro{--c:#4cc37a;--cl:#dff7e7}
+.mascot{font-size:2.6em;line-height:1;text-orientation:upright;margin-left:.3em}
+h2{margin:0 0 0 1.2em;font-size:1.25em;line-height:1.6}
+.intro-h{color:#b87400;background:var(--cl);border-radius:999px;padding:.5em .35em;inline-size:fit-content}
+.q h2{display:flex;flex-direction:row;align-items:center;gap:.7em;background:var(--c);color:#fff;border-radius:999px;padding:.6em .45em;margin-left:1.4em}
+.qnum{background:#fff;color:var(--cd);border-radius:999px;padding:.35em .2em;font-weight:900;display:inline-flex;flex-direction:row;align-items:center;gap:.2em}
+.qe{text-orientation:upright;font-size:1.3em;line-height:1}
+.qtitle{font-weight:800;text-shadow:0 1px 0 rgba(0,0,0,.15)}
+h3{font-size:1.05em;margin:.6em 0 .2em 1em;color:var(--cd,#b87400);background:var(--cl,#fff1cf);border-radius:999px;padding:.35em .3em;inline-size:fit-content;line-height:1.7;font-weight:800}
+.h3e{text-orientation:upright;margin-bottom:.3em}
+p{margin:0 0 0 .9em}
+strong{color:var(--cd,#c94f2c);font-weight:900;background:linear-gradient(to right,transparent 55%,var(--cl,#ffe6dc) 55%)}
+.tcy{text-combine-upright:all;-webkit-text-combine:horizontal}
+ruby{ruby-align:center} rt{font-size:.5em;color:var(--sub);letter-spacing:0;opacity:.95}
+blockquote{
+  margin:.2em 0 .2em 1em;padding:.6em .7em;background:#f7f4ee;border-right:6px solid var(--c,#ffb02e);border-radius:14px;
+  color:#4a3f33;font-weight:600;
+}
+blockquote p{margin-left:1em} blockquote p:first-child{margin-left:0}
+ul{margin:.2em 0 .2em 1em;padding:0;list-style:none}
+ul.plain li{margin-left:.6em;padding-right:1.1em;position:relative}
+ul.plain li::before{content:"●";position:absolute;right:0;top:.05em;color:var(--c,#ffb02e);font-size:.7em}
+ul.choices li{margin-left:.8em;background:#faf9f6;border-radius:16px;padding:.7em .6em;border:2px dashed #e5ddd0}
+.opt-head{display:flex;flex-direction:row;align-items:center;gap:.5em}
+.kana{display:inline-block;background:var(--c,#ffb02e);color:#fff;font-weight:900;border-radius:50%;width:1.7em;height:1.7em;line-height:1.7em;text-align:center;text-orientation:upright;letter-spacing:0;flex:none}
+.opt{font-weight:700}
+.opt-body{margin-left:.7em;color:#5a4d3e}
+/* 答え */
+.answer{margin:.4em 0 .4em 1.1em;display:flex;flex-direction:column;align-items:stretch}
+.ans-tag{background:var(--ansb);color:#fff;font-weight:900;border-radius:999px;padding:.4em .2em;inline-size:fit-content;margin-left:.5em;text-align:center}
+.ans-wrap{position:relative;background:var(--ans);border:3px solid var(--ansb);border-radius:18px;padding:.8em .7em;}
+.ans-body{font-weight:900;font-size:1.08em;color:#5a3d00;transition:filter .35s;}
+.ans-body .note{display:block;margin-left:.6em;font-size:.8em;font-weight:700;color:#8a6a1a}
+ol.num{margin:0;padding:0;list-style:none} ol.num li{margin-left:.5em} ol.num li:first-child{margin-left:0}
+.ans-body ol.num li{margin-left:.9em} .ans-body ol.num li:first-child{margin-left:0}
+ol.num .n{text-orientation:upright;color:var(--cd,#b87400);font-weight:900;margin-bottom:.2em}
+.tg{position:absolute;opacity:0;width:0;height:0;margin:0;pointer-events:none}
+.tg:not(:checked) ~ .ans-body{filter:blur(7px);user-select:none}
+.tg:checked ~ .reveal{display:none}
+.reveal{position:absolute;inset:0;margin:auto;display:block;inline-size:fit-content;block-size:fit-content;font:inherit;font-weight:800;font-size:.9em;
+  writing-mode:horizontal-tb;background:#fff;border:2px solid var(--ansb);border-radius:999px;padding:8px 14px;cursor:pointer;box-shadow:0 3px 0 var(--ansb);white-space:nowrap}
+.reveal:active{transform:translateY(2px);box-shadow:none}
+/* まとめ */
+ul.timeline li{margin-left:.8em;background:var(--cl);border-radius:16px;padding:.6em .5em;font-weight:700}
+.feel{text-orientation:upright;font-size:1.4em;line-height:1;margin-bottom:.35em;display:inline-block}
+.ending{margin-left:1.2em;font-weight:900;color:#1f8a4c;font-size:1.1em}
+/* ヒント */
+.hint{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);writing-mode:horizontal-tb;
+  background:#3b3024;color:#fff;border-radius:999px;padding:8px 16px;font-size:13px;font-weight:700;opacity:.92;animation:bob 1.2s ease-in-out infinite;pointer-events:none;white-space:nowrap}
+.hint.gone{display:none}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-6px)}}
+@media (max-width:600px){
+  header.top{gap:6px 8px}
+  .ttl{flex-basis:100%}
+  nav.chips{margin-left:0;flex:1 1 0;min-width:0;flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+  nav.chips::-webkit-scrollbar{display:none}
+  #allbtn{flex:none;font-size:12px;padding:4px 10px}
+  main.book{padding:12px 14px}
+  .card{padding:18px 18px;border-radius:18px;margin-left:18px}
+  .ttl{font-size:15px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="ttl"><span class="badge">国語 No.30</span>「随筆文を読む③」B問題</div>
+  <nav class="chips"><a class="chip" href="#q1" style="--c:var(--c1)">問1</a><a class="chip" href="#q2" style="--c:var(--c2)">問2</a><a class="chip" href="#q3" style="--c:var(--c3)">問3</a><a class="chip" href="#q4" style="--c:var(--c4)">問4</a><a class="chip" href="#q5-1" style="--c:var(--c5)">問5(1)</a><a class="chip" href="#q5-2" style="--c:var(--c6)">問5(2)</a><a class="chip" href="#q6" style="--c:var(--c1)">問6</a><a class="chip" href="#q7" style="--c:var(--c2)">問7</a></nav>
+  <button id="allbtn" type="button">答えをぜんぶ見る</button>
+</header>
+<div class="bar"><i id="prog"></i></div>
+<main class="book" id="book">
+<section class="card intro"><div class="mascot">🧒💭</div><h2 class="intro-h">答えの形を先に決めて、本文から持ってこよう</h2><p>この問題、食品<ruby>添加物<rt>てんかぶつ</rt></ruby>の名前がたくさん出てきて、読むだけでちょっと迷うよな。でも、全部を覚える必要はないで。<ruby>設問<rt>せつもん</rt></ruby>が何を聞いているかを先に分けて、本文のどこへ戻るか決めたら、答えはちゃんと本文の中にある。</p><p>問ごとに、「何を答える？」「どこへ戻る？」「どの言葉で決まる？」「<ruby>答案<rt>とうあん</rt></ruby>をどうする？」の順で見ていこう。</p></section><section class="card q" id="q1" style="--c:var(--c1);--cl:var(--cl1);--cd:var(--cd1)"><h2><span class="qnum"><span class="qe">🔍</span>問<span class="tcy">1</span></span><span class="qtitle">「様々な問題」の具体例がある段落はどこ？</span></h2><h3><span class="h3e">🤔</span>これ、何を抜き出す問題？</h3><p>「様々な問題」の具体例が書かれている段落を探して、その<strong>最初の五字</strong>を書く問題やね。ただし、「ミートボールの例はのぞく」とある。ミートボールの段落を見つけても、そこは使わない。</p><h3><span class="h3e">📖</span>本文のどこを見たらいい？</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>①の近くには、<ruby>筆者<rt>ひっしゃ</rt></ruby>が食品<ruby>添加物<rt>てんかぶつ</rt></ruby>にまつわる問題を<ruby>解決<rt>かいけつ</rt></ruby>していく話がある。その中で、ミートボールではない<ruby>相談<rt>そうだん</rt></ruby>を受けている段落を探すと、こう始まっている。</p><blockquote><p>「このめん、日持ちしないんだよ……」</p></blockquote><p>めんを<ruby>日持ち<rt>ひもち</rt></ruby>させたい、かまぼこの値段を下げたい、という二つの<ruby>相談<rt>そうだん</rt></ruby>に、<ruby>筆者<rt>ひっしゃ</rt></ruby>が<ruby>添加物<rt>てんかぶつ</rt></ruby>を使って答えている。ここが「様々な問題」の具体例になっている段落やね。</p><h3><span class="h3e">💡</span>五字にするとどうなる？</h3><p>「最初の五字」では、かぎ<ruby>括弧<rt>かっこ</rt></ruby>も一字として数える。</p><blockquote><p>「・こ・の・め・ん</p></blockquote><p>ここで止めれば五字。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans1"><div class="ans-body">「このめん</div><label class="reveal" for="ans1">👆 タップして答えを見る</label></div></div><p>「このめん、」まで書くと、かぎ<ruby>括弧<rt>かっこ</rt></ruby>を入れた場合は六字になる。抜き出しは、本文の言葉が合っていても、字数を越えたらあかん。</p></section><section class="card q" id="q2" style="--c:var(--c2);--cl:var(--cl2);--cd:var(--cd2)"><h2><span class="qnum"><span class="qe">✏️</span>問<span class="tcy">2</span></span><span class="qtitle">「歩く<ruby>添加物<rt>てんかぶつ</rt></ruby><ruby>辞典<rt>じてん</rt></ruby>」って、どんな人？</span></h2><h3><span class="h3e">💡</span><ruby>空欄<rt>くうらん</rt></ruby>の前後をつなげる</h3><p>問題の文は、こうなっている。</p><blockquote><p>添加物［　　　］人。</p></blockquote><p><ruby>空欄<rt>くうらん</rt></ruby>は五字以上十字以内。ここで「<ruby>辞典<rt>じてん</rt></ruby>」をそのまま説明しようとすると長くなりそうやけど、「<ruby>添加物<rt>てんかぶつ</rt></ruby>にどういう人か」を入れたらよさそうやね。</p><h3><span class="h3e">💡</span>本文には、呼ばれた理由がそのままある</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>②の後ろには、<ruby>筆者<rt>ひっしゃ</rt></ruby>がこう書いている。</p><blockquote><p>私が添加物にまつわることなら、なんでも答えることができたからです。</p></blockquote><p>何でも答えられるほど、<ruby>添加物<rt>てんかぶつ</rt></ruby>についてよく知っている。だから「歩く<ruby>添加物<rt>てんかぶつ</rt></ruby><ruby>辞典<rt>じてん</rt></ruby>」と呼ばれたんやね。</p><h3><span class="h3e">💡</span>文として自然に入れる</h3><p>「<ruby>添加物<rt>てんかぶつ</rt></ruby>についてくわしい人」となれば、意味も字数も合う。<ruby>空欄<rt>くうらん</rt></ruby>に書くのは「人」より前だけ。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans2"><div class="ans-body">についてくわしい</div><label class="reveal" for="ans2">👆 タップして答えを見る</label></div></div><p>「なんでも答える」も本文にある言葉やけど、この問題では「<ruby>辞典<rt>じてん</rt></ruby>」の意味を短く言いかえるので、「についてくわしい」が答えになる。</p></section><section class="card q" id="q3" style="--c:var(--c3);--cl:var(--cl3);--cd:var(--cd3)"><h2><span class="qnum"><span class="qe">🔥</span>問<span class="tcy">3</span></span><span class="qtitle">仕事をやめた理由がはっきり書かれた段落は？</span></h2><h3><span class="h3e">📖</span>探すのは「<ruby>辞表<rt>じひょう</rt></ruby>」のある段落じゃない</h3><p>この問題は、<ruby>筆者<rt>ひっしゃ</rt></ruby>が仕事をやめた理由が<strong>明確に書かれている段落</strong>の最初の五字を抜く問題。</p><p>「それで<ruby>翌日<rt>よくじつ</rt></ruby>、私は会社に<ruby>辞表<rt>じひょう</rt></ruby>を<ruby>提出<rt>ていしゅつ</rt></ruby>したのです。」は、仕事をやめたという結果を言っている文やね。理由は、その少し前にある。</p><h3><span class="h3e">📖</span>「なぜ作っていいのか」と迷い始めたところへ戻る</h3><p><ruby>筆者<rt>ひっしゃ</rt></ruby>は、食べ物は<ruby>利潤<rt>りじゅん</rt></ruby>や<ruby>法律<rt>ほうりつ</rt></ruby>だけでははかれないのではないか、と考える。そして、<ruby>法律<rt>ほうりつ</rt></ruby>にふれなければどんな食品でも作っていいのか、と<ruby>心底<rt>しんそこ</rt></ruby><ruby>疑問<rt>ぎもん</rt></ruby>に感じる。</p><p>その段落は、こう始まっている。</p><blockquote><p>その時何かちがうと感じた。</p></blockquote><p>このあとに、<ruby>辞表<rt>じひょう</rt></ruby>を出す理由が続いているから、この段落を選ぶ。</p><h3><span class="h3e">💡</span>五字だけ残す</h3><blockquote><p>そ・の・時・何・か</p></blockquote><p>「が」まで入れると六字になる。本文には「その時何かちがう」とあるけれど、<ruby>答案<rt>とうあん</rt></ruby>は五字で止める。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans3"><div class="ans-body">その時何か</div><label class="reveal" for="ans3">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q4" style="--c:var(--c4);--cl:var(--cl4);--cd:var(--cd4)"><h2><span class="qnum"><span class="qe">👉</span>問<span class="tcy">4</span></span><span class="qtitle">なぜ「こおりついた」の？</span></h2><h3><span class="h3e">💡</span>この問題が聞いていること</h3><p>「こおりついた」は、寒くて体がこおったということではない。びっくりして、強いショックを受け、動けないようになったという意味やね。</p><p><ruby>設問<rt>せつもん</rt></ruby>は、そのショックの中身を四十字以内で説明するように聞いている。「誰が」「何を食べていて」「それが誰の作ったものだったか」を入れたら答えになりそう。</p><h3><span class="h3e">💡</span><ruby>傍線<rt>ぼうせん</rt></ruby>の前後をつなげる</h3><p>子どもたちは、<ruby>食卓<rt>しょくたく</rt></ruby>のミートボールを喜んで食べている。そのあと<ruby>筆者<rt>ひっしゃ</rt></ruby>は、何気なく口にしたミートボールを見て、こう気づく。</p><blockquote><p>なんと、そのミートボールは、私が開発したものだったからです。</p></blockquote><p>つまり<ruby>筆者<rt>ひっしゃ</rt></ruby>は、家族が食べている食品が、自分で<ruby>開発<rt>かいはつ</rt></ruby>した食品だと知った。その<ruby>現実<rt>げんじつ</rt></ruby>にショックを受けたんやね。</p><h3><span class="h3e">💡</span>四十字以内の文にする</h3><p>答えの材料を、理由が伝わる順に並べる。</p><blockquote><p>自分の家族が食べている食品が自分の開発したものであることにショックを受けている</p></blockquote><p>これは<span class="tcy">39</span>字。「〜という意味。」の前につながる形にもなっている。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans4"><div class="ans-body">自分の家族が食べている食品が自分の開発したものであることにショックを受けている</div><label class="reveal" for="ans4">👆 タップして答えを見る</label></div></div><p>「<ruby>添加物<rt>てんかぶつ</rt></ruby>をたくさん使ったから」とだけ書くと、<ruby>筆者<rt>ひっしゃ</rt></ruby>がこおりついた<ruby>直接<rt>ちょくせつ</rt></ruby>のきっかけである「家族が食べている」「自分が<ruby>開発<rt>かいはつ</rt></ruby>した」が抜けてしまう。</p></section><section class="card q" id="q5-1" style="--c:var(--c5);--cl:var(--cl5);--cd:var(--cd5)"><h2><span class="qnum"><span class="qe">🕳️</span>問<span class="tcy">5</span><span class="tcy">(1)</span></span><span class="qtitle">ミートボールのどこが「<ruby>優れ<rt>すぐれ</rt></ruby>て」いる？</span></h2><h3><span class="h3e">💡</span>ここ、<ruby>添加物<rt>てんかぶつ</rt></ruby>の働きを数える問題じゃない</h3><p>「味がよい」「歯ざわりがよい」「<ruby>日持ち<rt>ひもち</rt></ruby>がよい」は、たしかに本文に出てくる。けれど、それは次の（<span class="tcy">2</span>）で使う、<ruby>添加物<rt>てんかぶつ</rt></ruby>それぞれの<ruby>役割<rt>やくわり</rt></ruby>の話。</p><p>（<span class="tcy">1</span>）で聞かれているのは、<ruby>筆者<rt>ひっしゃ</rt></ruby>が作ったミートボールが、ほかのものと比べてどんなよさを持つか。本文の後ろにある、<ruby>筆者<rt>ひっしゃ</rt></ruby>がこの商品を「よい」と考えていた段落まで読んでみる。</p><h3><span class="h3e">💡</span>誰にとってのよさかで三つに分ける</h3><p>本文には、こうある。</p><blockquote><p>本来なら用途のない材料を使うわけですから環境にもいい。</p></blockquote><blockquote><p>企業もそれで食品が作れるわけですから、利益があがってもうかる。</p></blockquote><blockquote><p>何より、消費者が安いものを買えて喜んでいる。</p></blockquote><p>同じミートボールでも、よさを感じる相手が三つに分かれている。</p><ul class="plain"><li><ruby>環境<rt>かんきょう</rt></ruby>にとって：捨てられる材料を使うので、<ruby>環境<rt>かんきょう</rt></ruby>によい。</li><li><ruby>企業<rt>きぎょう</rt></ruby>にとって：<ruby>用途<rt>ようと</rt></ruby>のない材料から食品を作り、<ruby>利益<rt>りえき</rt></ruby>を出せる。</li><li><ruby>消費者<rt>しょうひしゃ</rt></ruby>にとって：<ruby>価格<rt>かかく</rt></ruby>をおさえ、安く買える。</li></ul><h3><span class="h3e">💡</span><ruby>答案<rt>とうあん</rt></ruby>にすると</h3><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans5"><div class="ans-body"><ol class="num"><li><span class="n">①</span>用途のない材料を使うので、環境によりよい点。</li><li><span class="n">②</span>用途のない材料を使うので、利益をあげられる点。</li><li><span class="n">③</span>価格をおさえられるので、消費者に安く提供できる点。</li></ol></div><label class="reveal" for="ans5">👆 タップして答えを見る</label></div></div><p>「味・歯ざわり・<ruby>日持ち<rt>ひもち</rt></ruby>」は、本文の言葉としては合っていても、この問いが聞いている三つの<ruby>利点<rt>りてん</rt></ruby>とはずれる。<ruby>設問<rt>せつもん</rt></ruby>が聞くまとまりに合わせて、本文の段落を選ぶのが大事やね。</p></section><section class="card q" id="q5-2" style="--c:var(--c6);--cl:var(--cl6);--cd:var(--cd6)"><h2><span class="qnum"><span class="qe">🎉</span>問<span class="tcy">5</span><span class="tcy">(2)</span></span><span class="qtitle"><ruby>添加物<rt>てんかぶつ</rt></ruby>には、いくつ<ruby>役割<rt>やくわり</rt></ruby>がある？</span></h2><h3><span class="h3e">💡</span>数えるのは「<ruby>添加物<rt>てんかぶつ</rt></ruby>の種類」じゃない</h3><p>本文には「<ruby>添加物<rt>てんかぶつ</rt></ruby>は、二十種類以上は使っているでしょう」とある。でも<ruby>設問<rt>せつもん</rt></ruby>は、種類の数ではなく、<ruby>添加物<rt>てんかぶつ</rt></ruby>が果たした<strong>役割</strong>の数を聞いている。</p><p>だから、「何のために入れたか」を一つずつ拾っていく。</p><h3><span class="h3e">💡</span>本文の順に、目的へ印をつける</h3><ol class="num"><li><span class="n">①</span>「<ruby>組織状大豆<rt>そしきじょうだいず</rt></ruby>たんぱく」で肉を<ruby>増量<rt>ぞうりょう</rt></ruby>する。</li><li><span class="n">②</span>「ビーフエキス」「<ruby>化学調味料<rt>かがくちょうみりょう</rt></ruby>」で肉に味付けする。</li><li><span class="n">③</span>「ラード」「加工でんぷん」で肉の歯ざわりをよくする。</li><li><span class="n">④</span>「<ruby>結着剤<rt>けっちゃくざい</rt></ruby>」「<ruby>乳化剤<rt>にゅうかざい</rt></ruby>」で機械の<ruby>作業性<rt>さぎょうせい</rt></ruby>をよくする。</li><li><span class="n">⑤</span>「<ruby>着色料<rt>ちゃくしょくりょう</rt></ruby>」で<ruby>製品<rt>せいひん</rt></ruby>に色をつける。</li><li><span class="n">⑥</span>「<ruby>保存料<rt>ほぞんりょう</rt></ruby>」「pH調整剤」で<ruby>製品<rt>せいひん</rt></ruby>の<ruby>日持ち<rt>ひもち</rt></ruby>をよくする。</li><li><span class="n">⑦</span>「<ruby>酸化防止剤<rt>さんかぼうしざい</rt></ruby>」で<ruby>製品<rt>せいひん</rt></ruby>の色あせを防ぐ。</li></ol><p><ruby>増量<rt>ぞうりょう</rt></ruby>、味、歯ざわり、<ruby>作業性<rt>さぎょうせい</rt></ruby>、色、<ruby>日持ち<rt>ひもち</rt></ruby>、色あせ防止。七つ見つかる。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans6"><div class="ans-body"><span class="tcy">7</span>つ</div><label class="reveal" for="ans6">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q6" style="--c:var(--c1);--cl:var(--cl1);--cd:var(--cd1)"><h2><span class="qnum"><span class="qe">⭐</span>問<span class="tcy">6</span></span><span class="qtitle">「<ruby>適正<rt>てきせい</rt></ruby>なビジネス行為」と書いた理由は？</span></h2><h3><span class="h3e">💡</span>かぎ<ruby>括弧<rt>かっこ</rt></ruby>の言葉は、近くに説明がある</h3><p>「<ruby>適正<rt>てきせい</rt></ruby>」にかぎ<ruby>括弧<rt>かっこ</rt></ruby>が付いているときは、<ruby>筆者<rt>ひっしゃ</rt></ruby>がその言葉をそのままほめているとは限らない。どんな意味で「<ruby>適正<rt>てきせい</rt></ruby>」と言っているのか、すぐ前へ戻る。</p><p>そこには、こうある。</p><blockquote><p>違法な添加物を使ったり、規定以上の量を使用するようなことは、まったくしていません。</p></blockquote><blockquote><p>法にふれることのない「適正」なビジネス行為</p></blockquote><p>「<ruby>適正<rt>てきせい</rt></ruby>」の理由は、食品がおいしいことでも、安いことでもない。<ruby>法律<rt>ほうりつ</rt></ruby>にふれていない、ということやね。</p><h3><span class="h3e">💡</span>四つの<ruby>選択肢<rt>せんたくし</rt></ruby>を本文と並べる</h3><ul class="choices"><li><div class="opt-head"><span class="kana">ア</span><span class="opt">「すぐれた食品であること」：本文は、食品が優れているから「適正」とは言っていない。</span></div><div class="opt-body"></div></li><li><div class="opt-head"><span class="kana">イ</span><span class="opt">「法にふれていないこと」：本文の「法にふれることのない」と重なる。</span></div><div class="opt-body"></div></li><li><div class="opt-head"><span class="kana">ウ</span><span class="opt">「大量に生産できること」：大量生産は商品の作り方の話で、「適正」の理由ではない。</span></div><div class="opt-body"></div></li><li><div class="opt-head"><span class="kana">エ</span><span class="opt">「安価な食品であったこと」：安いことは消費者にとっての利点。でも「適正」の意味ではない。</span></div><div class="opt-body"></div></li></ul><p>本文と最後まで重なるのはイだけ。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans7"><div class="ans-body">イ</div><label class="reveal" for="ans7">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q7" style="--c:var(--c2);--cl:var(--cl2);--cd:var(--cd2)"><h2><span class="qnum"><span class="qe">🌈</span>問<span class="tcy">7</span></span><span class="qtitle">漢字は、文の流れどおりに入れる</span></h2><h3><span class="h3e">💡</span>三つとも、本文の最後にそのままある</h3><p>最後の段落に、こう書かれている。</p><blockquote><p>「作る人も」「売る人も」「食べる人も」消費者です。</p></blockquote><p><ruby>空欄<rt>くうらん</rt></ruby>の後ろに続くひらがなも見ながら入れる。</p><ul class="plain"><li>（ア）作る人も</li><li>（イ）売る人も</li><li>（ウ）食べる人も</li></ul><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans8"><div class="ans-body">ア＝作、イ＝売、ウ＝食</div><label class="reveal" for="ans8">👆 タップして答えを見る</label></div></div></section><section class="card outro" id="outro"><h2 class="intro-h">🧭 七問をならべてみると</h2><p>今回のポイントは、「本文にある言葉」を見つけるだけで止まらないことやね。問<span class="tcy">5</span>（<span class="tcy">1</span>）みたいに、本文に出てくる言葉でも、<ruby>設問<rt>せつもん</rt></ruby>が聞いているまとまりと違うことがある。</p><p><ruby>設問<rt>せつもん</rt></ruby>で何を聞かれているかを先に決める。本文のどの段落へ戻るかを決める。<ruby>根拠<rt>こんきょ</rt></ruby>の言葉を見つける。最後に字数・個数・文末を合わせる。この順でいけば、知らない言葉が多い文章でも答えを本文から作れる。</p><div class="ending">🎊 おつかれさま！　ここまで読めたらバッチリやで 🎊</div></section>
+</main>
+<div class="hint" id="hint">👈 左にスクロールして読んでいこう</div>
+<script>
+(function(){
+  var book=document.getElementById('book'),prog=document.getElementById('prog'),hint=document.getElementById('hint');
+  // マウスホイールの上下 → 左右スクロール
+  book.addEventListener('wheel',function(e){
+    if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){ book.scrollLeft-=e.deltaY; e.preventDefault(); }
+  },{passive:false});
+  function upd(){
+    var max=book.scrollWidth-book.clientWidth; var x=Math.abs(book.scrollLeft);
+    prog.style.width=(max>0?Math.min(100,x/max*100):0)+'%';
+    if(x>40) hint.classList.add('gone');
+  }
+  book.addEventListener('scroll',upd); window.addEventListener('resize',upd); upd();
+  // 答えをぜんぶ見る／かくす（個別のタップはCSSだけで動く）
+  var all=document.getElementById('allbtn'),shown=false;
+  all.addEventListener('click',function(){
+    shown=!shown;
+    document.querySelectorAll('.tg').forEach(function(c){ c.checked=shown; });
+    all.textContent=shown?'答えをかくす':'答えをぜんぶ見る';
+  });
+  // 問番号ジャンプ（縦書きなので、カードの右端を画面の右端にそろえる）
+  function jump(sel,smooth){
+    var t=document.querySelector(sel); if(!t) return;
+    var pad=parseFloat(getComputedStyle(book).paddingRight)||0;
+    var d=t.getBoundingClientRect().right-(book.getBoundingClientRect().right-pad);
+    book.scrollBy({left:d,top:0,behavior:smooth?'smooth':'auto'});
+    hint.classList.add('gone');
+  }
+  document.querySelectorAll('.chip').forEach(function(a){
+    a.addEventListener('click',function(e){ e.preventDefault(); jump(a.getAttribute('href'),true); });
+  });
+  // 右端（はじまり）から表示。#q3 のように指定があればそこへ
+  function start(){ if(location.hash){ jump(location.hash,false); } else { book.scrollLeft=0; } upd(); }
+  start(); window.addEventListener('load',start);
+})();
+</script>
+</body>
+</html>

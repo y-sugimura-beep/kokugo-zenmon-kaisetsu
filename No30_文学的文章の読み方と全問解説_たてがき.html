@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>きみへ｜少年の頭の中を追いかけてみよう</title>
+<style>
+:root{
+  --bg:#fff8e7; --ink:#3b3024; --sub:#7a6a55; --card:#ffffff;
+  --c1:#ff7b54; --cl1:#ffe6dc; --cd1:#c94f2c;
+  --c2:#ffb02e; --cl2:#fff1cf; --cd2:#b87400;
+  --c3:#4cc37a; --cl3:#dff7e7; --cd3:#1f8a4c;
+  --c4:#4aa8ff; --cl4:#dfefff; --cd4:#1f6fc4;
+  --c5:#9b7bff; --cl5:#ebe4ff; --cd5:#6b4fd1;
+  --c6:#ff6fa8; --cl6:#ffe1ee; --cd6:#c93d78;
+  --ans:#fff6b3; --ansb:#f2b600;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  display:flex;flex-direction:column;height:100dvh;overflow:hidden;
+  background:var(--bg);
+  background-image:radial-gradient(#ffd9a8 1.6px,transparent 1.7px),radial-gradient(#ffd9a8 1.6px,transparent 1.7px);
+  background-size:28px 28px;background-position:0 0,14px 14px;
+  color:var(--ink);
+  font-family:"Hiragino Maru Gothic ProN","Hiragino Maru Gothic Pro","Hiragino Sans","BIZ UDPGothic","Yu Gothic","YuGothic","Meiryo","Noto Sans CJK JP",sans-serif;
+  -webkit-text-size-adjust:100%;
+}
+/* ===== 上のバー（横書き） ===== */
+header.top{
+  flex:none;writing-mode:horizontal-tb;background:#fff;border-bottom:3px dashed #ffd27a;
+  padding:calc(8px + env(safe-area-inset-top,0px)) 16px 8px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;
+}
+.ttl{font-weight:800;font-size:clamp(15px,2.4vmin,20px);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.ttl .badge{background:#ff7b54;color:#fff;border-radius:999px;padding:2px 10px;font-size:.8em}
+nav.chips{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.chip{white-space:nowrap;text-decoration:none;color:#fff;background:var(--c);border-radius:999px;padding:3px 11px;font-weight:700;font-size:13px;box-shadow:0 2px 0 rgba(0,0,0,.12)}
+.chip:active{transform:translateY(2px);box-shadow:none}
+#allbtn{font:inherit;font-weight:700;font-size:13px;border:2px solid #f2b600;background:var(--ans);color:#6b4f00;border-radius:999px;padding:4px 12px;cursor:pointer}
+.bar{flex:none;height:6px;background:#ffe8c2}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff7b54,#ffb02e,#4cc37a,#4aa8ff,#9b7bff,#ff6fa8);transition:width .15s}
+/* ===== 本文（縦書き） ===== */
+main.book{
+  flex:1;min-height:0;writing-mode:vertical-rl;text-orientation:mixed;
+  overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;
+  padding:18px 22px 18px 22px;
+  font-size:clamp(16px,2.3vmin,21px);line-height:2;letter-spacing:.05em;
+  font-feature-settings:"palt" 0;
+}
+.card{
+  background:var(--card);border:3px solid var(--c,#ffb02e);border-radius:22px;
+  padding:26px 28px;margin-left:30px;box-shadow:0 6px 0 var(--cl,#ffe6c7),0 10px 24px rgba(120,80,20,.08);
+}
+.card:last-child{margin-left:4px}
+.intro{--c:#ffb02e;--cl:#fff1cf}
+.outro{--c:#4cc37a;--cl:#dff7e7}
+.mascot{font-size:2.6em;line-height:1;text-orientation:upright;margin-left:.3em}
+h2{margin:0 0 0 1.2em;font-size:1.25em;line-height:1.6}
+.intro-h{color:#b87400;background:var(--cl);border-radius:999px;padding:.5em .35em;inline-size:fit-content}
+.q h2{display:flex;flex-direction:row;align-items:center;gap:.7em;background:var(--c);color:#fff;border-radius:999px;padding:.6em .45em;margin-left:1.4em}
+.qnum{background:#fff;color:var(--cd);border-radius:999px;padding:.35em .2em;font-weight:900;display:inline-flex;flex-direction:row;align-items:center;gap:.2em}
+.qe{text-orientation:upright;font-size:1.3em;line-height:1}
+.qtitle{font-weight:800;text-shadow:0 1px 0 rgba(0,0,0,.15)}
+h3{font-size:1.05em;margin:.6em 0 .2em 1em;color:var(--cd,#b87400);background:var(--cl,#fff1cf);border-radius:999px;padding:.35em .3em;inline-size:fit-content;line-height:1.7;font-weight:800}
+.h3e{text-orientation:upright;margin-bottom:.3em}
+p{margin:0 0 0 .9em}
+strong{color:var(--cd,#c94f2c);font-weight:900;background:linear-gradient(to right,transparent 55%,var(--cl,#ffe6dc) 55%)}
+.tcy{text-combine-upright:all;-webkit-text-combine:horizontal}
+ruby{ruby-align:center} rt{font-size:.5em;color:var(--sub);letter-spacing:0;opacity:.95}
+blockquote{
+  margin:.2em 0 .2em 1em;padding:.6em .7em;background:#f7f4ee;border-right:6px solid var(--c,#ffb02e);border-radius:14px;
+  color:#4a3f33;font-weight:600;
+}
+blockquote p{margin-left:1em} blockquote p:first-child{margin-left:0}
+ul{margin:.2em 0 .2em 1em;padding:0;list-style:none}
+ul.plain li{margin-left:.6em;padding-right:1.1em;position:relative}
+ul.plain li::before{content:"●";position:absolute;right:0;top:.05em;color:var(--c,#ffb02e);font-size:.7em}
+ul.choices li{margin-left:.8em;background:#faf9f6;border-radius:16px;padding:.7em .6em;border:2px dashed #e5ddd0}
+.opt-head{display:flex;flex-direction:row;align-items:center;gap:.5em}
+.kana{display:inline-block;background:var(--c,#ffb02e);color:#fff;font-weight:900;border-radius:50%;width:1.7em;height:1.7em;line-height:1.7em;text-align:center;text-orientation:upright;letter-spacing:0;flex:none}
+.opt{font-weight:700}
+.opt-body{margin-left:.7em;color:#5a4d3e}
+/* 答え */
+.answer{margin:.4em 0 .4em 1.1em;display:flex;flex-direction:column;align-items:stretch}
+.ans-tag{background:var(--ansb);color:#fff;font-weight:900;border-radius:999px;padding:.4em .2em;inline-size:fit-content;margin-left:.5em;text-align:center}
+.ans-wrap{position:relative;background:var(--ans);border:3px solid var(--ansb);border-radius:18px;padding:.8em .7em;}
+.ans-body{font-weight:900;font-size:1.08em;color:#5a3d00;transition:filter .35s;}
+.ans-body .note{display:block;margin-left:.6em;font-size:.8em;font-weight:700;color:#8a6a1a}
+ol.num{margin:0;padding:0;list-style:none} ol.num li{margin-left:.5em} ol.num li:first-child{margin-left:0}
+.ans-body ol.num li{margin-left:.9em} .ans-body ol.num li:first-child{margin-left:0}
+ol.num .n{text-orientation:upright;color:var(--cd,#b87400);font-weight:900;margin-bottom:.2em}
+.tg{position:absolute;opacity:0;width:0;height:0;margin:0;pointer-events:none}
+.tg:not(:checked) ~ .ans-body{filter:blur(7px);user-select:none}
+.tg:checked ~ .reveal{display:none}
+.reveal{position:absolute;inset:0;margin:auto;display:block;inline-size:fit-content;block-size:fit-content;font:inherit;font-weight:800;font-size:.9em;
+  writing-mode:horizontal-tb;background:#fff;border:2px solid var(--ansb);border-radius:999px;padding:8px 14px;cursor:pointer;box-shadow:0 3px 0 var(--ansb);white-space:nowrap}
+.reveal:active{transform:translateY(2px);box-shadow:none}
+/* まとめ */
+ul.timeline li{margin-left:.8em;background:var(--cl);border-radius:16px;padding:.6em .5em;font-weight:700}
+.feel{text-orientation:upright;font-size:1.4em;line-height:1;margin-bottom:.35em;display:inline-block}
+.ending{margin-left:1.2em;font-weight:900;color:#1f8a4c;font-size:1.1em}
+/* ヒント */
+.hint{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);writing-mode:horizontal-tb;
+  background:#3b3024;color:#fff;border-radius:999px;padding:8px 16px;font-size:13px;font-weight:700;opacity:.92;animation:bob 1.2s ease-in-out infinite;pointer-events:none;white-space:nowrap}
+.hint.gone{display:none}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-6px)}}
+@media (max-width:600px){
+  header.top{gap:6px 8px}
+  .ttl{flex-basis:100%}
+  nav.chips{margin-left:0;flex:1 1 0;min-width:0;flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+  nav.chips::-webkit-scrollbar{display:none}
+  #allbtn{flex:none;font-size:12px;padding:4px 10px}
+  main.book{padding:12px 14px}
+  .card{padding:18px 18px;border-radius:18px;margin-left:18px}
+  .ttl{font-size:15px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="ttl"><span class="badge">国語 No.30</span>きみへ</div>
+  <nav class="chips"><a class="chip" href="#q1" style="--c:var(--c1)">問1</a><a class="chip" href="#q2" style="--c:var(--c2)">問2</a><a class="chip" href="#q3" style="--c:var(--c3)">問3</a><a class="chip" href="#q4" style="--c:var(--c4)">問4</a><a class="chip" href="#q5" style="--c:var(--c5)">問5</a><a class="chip" href="#q6" style="--c:var(--c6)">問6</a></nav>
+  <button id="allbtn" type="button">答えをぜんぶ見る</button>
+</header>
+<div class="bar"><i id="prog"></i></div>
+<main class="book" id="book">
+<section class="card intro"><div class="mascot">🧒💭</div><h2 class="intro-h">少年の頭の中を追いかけてみよう</h2><p>この話、少年の「本当に起きたこと」と「こうに違いない、と思い込んだこと」が何度も入れ替わる。そこが、ちょっとややこしい。</p><p>たとえば、先生が少年を疑っていたかどうかは、本文だけでは決められない。「疑われている」と少年が受け取った、ところまでなんや。</p><p>この区別を頭のすみに置いて、六問を順番に見ていこう。</p></section><section class="card q" id="q1" style="--c:var(--c1);--cl:var(--cl1);--cd:var(--cd1)"><h2><span class="qnum"><span class="qe">🔍</span>問<span class="tcy">1</span></span><span class="qtitle">少年は、なぜいつもと違う<ruby>態度<rt>たいど</rt></ruby>だったの？</span></h2><h3><span class="h3e">🤔</span>これ、何を答えたらいい？</h3><p>聞かれているのは、少年の<ruby>態度<rt>たいど</rt></ruby>が「<ruby>平常<rt>へいじょう</rt></ruby>と異なっていた」理由。「<ruby>平常<rt>へいじょう</rt></ruby>」は「いつも」という意味やから、いつもの少年と、テストの日の少年を比べたらよさそうやな。</p><h3><span class="h3e">📖</span>本文のどこへ戻る？</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>①のすぐ後を見る。そこには、いつもの「<ruby>臆病<rt>おくびょう</rt></ruby>げなひとみ」と、この日の「<ruby>捨て鉢<rt>すてばち</rt></ruby>な<ruby>意志<rt>いし</rt></ruby>」が出てくる。</p><p>「<ruby>捨て鉢<rt>すてばち</rt></ruby>」は、もうどうにでもなれ、というくらい追いつめられた気持ち。じゃあ、どうしてそんな気持ちになったんやろ。</p><h3><span class="h3e">💡</span>この言葉なら決められそう</h3><p>少年は学校を休んでいた。だから、テストに習っていない問題が出て、解けないかもしれないと思っている。<ruby>担任<rt>たんにん</rt></ruby>の先生の一言も、その不安をいっそう強くした。</p><p>ここで、後に出てくる「<ruby>絶望<rt>ぜつぼう</rt></ruby>的な<ruby>反抗心<rt>はんこうしん</rt></ruby>」を答えたくなるかもしれない。けど、それは「先生に疑われている」と思ったあとの気持ち。<ruby>傍線<rt>ぼうせん</rt></ruby>①の時点で少年をいつもと違う<ruby>態度<rt>たいど</rt></ruby>にしていたのは、テストが解けないかもしれないという不安のほうなんや。</p><h3><span class="h3e">✍️</span>答えの形にすると</h3><p>「なぜ」と聞かれているから、理由を「〜から」でまとめる。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans1"><div class="ans-body">休んでいたためにテストの問題が解けないと思い、不安な気持ちでいっぱいだったから。</div><label class="reveal" for="ans1">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q2" style="--c:var(--c2);--cl:var(--cl2);--cd:var(--cd2)"><h2><span class="qnum"><span class="qe">✏️</span>問<span class="tcy">2</span></span><span class="qtitle">「いじけた考え」は、どの二文？</span></h2><h3><span class="h3e">🤔</span>これ、どう答える問題？</h3><p><ruby>条件<rt>じょうけん</rt></ruby>は三つ。<ruby>傍線<rt>ぼうせん</rt></ruby>②の<strong>後</strong>から、「いじけた考え」が出ている文を<strong>二か所</strong>探し、それぞれの<strong>最初の五文字</strong>を書く。</p><p>「いじけた」は、すなおに考えられず、周りに対してひねくれた受け取り方をしてしまうこと。「テストが難しい」という事実ではなく、そこから少年が周りを悪く考えた文を探すわけやな。</p><h3><span class="h3e">💡</span>どのあたりにある？</h3><p>少年が問題を解けず、その理由を自分と周りとの関係で考え始めるところを読む。決め手は、この二文。</p><blockquote><p>「彼一人が仲間はずれになっているのだ。」</p><p>「教師は少年を疑っていて、今か今かと彼があやしい身ぶりをするのを待ちかまえているのだ。」</p></blockquote><h3><span class="h3e">📖</span>どこが「いじけた考え」なん？</h3><p>一つ目は、問題が解けないことを、「自分だけが仲間外れにされている」と受け取っている。二つ目は、教師の本当の考えを確かめていないのに、「自分を疑い、あやしい動きをするのを待っている」と決めつけている。</p><p>「おそらく彼が休んでいるあいだに、<ruby>課外<rt>かがい</rt></ruby>にでも習ったことのある問題なのだ」も、少年の<ruby>推測<rt>すいそく</rt></ruby>ではある。けど、これは「みんなは習ったのかもしれない」という問題の理由についての考え。周りの人が自分をどう扱っているかをひねくれて受け取った二文のほうが、「いじけた考え」にぴったり合う。</p><h3><span class="h3e">✍️</span>最初の五文字にすると</h3><ul class="plain"><li>「彼一人が<ruby>仲間はずれ<rt>なかまはずれ</rt></ruby>になっているのだ。」→ <strong>彼一人が仲</strong></li><li>「教師は少年を疑っていて……」→ <strong>教師は少年</strong></li></ul><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans2"><div class="ans-body">彼一人が仲／教師は少年（順不同）</div><label class="reveal" for="ans2">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q3" style="--c:var(--c3);--cl:var(--cl3);--cd:var(--cd3)"><h2><span class="qnum"><span class="qe">🔥</span>問<span class="tcy">3</span></span><span class="qtitle">どうして問題に「<ruby>全身全霊<rt>ぜんしんぜんれい</rt></ruby>」で集中したの？</span></h2><h3><span class="h3e">🤔</span>聞かれているのは？</h3><p>「<ruby>全身全霊<rt>ぜんしんぜんれい</rt></ruby>をもって問題に<ruby>没入<rt>ぼつにゅう</rt></ruby>する」は、体も心も全部使って、問題だけに集中すること。この問は、そこまで少年を動かした気持ちの理由を選ぶ問題やな。</p><h3><span class="h3e">📖</span>どこから探す？</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>③の直前にある「<ruby>絶望<rt>ぜつぼう</rt></ruby>的な<ruby>反抗心<rt>はんこうしん</rt></ruby>」が手がかり。でも、この言葉だけでは理由にならない。「何に反抗したかったのか」まで少し戻る。</p><p>少年は、教師が自分を疑い、あやしい身ぶりをするのを待っていると思っていた。その思い込みが、「それなら自分の力で解いてやる」という<ruby>反抗心<rt>はんこうしん</rt></ruby>になったわけや。</p><h3><span class="h3e">⚖️</span>四つとも、本文と比べてみる</h3><ul class="choices"><li><div class="opt-head"><span class="kana">ア</span><span class="opt">「休んでいて習っていない範囲だったので」</span></div><div class="opt-body">少年は、みんながその問題を習ったのだろうと<strong>思った</strong>。けど、本当に習っていたとは書かれていない。<ruby>推測<rt>すいそく</rt></ruby>を事実に変えているから、これは消せる。</div></li></ul><ul class="choices"><li><div class="opt-head"><span class="kana">イ</span><span class="opt">「消しゴムが落ちたが、あせらず集中した」</span></div><div class="opt-body">消しゴムが落ちるのは、少年が問題に集中した<strong>後</strong>。<ruby>出来事<rt>できごと</rt></ruby>の順番が逆になっているし、落とした後の少年は「あせらず」でもない。</div></li></ul><ul class="choices"><li><div class="opt-head"><span class="kana">ウ</span><span class="opt">「カンニングすると教師に疑われていると思いこみ、自力で解くことで打ち勝とうとした」</span></div><div class="opt-body">教師に疑われているという思い込み、「<ruby>絶望<rt>ぜつぼう</rt></ruby>的な<ruby>反抗心<rt>はんこうしん</rt></ruby>」、自分の力で解こうとする行動が、本文の順番どおりにつながる。これが残る。</div></li></ul><ul class="choices"><li><div class="opt-head"><span class="kana">エ</span><span class="opt">「教師が習っていない問題をわざと出したので、見返したかった」</span></div><div class="opt-body">教師がわざと未習の問題を出した、とは書かれていない。「見返したい」という方向は近くても、理由に本文にないことが入っているから選べない。</div></li></ul><h3><span class="h3e">✅</span>だから残るのは</h3><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans3"><div class="ans-body">ウ</div><label class="reveal" for="ans3">👆 タップして答えを見る</label></div></div><p>問<span class="tcy">1</span>の「テストが解けないかもしれない不安」と、この問の「疑われていると思ったあとの<ruby>反抗心<rt>はんこうしん</rt></ruby>」は、時間の順番が違う。似たような気持ちでも、<ruby>傍線<rt>ぼうせん</rt></ruby>がどの時点にあるかで分けよう。</p></section><section class="card q" id="q4" style="--c:var(--c4);--cl:var(--cl4);--cd:var(--cd4)"><h2><span class="qnum"><span class="qe">👉</span>問<span class="tcy">4</span></span><span class="qtitle">「それももう一息」の「それ」は何？</span></h2><h3><span class="h3e">🤔</span>何を答えるから考える？</h3><p>「それ」が指す内容を自分の言葉で書く問題。<ruby>指示語<rt>しじご</rt></ruby>は直前の一語だけを写すとは限らない。「何がもう一息なのか」に言い換えて読むと、指す範囲を決めやすい。</p><h3><span class="h3e">📖</span>直前だけでなく、少し前から読む</h3><p>少年は、最初は手のつけられなかった三番の<ruby>難問<rt>なんもん</rt></ruby>に、<ruby>全身全霊<rt>ぜんしんぜんれい</rt></ruby>で取り組んでいる。読み進めると、分からなかった問題が少しずつほぐれ、解き終わりが見えてくる。</p><p>この流れの中での「それももう一息」やから、「それ」は直前の最後の計算だけではない。少年がずっと闘ってきた、<ruby>難問<rt>なんもん</rt></ruby>だった三番の問題そのものを解き終えることを指している。</p><h3><span class="h3e">🔁</span>入れ替えてみると</h3><blockquote><p>「難問だった三番の問題を解き終えるのも、もう一息なのだ。」</p></blockquote><p>これなら、問題に手が出なかったところから、解ける直前まで来た話の流れに合う。</p><h3><span class="h3e">✍️</span>答えの形にすると</h3><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans4"><div class="ans-body">難問だった三番の問題を解き終えること。</div><label class="reveal" for="ans4">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q5" style="--c:var(--c5);--cl:var(--cl5);--cd:var(--cd5)"><h2><span class="qnum"><span class="qe">🕳️</span>問<span class="tcy">5</span></span><span class="qtitle">少年は、なぜ「<ruby>奈落<rt>ならく</rt></ruby>の底へ」落ちたように感じたの？</span></h2><h3><span class="h3e">💡</span>「<ruby>奈落<rt>ならく</rt></ruby>の底」ってどんな状態？</h3><p>本当に深い穴へ落ちたわけではない。ここでは、うまくいくと思っていたのに、急にどうしようもない状態になった<ruby>絶望<rt>ぜつぼう</rt></ruby>感のこと。その直前に何が起き、少年が何を考えたかを探す。</p><h3><span class="h3e">📖</span>消しゴムが落ちたところへ戻る</h3><p>少年は計算の間違いに気づき、落とした消しゴムを拾おうとする。ところが、動きかけたところで、机の下へ手を伸ばす動きを教師がどう見るか、と考える。</p><p>少年の頭の中では、教師はずっと自分を疑っている。そんなときに机の下へ手を伸ばしたら、カンニングのように受け取られるかもしれない。拾えなければ、気づいた間違いを直すこともできない。この<ruby>板ばさみ<rt>いたばさみ</rt></ruby>が、少年の<ruby>絶望<rt>ぜつぼう</rt></ruby>感につながったわけやな。</p><h3><span class="h3e">⚖️</span>四つとも、順番まで見る</h3><ul class="choices"><li><div class="opt-head"><span class="kana">ア</span><span class="opt">「消しゴムでうまく消せないと分かり、頭が真っ白になった」</span></div><div class="opt-body">この時点では、まだ消しゴムを拾えていない。「使ったけど消せなかった」という話ではないから、これは消せる。</div></li></ul><ul class="choices"><li><div class="opt-head"><span class="kana">イ</span><span class="opt">「教師を見返すことばかり考え、カンニングのようなことをしかけた自分が信じられなくなった」</span></div><div class="opt-body">少年はカンニングをしかけていない。ただ消しゴムを拾おうとしただけ。「拾う動作がカンニングに見えるかも」と心配したので、行動そのもが違う。</div></li></ul><ul class="choices"><li><div class="opt-head"><span class="kana">ウ</span><span class="opt">「カンニングをしたと教師に教えるようなことをしてしまい、努力が無駄になった」</span></div><div class="opt-body">少年は、消しゴムを拾おうと動きかけたところで止まっている。「してしまった」のではない。それに、<ruby>実際<rt>じっさい</rt></ruby>にカンニングもしていない。</div></li></ul><ul class="choices"><li><div class="opt-head"><span class="kana">エ</span><span class="opt">「消しゴムを拾ったら教師に疑われそうで、間違いを書き直せないと分かった」</span></div><div class="opt-body">消しゴムを拾おうとする、教師に疑われそうだと考える、書き直せないと<ruby>絶望<rt>ぜつぼう</rt></ruby>する。本文の順番と内容の両方が合うから、これが残る。</div></li></ul><h3><span class="h3e">✅</span>だから残るのは</h3><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans5"><div class="ans-body">エ</div><label class="reveal" for="ans5">👆 タップして答えを見る</label></div></div><p>ここでのポイントは、少年が<ruby>実際<rt>じっさい</rt></ruby>にカンニングをしたわけではない、ということ。ただ、疑われていると思い込んでいるから、普通なら何でもない動きまで怖くなっているんや。</p></section><section class="card q" id="q6" style="--c:var(--c6);--cl:var(--cl6);--cd:var(--cd6)"><h2><span class="qnum"><span class="qe">🎉</span>問<span class="tcy">6</span></span><span class="qtitle">消しゴムをねじ曲げたとき、どんな気持ち？</span></h2><h3><span class="h3e">🤔</span>動作だけで決めていい？</h3><p>「消しゴムを折り曲げる」という動作だけ見ると、怒っているようにも見える。けど、気持ちの問題は、直前の<ruby>出来事<rt>できごと</rt></ruby>、<ruby>表情<rt>ひょうじょう</rt></ruby>、気持ちを表す言葉までつなげないと決められない。</p><h3><span class="h3e">📖</span>直前に何があった？</h3><p>少年は二番の答えを聞き、自分の答えが合っていたと分かる。そのときの様子は、次の三つの言葉で分かる。</p><ul class="plain"><li>「顔がかがやいた」</li><li>「その感動をどうあつかってよいかわからなかった」</li><li>「机のふたを音高くあけた」</li></ul><p>顔は輝いているし、本文ははっきり「感動」と書いている。だから、ここを怒りと読むことはできない。</p><h3><span class="h3e">💡</span>「うれしい」だけで足りる？</h3><p>自分の答えが合っていたからうれしい。それは合っている。けど、少年はこのテストで、ただ一問の正解を目指していたわけではない。</p><p>テストの問題が解けないかもしれない不安があった。先生に疑われていると思い込んだ。消しゴムを拾えず、間違いを直せないとまで思いつめた。その<ruby>絶望<rt>ぜつぼう</rt></ruby>的な<ruby>状況<rt>じょうきょう</rt></ruby>をこえて、自分の力で答えにたどりついたと分かった。</p><p>それで、感動をどうすればいいか分からないほどの<ruby>達成感<rt>たっせいかん</rt></ruby>でいっぱいになった。その大きな気持ちが、消しゴムを強く曲げる動作に出たんやな。</p><h3><span class="h3e">✍️</span>答えの形にすると</h3><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans6"><div class="ans-body">絶望的な状況に打ち勝ったことへの達成感で満ちあふれている。</div><label class="reveal" for="ans6">👆 タップして答えを見る</label></div></div></section><section class="card outro" id="outro"><h2 class="intro-h">🧭 六問をならべてみると</h2><p>六問を並べると、同じ「少年の気持ち」でも、時点が変わるたびに中身も変わっていたのが分かる。</p><ul class="timeline"><li><span class="feel">😟</span>テスト前は、解けないかもしれない不安。</li><li><span class="feel">😤</span>疑われていると思ってからは、反抗心。</li><li><span class="feel">😱</span>消しゴムを拾えないと思ったときは、絶望。</li><li><span class="feel">🤩</span>自分の答えが合っていたと分かったときは、達成感。</li></ul><p><ruby>傍線<rt>ぼうせん</rt></ruby>のすぐ近くだけを見ると、この四つが混ざってしまう。「今、物語のどの時点にいる？」と立ち止まれば、同じ少年の中で変わっていく気持ちを、順番に整理できるで。</p><div class="ending">🎊 おつかれさま！　ここまで読めたらバッチリやで 🎊</div></section>
+</main>
+<div class="hint" id="hint">👈 左にスクロールして読んでいこう</div>
+<script>
+(function(){
+  var book=document.getElementById('book'),prog=document.getElementById('prog'),hint=document.getElementById('hint');
+  // マウスホイールの上下 → 左右スクロール
+  book.addEventListener('wheel',function(e){
+    if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){ book.scrollLeft-=e.deltaY; e.preventDefault(); }
+  },{passive:false});
+  function upd(){
+    var max=book.scrollWidth-book.clientWidth; var x=Math.abs(book.scrollLeft);
+    prog.style.width=(max>0?Math.min(100,x/max*100):0)+'%';
+    if(x>40) hint.classList.add('gone');
+  }
+  book.addEventListener('scroll',upd); window.addEventListener('resize',upd); upd();
+  // 答えをぜんぶ見る／かくす（個別のタップはCSSだけで動く）
+  var all=document.getElementById('allbtn'),shown=false;
+  all.addEventListener('click',function(){
+    shown=!shown;
+    document.querySelectorAll('.tg').forEach(function(c){ c.checked=shown; });
+    all.textContent=shown?'答えをかくす':'答えをぜんぶ見る';
+  });
+  // 問番号ジャンプ（縦書きなので、カードの右端を画面の右端にそろえる）
+  function jump(sel,smooth){
+    var t=document.querySelector(sel); if(!t) return;
+    var pad=parseFloat(getComputedStyle(book).paddingRight)||0;
+    var d=t.getBoundingClientRect().right-(book.getBoundingClientRect().right-pad);
+    book.scrollBy({left:d,top:0,behavior:smooth?'smooth':'auto'});
+    hint.classList.add('gone');
+  }
+  document.querySelectorAll('.chip').forEach(function(a){
+    a.addEventListener('click',function(e){ e.preventDefault(); jump(a.getAttribute('href'),true); });
+  });
+  // 右端（はじまり）から表示。#q3 のように指定があればそこへ
+  function start(){ if(location.hash){ jump(location.hash,false); } else { book.scrollLeft=0; } upd(); }
+  start(); window.addEventListener('load',start);
+})();
+</script>
+</body>
+</html>
