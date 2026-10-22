@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>「説明的文章を読む⑬」B問題｜世界商品を、本文の流れから読み解こう</title>
+<style>
+:root{
+  --bg:#fff8e7; --ink:#3b3024; --sub:#7a6a55; --card:#ffffff;
+  --c1:#ff7b54; --cl1:#ffe6dc; --cd1:#c94f2c;
+  --c2:#ffb02e; --cl2:#fff1cf; --cd2:#b87400;
+  --c3:#4cc37a; --cl3:#dff7e7; --cd3:#1f8a4c;
+  --c4:#4aa8ff; --cl4:#dfefff; --cd4:#1f6fc4;
+  --c5:#9b7bff; --cl5:#ebe4ff; --cd5:#6b4fd1;
+  --c6:#ff6fa8; --cl6:#ffe1ee; --cd6:#c93d78;
+  --ans:#fff6b3; --ansb:#f2b600;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  display:flex;flex-direction:column;height:100dvh;overflow:hidden;
+  background:var(--bg);
+  background-image:radial-gradient(#ffd9a8 1.6px,transparent 1.7px),radial-gradient(#ffd9a8 1.6px,transparent 1.7px);
+  background-size:28px 28px;background-position:0 0,14px 14px;
+  color:var(--ink);
+  font-family:"Hiragino Maru Gothic ProN","Hiragino Maru Gothic Pro","Hiragino Sans","BIZ UDPGothic","Yu Gothic","YuGothic","Meiryo","Noto Sans CJK JP",sans-serif;
+  -webkit-text-size-adjust:100%;
+}
+/* ===== 上のバー（横書き） ===== */
+header.top{
+  flex:none;writing-mode:horizontal-tb;background:#fff;border-bottom:3px dashed #ffd27a;
+  padding:calc(8px + env(safe-area-inset-top,0px)) 16px 8px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;
+}
+.ttl{font-weight:800;font-size:clamp(15px,2.4vmin,20px);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.ttl .badge{background:#ff7b54;color:#fff;border-radius:999px;padding:2px 10px;font-size:.8em}
+nav.chips{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.chip{white-space:nowrap;text-decoration:none;color:#fff;background:var(--c);border-radius:999px;padding:3px 11px;font-weight:700;font-size:13px;box-shadow:0 2px 0 rgba(0,0,0,.12)}
+.chip:active{transform:translateY(2px);box-shadow:none}
+#allbtn{font:inherit;font-weight:700;font-size:13px;border:2px solid #f2b600;background:var(--ans);color:#6b4f00;border-radius:999px;padding:4px 12px;cursor:pointer}
+.bar{flex:none;height:6px;background:#ffe8c2}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff7b54,#ffb02e,#4cc37a,#4aa8ff,#9b7bff,#ff6fa8);transition:width .15s}
+/* ===== 本文（縦書き） ===== */
+main.book{
+  flex:1;min-height:0;writing-mode:vertical-rl;text-orientation:mixed;
+  overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;
+  padding:18px 22px 18px 22px;
+  font-size:clamp(16px,2.3vmin,21px);line-height:2;letter-spacing:.05em;
+  font-feature-settings:"palt" 0;
+}
+.card{
+  background:var(--card);border:3px solid var(--c,#ffb02e);border-radius:22px;
+  padding:26px 28px;margin-left:30px;box-shadow:0 6px 0 var(--cl,#ffe6c7),0 10px 24px rgba(120,80,20,.08);
+}
+.card:last-child{margin-left:4px}
+.intro{--c:#ffb02e;--cl:#fff1cf}
+.outro{--c:#4cc37a;--cl:#dff7e7}
+.mascot{font-size:2.6em;line-height:1;text-orientation:upright;margin-left:.3em}
+h2{margin:0 0 0 1.2em;font-size:1.25em;line-height:1.6}
+.intro-h{color:#b87400;background:var(--cl);border-radius:999px;padding:.5em .35em;inline-size:fit-content}
+.q h2{display:flex;flex-direction:row;align-items:center;gap:.7em;background:var(--c);color:#fff;border-radius:999px;padding:.6em .45em;margin-left:1.4em}
+.qnum{background:#fff;color:var(--cd);border-radius:999px;padding:.35em .2em;font-weight:900;display:inline-flex;flex-direction:row;align-items:center;gap:.2em}
+.qe{text-orientation:upright;font-size:1.3em;line-height:1}
+.qtitle{font-weight:800;text-shadow:0 1px 0 rgba(0,0,0,.15)}
+h3{font-size:1.05em;margin:.6em 0 .2em 1em;color:var(--cd,#b87400);background:var(--cl,#fff1cf);border-radius:999px;padding:.35em .3em;inline-size:fit-content;line-height:1.7;font-weight:800}
+.h3e{text-orientation:upright;margin-bottom:.3em}
+p{margin:0 0 0 .9em}
+strong{color:var(--cd,#c94f2c);font-weight:900;background:linear-gradient(to right,transparent 55%,var(--cl,#ffe6dc) 55%)}
+.tcy{text-combine-upright:all;-webkit-text-combine:horizontal}
+ruby{ruby-align:center} rt{font-size:.5em;color:var(--sub);letter-spacing:0;opacity:.95}
+blockquote{
+  margin:.2em 0 .2em 1em;padding:.6em .7em;background:#f7f4ee;border-right:6px solid var(--c,#ffb02e);border-radius:14px;
+  color:#4a3f33;font-weight:600;
+}
+blockquote p{margin-left:1em} blockquote p:first-child{margin-left:0}
+ul{margin:.2em 0 .2em 1em;padding:0;list-style:none}
+ul.plain li{margin-left:.6em;padding-right:1.1em;position:relative}
+ul.plain li::before{content:"●";position:absolute;right:0;top:.05em;color:var(--c,#ffb02e);font-size:.7em}
+ul.choices li{margin-left:.8em;background:#faf9f6;border-radius:16px;padding:.7em .6em;border:2px dashed #e5ddd0}
+.opt-head{display:flex;flex-direction:row;align-items:center;gap:.5em}
+.kana{display:inline-block;background:var(--c,#ffb02e);color:#fff;font-weight:900;border-radius:50%;width:1.7em;height:1.7em;line-height:1.7em;text-align:center;text-orientation:upright;letter-spacing:0;flex:none}
+.opt{font-weight:700}
+.opt-body{margin-left:.7em;color:#5a4d3e}
+/* 答え */
+.answer{margin:.4em 0 .4em 1.1em;display:flex;flex-direction:column;align-items:stretch}
+.ans-tag{background:var(--ansb);color:#fff;font-weight:900;border-radius:999px;padding:.4em .2em;inline-size:fit-content;margin-left:.5em;text-align:center}
+.ans-wrap{position:relative;background:var(--ans);border:3px solid var(--ansb);border-radius:18px;padding:.8em .7em;}
+.ans-body{font-weight:900;font-size:1.08em;color:#5a3d00;transition:filter .35s;}
+.ans-body .note{display:block;margin-left:.6em;font-size:.8em;font-weight:700;color:#8a6a1a}
+ol.num{margin:0;padding:0;list-style:none} ol.num li{margin-left:.5em} ol.num li:first-child{margin-left:0}
+.ans-body ol.num li{margin-left:.9em} .ans-body ol.num li:first-child{margin-left:0}
+ol.num .n{text-orientation:upright;color:var(--cd,#b87400);font-weight:900;margin-bottom:.2em}
+.tg{position:absolute;opacity:0;width:0;height:0;margin:0;pointer-events:none}
+.tg:not(:checked) ~ .ans-body{filter:blur(7px);user-select:none}
+.tg:checked ~ .reveal{display:none}
+.reveal{position:absolute;inset:0;margin:auto;display:block;inline-size:fit-content;block-size:fit-content;font:inherit;font-weight:800;font-size:.9em;
+  writing-mode:horizontal-tb;background:#fff;border:2px solid var(--ansb);border-radius:999px;padding:8px 14px;cursor:pointer;box-shadow:0 3px 0 var(--ansb);white-space:nowrap}
+.reveal:active{transform:translateY(2px);box-shadow:none}
+/* まとめ */
+ul.timeline li{margin-left:.8em;background:var(--cl);border-radius:16px;padding:.6em .5em;font-weight:700}
+.feel{text-orientation:upright;font-size:1.4em;line-height:1;margin-bottom:.35em;display:inline-block}
+.ending{margin-left:1.2em;font-weight:900;color:#1f8a4c;font-size:1.1em}
+/* ヒント */
+.hint{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);writing-mode:horizontal-tb;
+  background:#3b3024;color:#fff;border-radius:999px;padding:8px 16px;font-size:13px;font-weight:700;opacity:.92;animation:bob 1.2s ease-in-out infinite;pointer-events:none;white-space:nowrap}
+.hint.gone{display:none}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-6px)}}
+@media (max-width:600px){
+  header.top{gap:6px 8px}
+  .ttl{flex-basis:100%}
+  nav.chips{margin-left:0;flex:1 1 0;min-width:0;flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+  nav.chips::-webkit-scrollbar{display:none}
+  #allbtn{flex:none;font-size:12px;padding:4px 10px}
+  main.book{padding:12px 14px}
+  .card{padding:18px 18px;border-radius:18px;margin-left:18px}
+  .ttl{font-size:15px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="ttl"><span class="badge">国語 No.31</span>「説明的文章を読む⑬」B問題</div>
+  <nav class="chips"><a class="chip" href="#q1" style="--c:var(--c1)">問1</a><a class="chip" href="#q2-1" style="--c:var(--c2)">問2(1)</a><a class="chip" href="#q2-2" style="--c:var(--c3)">問2(2)</a><a class="chip" href="#q3" style="--c:var(--c4)">問3</a><a class="chip" href="#q4" style="--c:var(--c5)">問4</a><a class="chip" href="#q5" style="--c:var(--c6)">問5</a><a class="chip" href="#q6" style="--c:var(--c1)">問6</a></nav>
+  <button id="allbtn" type="button">答えをぜんぶ見る</button>
+</header>
+<div class="bar"><i id="prog"></i></div>
+<main class="book" id="book">
+<section class="card intro"><div class="mascot">🧒💭</div><h2 class="intro-h">世界商品を、本文の流れから読み解こう</h2><p>「世界商品」って、ふだん聞かへん言葉やな。でも最初から難しく考えなくてええで。本文は、<strong>世界の広い範囲で売り買いされるもの</strong>をめぐって、人や国の動きがどう変わったかを説明している。話は大きく三段階やね。①ヨーロッパの<ruby>毛織物<rt>けおりもの</rt></ruby>とインドの<ruby>綿織物<rt>めんおりもの</rt></ruby>、②ほかの国の商品を手に入れる競争と<ruby>植民地<rt>しょくみんち</rt></ruby>、③砂糖の使い道の変化。この三つを道しるべにして、<ruby>設問<rt>せつもん</rt></ruby>の言葉と同じ話題のところへ戻ろう。</p></section><section class="card q" id="q1" style="--c:var(--c1);--cl:var(--cl1);--cd:var(--cd1)"><h2><span class="qnum"><span class="qe">🔍</span>問<span class="tcy">1</span></span><span class="qtitle"><ruby>毛織物<rt>けおりもの</rt></ruby>と<ruby>綿織物<rt>めんおりもの</rt></ruby>は、どこで売れ方が違った？</span></h2><h3><span class="h3e">💡</span>問題文を小さく分ける</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>①の「<ruby>毛織物<rt>けおりもの</rt></ruby>と<ruby>綿織物<rt>めんおりもの</rt></ruby>」について、聞かれているのは<strong>「くらべる」とどんな違いがあるか</strong>。さらに「<strong>世界商品という語を使わず</strong>」「<strong>五十字程度</strong>」という<ruby>条件<rt>じょうけん</rt></ruby>がある。「毛」と「綿」の特徴をただ並べるだけでは、違いが見えにくい。両方を同じものさしで比べたいな。ここでは、<strong>どんな地域の人が買いたくなるか</strong>がそのものさしになるで。</p><h3><span class="h3e">📖</span>本文のどこへ戻る？</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>①は本文の初めにある。だから、そのすぐ後の二段落を読む。先に<ruby>毛織物<rt>けおりもの</rt></ruby>の売り先、続いて<ruby>綿織物<rt>めんおりもの</rt></ruby>が受け入れられた理由が出てくる。離れた砂糖の段落まで探す必要はないで。</p><p><ruby>毛織物<rt>けおりもの</rt></ruby>については、寒いヨーロッパでは役立つけど、中国・インドなどのアジアやアフリカへ持って行ってもあまり売れなかったとある。さらにインドやアフリカでは、分厚い<ruby>毛織物<rt>けおりもの</rt></ruby>は好まれず、<strong>洗いやすく、鮮やかな色をプリントできる綿織物</strong>が受け入れられた。<ruby>綿織物<rt>めんおりもの</rt></ruby>はアジア、アフリカに加え、ヨーロッパでも売れたんやね。</p><p>「毛は厚い、綿は薄い」で止めると、本文がわざわざ売り先を説明する理由が抜ける。<ruby>毛織物<rt>けおりもの</rt></ruby>は売れる地域が限られる。<ruby>綿織物<rt>めんおりもの</rt></ruby>は気候の違う広い地域で受け入れられる。<strong>売れる範囲の違い</strong>まで入れると、<ruby>傍線<rt>ぼうせん</rt></ruby>①の問いに答えられるで。</p><h3><span class="h3e">💡</span>五十字程度の一文にする</h3><p>「<ruby>毛織物<rt>けおりもの</rt></ruby>は……だが、<ruby>綿織物<rt>めんおりもの</rt></ruby>は……」と両方を一文にする。「世界商品」という言葉は使わず、本文にある売れ方を言い直す。下の答えは句読点を含め<strong>四十六字</strong>。五十字程度に収まるで。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans1"><div class="ans-body">分厚い毛織物はヨーロッパだけだが、鮮やかな色がプリントできる綿織物は世界中で受け入れられた。</div><label class="reveal" for="ans1">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q2-1" style="--c:var(--c2);--cl:var(--cl2);--cd:var(--cd2)"><h2><span class="qnum"><span class="qe">✏️</span>問<span class="tcy">2</span><span class="tcy">(1)</span></span><span class="qtitle">なぜアジア・アフリカの土地や力を手に入れたかった？</span></h2><h3><span class="h3e">💡</span>「なぜ」の相手を確かめる</h3><p><ruby>設問<rt>せつもん</rt></ruby>は、ヨーロッパ諸国がアジアやアフリカの土地を<ruby>植民地<rt>しょくみんち</rt></ruby>として囲いこみ、外国の勢力を<ruby>排除<rt>はいじょ</rt></ruby>することになった<strong>理由</strong>を、<strong>四十字以内</strong>で聞いている。何をしたかは問題文に書いてある。答えには、その行動で<strong>何を得たかったか</strong>を入れたいな。</p><h3><span class="h3e">📖</span>行動の直前を見るわけ</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>②のある三十行目前後へ戻ると、「アジアやアフリカ、アメリカのほうが、<strong>種類も量もはるかに豊か</strong>だった」とある。何が豊かかというと、銅・タバコ・<ruby>香料<rt>こうりょう</rt></ruby>・<ruby>染料<rt>せんりょう</rt></ruby>・茶・コーヒー・ゴムのような「世界商品」や、その材料や農産物やね。その後に「<strong>そのために</strong>」と続いて<ruby>植民地<rt>しょくみんち</rt></ruby>化の行動が出る。「そのために」は、<strong>直前に書かれたことが理由</strong>だと知らせる目印になるで。</p><p>アジアやアフリカが単に広かったから、という説明では足りへん。ほしい商品を、<strong>たくさんの種類と量</strong>で手に入れられる土地だったから、囲いこんでほかの国を入れないようにしたんやね。</p><h3><span class="h3e">💡</span>四十字以内へ縮める</h3><p>「商品を多く手に入れたいから」を骨にして、「どこで」「種類と量の両方」を足す。下の答えは<ruby>句点<rt>くてん</rt></ruby>を含め<strong>三十四字</strong>。行動の説明をもう一度書かず、理由に字数を使えているで。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans2"><div class="ans-body">世界商品となるものがアジアやアフリカで種類も量も多く獲得できたから。</div><label class="reveal" for="ans2">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q2-2" style="--c:var(--c3);--cl:var(--cl3);--cd:var(--cd3)"><h2><span class="qnum"><span class="qe">🔥</span>問<span class="tcy">2</span><span class="tcy">(2)</span></span><span class="qtitle">外国の勢力を追い出す、もう一つの理由はどの一文？</span></h2><h3><span class="h3e">💡</span>（<span class="tcy">1</span>）とは答え方が変わる</h3><p>同じ問<span class="tcy">2</span>でも、ここは自分で四十字の文を作る問題やない。「<strong>文中から一文をぬき出し</strong>」「その<strong>初めと終わりの五字</strong>を答える」とある。一文全部を答え欄に写さず、まず一文の範囲を決めてから両端を取るんやね。</p><h3><span class="h3e">📖</span>どこを探すと早い？</h3><p>（<span class="tcy">1</span>）で見た「種類も量も豊か」の少し前を読む。<ruby>筆者<rt>ひっしゃ</rt></ruby>はそこで、重要な商品を<strong>独り占めにできれば、大きな利益があげられる</strong>と述べている。ほしい物が多いだけでなく、ほかの国を締め出して自分の国だけで握れば<ruby>利益<rt>りえき</rt></ruby>が大きい。これが「外国の勢力を<ruby>排除<rt>はいじょ</rt></ruby>する」もう一つの理由につながるで。</p><p>候補の一文は、次の形になっている。</p><blockquote><p>むろん、「世界商品」となった重要な商品を独り占めにできれば、大きな利益があげられることはまちがいありません。</p></blockquote><p>この後の「ですから、一六世紀くらいの世界の歴史は……」は、<ruby>利益<rt>りえき</rt></ruby>を求めた結果、国どうしの競争になったという<strong>次の話</strong>。理由を<ruby>直接<rt>ちょくせつ</rt></ruby>言っているのは、今の「むろん、」から始まる一文やね。</p><h3><span class="h3e">💡</span>両端を五字ずつ取る</h3><p>初めは <strong>む①ろ②ん③、④「⑤</strong> で「むろん、「」。終わりは <strong>り①ま②せ③ん④。⑤</strong> で「りません。」。かぎかっこや<ruby>句点<rt>くてん</rt></ruby>も一字として数えるで。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans3"><div class="ans-body">むろん、「／りません。</div><label class="reveal" for="ans3">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q3" style="--c:var(--c4);--cl:var(--cl4);--cd:var(--cd4)"><h2><span class="qnum"><span class="qe">👉</span>問<span class="tcy">3</span></span><span class="qtitle">「世界商品」が「歴史を動かす」って、どういうこと？</span></h2><h3><span class="h3e">💡</span>まず「歴史」の意味を狭める</h3><p>「歴史を動かす」は大きな言い方やね。<ruby>設問<rt>せつもん</rt></ruby>は、その説明になる<strong>傍線③より前の一文</strong>を探し、<strong>初めと終わりの三字</strong>を答える問題。<ruby>傍線<rt>ぼうせん</rt></ruby>③のある砂糖の話から、少し<strong>前へ戻る</strong>。何の歴史か、どんな動きかを説明しているところを探したい。</p><h3><span class="h3e">💡</span>時代と競争を目印にする</h3><p>前の段落に「<strong>一六世紀くらいの世界の歴史</strong>」という、<ruby>設問<rt>せつもん</rt></ruby>と同じ「歴史」の言葉がある。そこを最後まで読むと、その時々の重要な商品を<strong>どの国が握るかという競争</strong>として世界の歴史が展開した、と書かれている。商品をめぐる競争で国の動きが変わっていった。だから、これが「歴史を動かす」の説明になるんやね。</p><blockquote><p>ですから、一六世紀くらいの世界の歴史は、そのときどきの「世界商品」をどの国が握るか、という競争の歴史として展開してきたのです。</p></blockquote><p>「大きな<ruby>利益<rt>りえき</rt></ruby>があげられる」という一文だけなら、なぜ商品をほしがるかは分かる。でも、<strong>歴史がどう展開したか</strong>までは言っていない。問<span class="tcy">3</span>は、<ruby>利益<rt>りえき</rt></ruby>ではなく競争の歴史まで書いたこの一文を取るで。</p><h3><span class="h3e">💡</span>三字の境目を確かめる</h3><p>文の初めは「<strong>ですか</strong>」の三字。文末は<ruby>句点<rt>くてん</rt></ruby>を含めて「<strong>です。</strong>」の三字やね。途中の「世界商品」だけを抜き出さないで、一文の両端を答える。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans4"><div class="ans-body">ですか／です。</div><label class="reveal" for="ans4">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q4" style="--c:var(--c5);--cl:var(--cl5);--cd:var(--cd5)"><h2><span class="qnum"><span class="qe">🕳️</span>問<span class="tcy">4</span></span><span class="qtitle">「このような意味」は、どこまでの話を指す？</span></h2><h3><span class="h3e">💡</span>「このような」は前を指す</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>④の「このような意味」は、それより<strong>前に述べたこと</strong>を受けている。「意味」の一語だけを考えても選べへん。<ruby>傍線<rt>ぼうせん</rt></ruby>④から前へ戻り、<ruby>植民地<rt>しょくみんち</rt></ruby>と人の暮らしに何が起こったかをつなげて読むで。</p><h3><span class="h3e">💡</span>砂糖と<ruby>綿花<rt>めんか</rt></ruby>の段落をつなぐ</h3><p>砂糖では、支配者や実業家が<ruby>植民地<rt>しょくみんち</rt></ruby>の土地で砂糖きびを作らせ、<strong>アフリカから連れてこられた人々を奴隷として働かせた</strong>。<ruby>綿織物<rt>めんおりもの</rt></ruby>でも、原料の<ruby>綿花<rt>めんか</rt></ruby>をアメリカで作らせるために、<strong>奴隷を労働力とした</strong>。もともと別の場所で暮らしていた人が、商品の生産に合わせて移され、働かされたんやね。</p><p>そして<ruby>傍線<rt>ぼうせん</rt></ruby>④の直前には「<strong>もとのアフリカの社会にも大きなつめあとを残しました</strong>」とある。<ruby>出来事<rt>できごと</rt></ruby>が昔で終わらず、影響が残ったという部分まで<ruby>選択肢<rt>せんたくし</rt></ruby>と比べよう。</p><h3><span class="h3e">💡</span>四つの<ruby>選択肢<rt>せんたくし</rt></ruby>を比べる</h3><ul class="choices"><li><div class="opt-head"><span class="kana">ア</span><span class="opt">は、砂糖きびに偏った栽培が<strong>今も解消されていない</strong>という話にする。でも本文が「つめあと」として述べる中心は、人々が連れてこられて奴隷として働かされ、もとの社会も傷ついたこと。栽培の偏りが現在も続くとは書かれていない。</span></div><div class="opt-body"></div></li><li><div class="opt-head"><span class="kana">イ</span><span class="opt">は奴隷貿易の話題までは近い。でも<strong>白人労働者の賃金が下がった</strong>ことや、<strong>近代に歯止めがかかった</strong>ことは、この段落にない。本文にない出来事を足しているから選べへん。</span></div><div class="opt-body"></div></li><li><div class="opt-head"><span class="kana">ウ</span><span class="opt">は、商品を得るための植民地化によって<strong>人々の住む場所まで変えられ</strong>、その影響が<strong>今も残る</strong>という内容。連れてこられた人々とアフリカ社会の「つめあと」の両方に合う。</span></div><div class="opt-body"></div></li><li><div class="opt-head"><span class="kana">エ</span><span class="opt">は、砂糖きびや綿花が<strong>根絶やしになった</strong>とする。でも本文には、生産を盛んにするために土地と人を使ったとある。作物が消えたとは書かれていないで。</span></div><div class="opt-body"></div></li></ul><p>一部分の言葉が似ているだけで決めず、「人々がどうなったか」「影響が残ったか」の二つを合わせて選ぶと、ウになる。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans5"><div class="ans-body">ウ</div><label class="reveal" for="ans5">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q5" style="--c:var(--c6);--cl:var(--cl6);--cd:var(--cd6)"><h2><span class="qnum"><span class="qe">🎉</span>問<span class="tcy">5</span></span><span class="qtitle">砂糖の「驚くほど多くの<ruby>用途<rt>ようと</rt></ruby>」を四つ探そう</span></h2><h3><span class="h3e">💡</span>「<ruby>用途<rt>ようと</rt></ruby>」は何のこと？</h3><p>「<ruby>用途<rt>ようと</rt></ruby>」は、<strong>何のために使うか</strong>という意味やで。問<span class="tcy">5</span>は、<ruby>傍線<rt>ぼうせん</rt></ruby>⑤の<strong>後の文中から</strong>具体例を<strong>四つ</strong>、<strong>それぞれ四字以内</strong>で抜き出す問題。砂糖の色や値段を答えるのではなく、「薬に使う」「食べ物に使う」のような<strong>使い道の名前</strong>を拾っていく。</p><h3><span class="h3e">💡</span><ruby>傍線<rt>ぼうせん</rt></ruby>の後を順に読む</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>⑤は砂糖の話の入口にある。その先では、時代とともに使い道が増えたり変わったりする。本文の後ろへ進みながら、砂糖が<strong>何として</strong>使われたかに印を付けるで。</p><ol class="num"><li><span class="n">①</span>ヨーロッパでは、砂糖は「よく使われる<strong>薬</strong>のひとつ」。後ろのまとめに「<strong>薬品</strong>」という二字がある。</li><li><span class="n">②</span>砂糖は高価な「<strong>調味料</strong>」でもあった。料理や飲み物の味をつける使い道やね。</li><li><span class="n">③</span>白砂糖には特別な意味があるとされ、結婚式などの「<strong>儀礼</strong>」に用いられた。後ろのまとめの「<strong>儀礼用</strong>」を取れる。</li><li><span class="n">④</span>大量生産の時代にはカロリー源となり、「一般の<strong>食品</strong>」になった。</li></ol><p>「ウェディング・ケーキ」も出てくるけど、これは<ruby>儀礼<rt>ぎれい</rt></ruby>に使う<strong>一つの例</strong>で、四字以内にも収まらへん。「砂糖」「白砂糖」は物の名前であって、使い道ではない。この二つと混ぜないと四つがそろうで。</p><h3><span class="h3e">💡</span>抜き出しの形をそろえる</h3><p>本文の言葉で、薬品（二字）・<ruby>調味料<rt>ちょうみりょう</rt></ruby>（三字）・<ruby>儀礼<rt>ぎれい</rt></ruby>用（三字）・食品（二字）。どれも四字以内、四つとも「何として使うか」を答えている。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans6"><div class="ans-body">薬品・調味料・儀礼用・食品</div><label class="reveal" for="ans6">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q6" style="--c:var(--c1);--cl:var(--cl1);--cd:var(--cd1)"><h2><span class="qnum"><span class="qe">⭐</span>問<span class="tcy">6</span></span><span class="qtitle">「ヨーロッパのそれ」は、何と比べたもの？</span></h2><h3><span class="h3e">💡</span>「それ」は近くの同じ種類の言葉を受ける</h3><p>問<span class="tcy">6</span>は、<ruby>傍線<rt>ぼうせん</rt></ruby>⑥の「それ」が何を指すかを、<strong>文中の言葉で抜き出す</strong>問題。「ヨーロッパのそれ」をそのまま答えるのではなく、<strong>ヨーロッパの何か</strong>をはっきりさせるんやね。<ruby>指示語<rt>しじご</rt></ruby>は、まず同じ文の<strong>前のほう</strong>を見ると見つけやすい。</p><h3><span class="h3e">💡</span>二つを並べて読む</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>⑥の文には、ルネサンス以前は「<strong>イスラムの科学の水準</strong>がヨーロッパの<strong>それ</strong>よりはるかに高かった」とある。「イスラムの科学の<ruby>水準<rt>すいじゅん</rt></ruby>」と「ヨーロッパのそれ」を比べている。比べるなら同じものさしが必要やから、「それ」には直前の<strong>科学の水準</strong>が入るで。</p><p>「ヨーロッパの科学の<ruby>水準<rt>すいじゅん</rt></ruby>」と置き換えると、「イスラムの科学の<ruby>水準<rt>すいじゅん</rt></ruby>が、ヨーロッパの科学の<ruby>水準<rt>すいじゅん</rt></ruby>より高かった」と自然に読める。「イスラム」そのものや「ヨーロッパ」そのものを比べているわけではない。<strong>何の高さか</strong>まで残して答えよう。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans7"><div class="ans-body">科学の水準</div><label class="reveal" for="ans7">👆 タップして答えを見る</label></div></div></section><section class="card outro" id="outro"><h2 class="intro-h">🧭 六問をならべてみると</h2><p>六問に共通する探し方は、<ruby>設問<rt>せつもん</rt></ruby>の言葉を目印にして本文の範囲を小さくすることやで。「くらべる」なら両方を同じものさしで読む。「なぜ」なら行動の手前の「そのために」を見る。「このような」「それ」なら、指している言葉へ前に戻る。「以後から四つ」なら、後ろへ進んで使い道だけを数える。答えの場所が分かったら、最後に字数や抜き出しの<ruby>条件<rt>じょうけん</rt></ruby>へ合わせればええんやね。</p><div class="ending">🎊 おつかれさま！　ここまで読めたらバッチリやで 🎊</div></section>
+</main>
+<div class="hint" id="hint">👈 左にスクロールして読んでいこう</div>
+<script>
+(function(){
+  var book=document.getElementById('book'),prog=document.getElementById('prog'),hint=document.getElementById('hint');
+  // マウスホイールの上下 → 左右スクロール
+  book.addEventListener('wheel',function(e){
+    if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){ book.scrollLeft-=e.deltaY; e.preventDefault(); }
+  },{passive:false});
+  function upd(){
+    var max=book.scrollWidth-book.clientWidth; var x=Math.abs(book.scrollLeft);
+    prog.style.width=(max>0?Math.min(100,x/max*100):0)+'%';
+    if(x>40) hint.classList.add('gone');
+  }
+  book.addEventListener('scroll',upd); window.addEventListener('resize',upd); upd();
+  // 答えをぜんぶ見る／かくす（個別のタップはCSSだけで動く）
+  var all=document.getElementById('allbtn'),shown=false;
+  all.addEventListener('click',function(){
+    shown=!shown;
+    document.querySelectorAll('.tg').forEach(function(c){ c.checked=shown; });
+    all.textContent=shown?'答えをかくす':'答えをぜんぶ見る';
+  });
+  // 問番号ジャンプ（縦書きなので、カードの右端を画面の右端にそろえる）
+  function jump(sel,smooth){
+    var t=document.querySelector(sel); if(!t) return;
+    var pad=parseFloat(getComputedStyle(book).paddingRight)||0;
+    var d=t.getBoundingClientRect().right-(book.getBoundingClientRect().right-pad);
+    book.scrollBy({left:d,top:0,behavior:smooth?'smooth':'auto'});
+    hint.classList.add('gone');
+  }
+  document.querySelectorAll('.chip').forEach(function(a){
+    a.addEventListener('click',function(e){ e.preventDefault(); jump(a.getAttribute('href'),true); });
+  });
+  // 右端（はじまり）から表示。#q3 のように指定があればそこへ
+  function start(){ if(location.hash){ jump(location.hash,false); } else { book.scrollLeft=0; } upd(); }
+  start(); window.addEventListener('load',start);
+})();
+</script>
+</body>
+</html>
