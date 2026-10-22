@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>「説明文を読む②」A問題｜海が塩辛いわけを、段落をつないで考えよう</title>
+<style>
+:root{
+  --bg:#fff8e7; --ink:#3b3024; --sub:#7a6a55; --card:#ffffff;
+  --c1:#ff7b54; --cl1:#ffe6dc; --cd1:#c94f2c;
+  --c2:#ffb02e; --cl2:#fff1cf; --cd2:#b87400;
+  --c3:#4cc37a; --cl3:#dff7e7; --cd3:#1f8a4c;
+  --c4:#4aa8ff; --cl4:#dfefff; --cd4:#1f6fc4;
+  --c5:#9b7bff; --cl5:#ebe4ff; --cd5:#6b4fd1;
+  --c6:#ff6fa8; --cl6:#ffe1ee; --cd6:#c93d78;
+  --ans:#fff6b3; --ansb:#f2b600;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  display:flex;flex-direction:column;height:100dvh;overflow:hidden;
+  background:var(--bg);
+  background-image:radial-gradient(#ffd9a8 1.6px,transparent 1.7px),radial-gradient(#ffd9a8 1.6px,transparent 1.7px);
+  background-size:28px 28px;background-position:0 0,14px 14px;
+  color:var(--ink);
+  font-family:"Hiragino Maru Gothic ProN","Hiragino Maru Gothic Pro","Hiragino Sans","BIZ UDPGothic","Yu Gothic","YuGothic","Meiryo","Noto Sans CJK JP",sans-serif;
+  -webkit-text-size-adjust:100%;
+}
+/* ===== 上のバー（横書き） ===== */
+header.top{
+  flex:none;writing-mode:horizontal-tb;background:#fff;border-bottom:3px dashed #ffd27a;
+  padding:calc(8px + env(safe-area-inset-top,0px)) 16px 8px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;
+}
+.ttl{font-weight:800;font-size:clamp(15px,2.4vmin,20px);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.ttl .badge{background:#ff7b54;color:#fff;border-radius:999px;padding:2px 10px;font-size:.8em}
+nav.chips{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.chip{white-space:nowrap;text-decoration:none;color:#fff;background:var(--c);border-radius:999px;padding:3px 11px;font-weight:700;font-size:13px;box-shadow:0 2px 0 rgba(0,0,0,.12)}
+.chip:active{transform:translateY(2px);box-shadow:none}
+#allbtn{font:inherit;font-weight:700;font-size:13px;border:2px solid #f2b600;background:var(--ans);color:#6b4f00;border-radius:999px;padding:4px 12px;cursor:pointer}
+.bar{flex:none;height:6px;background:#ffe8c2}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff7b54,#ffb02e,#4cc37a,#4aa8ff,#9b7bff,#ff6fa8);transition:width .15s}
+/* ===== 本文（縦書き） ===== */
+main.book{
+  flex:1;min-height:0;writing-mode:vertical-rl;text-orientation:mixed;
+  overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;
+  padding:18px 22px 18px 22px;
+  font-size:clamp(16px,2.3vmin,21px);line-height:2;letter-spacing:.05em;
+  font-feature-settings:"palt" 0;
+}
+.card{
+  background:var(--card);border:3px solid var(--c,#ffb02e);border-radius:22px;
+  padding:26px 28px;margin-left:30px;box-shadow:0 6px 0 var(--cl,#ffe6c7),0 10px 24px rgba(120,80,20,.08);
+}
+.card:last-child{margin-left:4px}
+.intro{--c:#ffb02e;--cl:#fff1cf}
+.outro{--c:#4cc37a;--cl:#dff7e7}
+.mascot{font-size:2.6em;line-height:1;text-orientation:upright;margin-left:.3em}
+h2{margin:0 0 0 1.2em;font-size:1.25em;line-height:1.6}
+.intro-h{color:#b87400;background:var(--cl);border-radius:999px;padding:.5em .35em;inline-size:fit-content}
+.q h2{display:flex;flex-direction:row;align-items:center;gap:.7em;background:var(--c);color:#fff;border-radius:999px;padding:.6em .45em;margin-left:1.4em}
+.qnum{background:#fff;color:var(--cd);border-radius:999px;padding:.35em .2em;font-weight:900;display:inline-flex;flex-direction:row;align-items:center;gap:.2em}
+.qe{text-orientation:upright;font-size:1.3em;line-height:1}
+.qtitle{font-weight:800;text-shadow:0 1px 0 rgba(0,0,0,.15)}
+h3{font-size:1.05em;margin:.6em 0 .2em 1em;color:var(--cd,#b87400);background:var(--cl,#fff1cf);border-radius:999px;padding:.35em .3em;inline-size:fit-content;line-height:1.7;font-weight:800}
+.h3e{text-orientation:upright;margin-bottom:.3em}
+p{margin:0 0 0 .9em}
+strong{color:var(--cd,#c94f2c);font-weight:900;background:linear-gradient(to right,transparent 55%,var(--cl,#ffe6dc) 55%)}
+.tcy{text-combine-upright:all;-webkit-text-combine:horizontal}
+ruby{ruby-align:center} rt{font-size:.5em;color:var(--sub);letter-spacing:0;opacity:.95}
+blockquote{
+  margin:.2em 0 .2em 1em;padding:.6em .7em;background:#f7f4ee;border-right:6px solid var(--c,#ffb02e);border-radius:14px;
+  color:#4a3f33;font-weight:600;
+}
+blockquote p{margin-left:1em} blockquote p:first-child{margin-left:0}
+ul{margin:.2em 0 .2em 1em;padding:0;list-style:none}
+ul.plain li{margin-left:.6em;padding-right:1.1em;position:relative}
+ul.plain li::before{content:"●";position:absolute;right:0;top:.05em;color:var(--c,#ffb02e);font-size:.7em}
+ul.choices li{margin-left:.8em;background:#faf9f6;border-radius:16px;padding:.7em .6em;border:2px dashed #e5ddd0}
+.opt-head{display:flex;flex-direction:row;align-items:center;gap:.5em}
+.kana{display:inline-block;background:var(--c,#ffb02e);color:#fff;font-weight:900;border-radius:50%;width:1.7em;height:1.7em;line-height:1.7em;text-align:center;text-orientation:upright;letter-spacing:0;flex:none}
+.opt{font-weight:700}
+.opt-body{margin-left:.7em;color:#5a4d3e}
+/* 答え */
+.answer{margin:.4em 0 .4em 1.1em;display:flex;flex-direction:column;align-items:stretch}
+.ans-tag{background:var(--ansb);color:#fff;font-weight:900;border-radius:999px;padding:.4em .2em;inline-size:fit-content;margin-left:.5em;text-align:center}
+.ans-wrap{position:relative;background:var(--ans);border:3px solid var(--ansb);border-radius:18px;padding:.8em .7em;}
+.ans-body{font-weight:900;font-size:1.08em;color:#5a3d00;transition:filter .35s;}
+.ans-body .note{display:block;margin-left:.6em;font-size:.8em;font-weight:700;color:#8a6a1a}
+ol.num{margin:0;padding:0;list-style:none} ol.num li{margin-left:.5em} ol.num li:first-child{margin-left:0}
+.ans-body ol.num li{margin-left:.9em} .ans-body ol.num li:first-child{margin-left:0}
+ol.num .n{text-orientation:upright;color:var(--cd,#b87400);font-weight:900;margin-bottom:.2em}
+.tg{position:absolute;opacity:0;width:0;height:0;margin:0;pointer-events:none}
+.tg:not(:checked) ~ .ans-body{filter:blur(7px);user-select:none}
+.tg:checked ~ .reveal{display:none}
+.reveal{position:absolute;inset:0;margin:auto;display:block;inline-size:fit-content;block-size:fit-content;font:inherit;font-weight:800;font-size:.9em;
+  writing-mode:horizontal-tb;background:#fff;border:2px solid var(--ansb);border-radius:999px;padding:8px 14px;cursor:pointer;box-shadow:0 3px 0 var(--ansb);white-space:nowrap}
+.reveal:active{transform:translateY(2px);box-shadow:none}
+/* まとめ */
+ul.timeline li{margin-left:.8em;background:var(--cl);border-radius:16px;padding:.6em .5em;font-weight:700}
+.feel{text-orientation:upright;font-size:1.4em;line-height:1;margin-bottom:.35em;display:inline-block}
+.ending{margin-left:1.2em;font-weight:900;color:#1f8a4c;font-size:1.1em}
+/* ヒント */
+.hint{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);writing-mode:horizontal-tb;
+  background:#3b3024;color:#fff;border-radius:999px;padding:8px 16px;font-size:13px;font-weight:700;opacity:.92;animation:bob 1.2s ease-in-out infinite;pointer-events:none;white-space:nowrap}
+.hint.gone{display:none}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-6px)}}
+@media (max-width:600px){
+  header.top{gap:6px 8px}
+  .ttl{flex-basis:100%}
+  nav.chips{margin-left:0;flex:1 1 0;min-width:0;flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+  nav.chips::-webkit-scrollbar{display:none}
+  #allbtn{flex:none;font-size:12px;padding:4px 10px}
+  main.book{padding:12px 14px}
+  .card{padding:18px 18px;border-radius:18px;margin-left:18px}
+  .ttl{font-size:15px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="ttl"><span class="badge">国語 No.31</span>「説明文を読む②」A問題</div>
+  <nav class="chips"><a class="chip" href="#q1" style="--c:var(--c1)">問1</a><a class="chip" href="#q2" style="--c:var(--c2)">問2</a><a class="chip" href="#q3" style="--c:var(--c3)">問3</a><a class="chip" href="#q4" style="--c:var(--c4)">問4</a><a class="chip" href="#q5" style="--c:var(--c5)">問5</a><a class="chip" href="#q6" style="--c:var(--c6)">問6</a></nav>
+  <button id="allbtn" type="button">答えをぜんぶ見る</button>
+</header>
+<div class="bar"><i id="prog"></i></div>
+<main class="book" id="book">
+<section class="card intro"><div class="mascot">🧒💭</div><h2 class="intro-h">海が塩辛いわけを、段落をつないで考えよう</h2><p>この文章、魚の大量発生から始まるのに、途中で川や海の水の話になる。話題が飛んだように見えるけど、<ruby>設問<rt>せつもん</rt></ruby>ごとに「何を聞いてる？」「その話はどの段落？」と戻れば、つながりが見えてくるで。答えの言葉だけやなく、そこへ行き着く道も一緒にたどろう。</p></section><section class="card q" id="q1" style="--c:var(--c1);--cl:var(--cl1);--cd:var(--cd1)"><h2><span class="qnum"><span class="qe">🔍</span>問<span class="tcy">1</span></span><span class="qtitle">なぜ魚が大量に発生したの？</span></h2><h3><span class="h3e">📖</span>どこまで答える問題？</h3><p><ruby>設問<rt>せつもん</rt></ruby>の文は「<ruby>不測<rt>ふそく</rt></ruby>の事態に備えて〔　〕から。」となっている。「<ruby>不測<rt>ふそく</rt></ruby>の事態」は、思いがけず魚が死んだり、ほかの魚に食べられたりすること。<ruby>空欄<rt>くうらん</rt></ruby>には、<strong>魚がふだんしていること</strong>と、<strong>今回起きたこと</strong>をつなげて、<span class="tcy">30</span>字以内で入れるんやね。</p><h3><span class="h3e">📖</span>第二段落へ戻る</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>①の後で研究者が説明しているところに、まずこうある。</p><blockquote><p>魚は大量に卵を産みます。そのうち、成長して育つのは、ほんのわずかです。</p></blockquote><p>続けて、今回は多くがほかの魚に食べられず、急変した<ruby>環境<rt>かんきょう</rt></ruby>でも死ななかった、と書かれている。大量の卵はいつも産んでいる。今回は、<strong>ふだんなら減るはずの魚まで生き残った</strong>から大量発生になったわけやね。</p><h3><span class="h3e">✍️</span>答えの形にすると</h3><p>「魚が大量の卵を産んだから」だけやと、毎年大量発生しない理由が残ってしまう。生き残ったことまで入れよう。</p><blockquote><p>不測の事態に備えて、魚は大量の卵を産むが、捕食者をまぬがれて大量の稚魚が育つから。</p></blockquote><p><ruby>空欄<rt>くうらん</rt></ruby>に入る部分は<span class="tcy">28</span>字。「から。」は問題に印刷されているから、書き足さなくていいで。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans1"><div class="ans-body">魚は大量の卵を産むが、捕食者をまぬがれて大量の稚魚が育つ</div><label class="reveal" for="ans1">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q2" style="--c:var(--c2);--cl:var(--cl2);--cd:var(--cd2)"><h2><span class="qnum"><span class="qe">✏️</span>問<span class="tcy">2</span></span><span class="qtitle">海が塩辛くなる流れを四つの言葉で埋めよう</span></h2><h3><span class="h3e">💡</span>まず、矢印を言葉にする</h3><p>ここは a・c・d が二字、b が四字の<strong>抜き出し</strong>。文章の後半で、川の水と海の水を比べるところへ戻ると見つかる。</p><h3><span class="h3e">💡</span>川と海では、何が違う？</h3><p>本文には「<ruby>蒸発<rt>じょうはつ</rt></ruby>するのは、水の分子です。塩の分子は<ruby>蒸発<rt>じょうはつ</rt></ruby>しません」とある。だから、海から出ていくのは水で、塩は残る。川から入ってきた水には少し塩が混ざっていて、入った塩も海に残っていく。</p><p>一つずつ<ruby>空欄<rt>くうらん</rt></ruby>に合わせると、こうなるで。</p><ul class="plain"><li><strong>a</strong>「海面から〔　〕する水の量」だから、海面から水が出ていく<strong>蒸発</strong>。二字。</li><li><strong>b</strong>「そのうち〔　〕だけが〔a〕する」だから、<ruby>蒸発<rt>じょうはつ</rt></ruby>するものは<strong>水の分子</strong>。四字。</li><li><strong>c</strong>「残された〔　〕」は、川から来て海に残る<strong>食塩</strong>。二字。</li><li><strong>d</strong>「〔　〕されているため」は、水が出て塩の割合が高くなる<strong>濃縮</strong>。二字。</li></ul><p>「川の水にも塩があるなら、川も塩辛いはず」と思いそうやけど、川にはごくわずかしかなく、海では水が<ruby>蒸発<rt>じょうはつ</rt></ruby>しても塩が残り続ける。この差がポイントやね。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans2"><div class="ans-body"><ol class="num"><li><span class="n">①</span>a　蒸発</li><li><span class="n">②</span>b　水の分子</li><li><span class="n">③</span>c　食塩</li><li><span class="n">④</span>d　濃縮</li></ol></div><label class="reveal" for="ans2">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q3" style="--c:var(--c3);--cl:var(--cl3);--cd:var(--cd3)"><h2><span class="qnum"><span class="qe">🔥</span>問<span class="tcy">3</span></span><span class="qtitle"><ruby>淡水<rt>たんすい</rt></ruby>が海に入ると、どうなるはず？</span></h2><h3><span class="h3e">💡</span><ruby>空欄<rt>くうらん</rt></ruby>の後ろから考える</h3><p><ruby>空欄<rt>くうらん</rt></ruby>③へ<span class="tcy">15</span>字以内の言葉を入れる問題。すぐ後ろに「はずなのに、海洋化学者は、その反対のことをいうのです」とある。「その反対」は、川の水が海を塩辛くする、という話やね。</p><h3><span class="h3e">💡</span>「ふつうはこう思う」を入れる</h3><p>川の水は海水ほど塩辛くない。それが海に入れば、海の塩分は薄まるはず――これが、ふつうに考えたときの予想。でも海洋化学者は「川から塩が海に入るので塩辛い」と言う。<strong>予想と反対の説明</strong>だから、<ruby>筆者<rt>ひっしゃ</rt></ruby>は不思議に思っているんやね。</p><h3><span class="h3e">💡</span><span class="tcy">15</span>字以内にする</h3><p>「<ruby>淡水<rt>たんすい</rt></ruby>が海に入ると塩分はうすまる」で<span class="tcy">15</span>字。後ろの「はずなのに」につなぐと、文章としても自然やね。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans3"><div class="ans-body">淡水が海に入ると塩分はうすまる</div><label class="reveal" for="ans3">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q4" style="--c:var(--c4);--cl:var(--cl4);--cd:var(--cd4)"><h2><span class="qnum"><span class="qe">👉</span>問<span class="tcy">4</span></span><span class="qtitle">「もし」がかかる言葉は？</span></h2><h3><span class="h3e">💡</span>一文節だけ抜き出す</h3><p>「もし」は、あとに「〜なら」「〜ば」といった仮定を表す言葉が来ることが多い。<ruby>傍線<rt>ぼうせん</rt></ruby>④の文を読むと、</p><blockquote><p>もし、蒸発する水の量より多ければ、海面の高さはしだいに高くなっていくはずです。</p></blockquote><p>となっている。「もし海面の高さは」とはつながらないよな。「もし、川から入る水が<ruby>蒸発<rt>じょうはつ</rt></ruby>する水より<strong>多ければ</strong>」という組み合わせ。答えは一文節だけでいい。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans4"><div class="ans-body">多ければ</div><label class="reveal" for="ans4">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q5" style="--c:var(--c5);--cl:var(--cl5);--cd:var(--cd5)"><h2><span class="qnum"><span class="qe">🕳️</span>問<span class="tcy">5</span></span><span class="qtitle">「そういうこと」って何のこと？</span></h2><h3><span class="h3e">📖</span>直前だけで決めず、たとえを確かめる</h3><p><span class="tcy">30</span>字程度で<ruby>具体的<rt>ぐたいてき</rt></ruby>に説明する問題。<ruby>傍線<rt>ぼうせん</rt></ruby>⑤の少し前では、食塩をふりかけた食べ物の話から、湖の話へ移っている。</p><blockquote><p>大きな湖もしだいに塩辛くなっていくのでしょうか。</p></blockquote><p>この問いのあとに「ふつう、そういうことはありません」とある。だから「そういうこと」は、<strong>湖も海と同じようにだんだん塩辛くなること</strong>を指している。その後、湖には流れ出る川があるため<ruby>実際<rt>じっさい</rt></ruby>には塩がたまり続けない、と説明されるんやね。</p><p>「海も同じ理屈で塩辛くならない」とだけ書くと、肝心の理屈が見えない。直前の湖で、何がどうなるのかまで入れる。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans5"><div class="ans-body">湖に川の水が流入する際に塩分がたまり、しだいに塩辛くなること。</div><label class="reveal" for="ans5">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q6" style="--c:var(--c6);--cl:var(--cl6);--cd:var(--cd6)"><h2><span class="qnum"><span class="qe">🎉</span>問<span class="tcy">6</span></span><span class="qtitle">A〜Dは、前後を読んでつなげよう</span></h2><h3><span class="h3e">🤔</span>何を選ぶ問題？</h3><p>ア〜カから入る言葉を選んで、A・B・C・Dをそれぞれ<ruby>記号<rt>きごう</rt></ruby>で答える。同じ<ruby>記号<rt>きごう</rt></ruby>はくり返せない。<ruby>選択肢<rt>せんたくし</rt></ruby>は「ア あるいは／イ 一方／ウ すなわち／エ たとえば／オ しかし／カ すると」。意味だけで飛びつかず、<ruby>空欄<rt>くうらん</rt></ruby>の<strong>前と後の関係</strong>を見ればしぼれるで。</p><h3><span class="h3e">💡</span>A　足りなくても死ぬ話から、急変しても死なない話へ</h3><p>前には「えさが十分にとれないか、〔A〕水温などが急変して<ruby>環境<rt>かんきょう</rt></ruby>に適応できないで死んでしまい」とある。死ぬ原因を二つ並べているから、別の可能性を足す<strong>ア「あるいは」</strong>が合う。「しかし」なら逆の話になるけど、どちらも死ぬ原因やね。</p><h3><span class="h3e">💡</span>B　水が増えても海面の高さが変わらない？</h3><p>「川から海に入る水が、<ruby>蒸発<rt>じょうはつ</rt></ruby>する水の量より多ければ、海面の高さはしだいに高くなるはずです」に続いて、「いくら川から海に水が入っても、海面の高さは変化しません」。予想と<ruby>実際<rt>じっさい</rt></ruby>が反対なので、<strong>オ「しかし」</strong>。</p><h3><span class="h3e">💡</span>C　海に残った塩は、どうなる？</h3><p>「海に入った塩は、何億年でも海水に溶けたまま」と話したあと、「最初、<ruby>淡水<rt>たんすい</rt></ruby>だった海も、しだいに塩辛くなります」と続く。前のことから起こる結果を言っているので、<strong>カ「すると」</strong>。</p><h3><span class="h3e">💡</span>D　湖と海を比べる</h3><p>前では、湖には流れ出る川があるため塩がたまらないと説明している。後ろは「海は川になって流出することがありません」。湖とは違う海の側の話へ移るから、<strong>イ「一方」</strong>。</p><p>「すなわち」は言い換え、「たとえば」は具体例を出す言葉。この四か所には、どちらの関係も合わへんね。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans6"><div class="ans-body"><ol class="num"><li><span class="n">①</span>A　ア</li><li><span class="n">②</span>B　オ</li><li><span class="n">③</span>C　カ</li><li><span class="n">④</span>D　イ</li></ol></div><label class="reveal" for="ans6">👆 タップして答えを見る</label></div></div></section><section class="card outro" id="outro"><h2 class="intro-h">🧭 六問をならべてみると</h2><p>魚の大量発生も海の塩辛さも、原因が一つだけとは限らへん。問われた言葉の前後へ戻って、「ふだんはどうか」「今回はどうか」「何が入って何が出るか」をつなぐと、答えがはっきりしてくるで。</p><div class="ending">🎊 おつかれさま！　ここまで読めたらバッチリやで 🎊</div></section>
+</main>
+<div class="hint" id="hint">👈 左にスクロールして読んでいこう</div>
+<script>
+(function(){
+  var book=document.getElementById('book'),prog=document.getElementById('prog'),hint=document.getElementById('hint');
+  // マウスホイールの上下 → 左右スクロール
+  book.addEventListener('wheel',function(e){
+    if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){ book.scrollLeft-=e.deltaY; e.preventDefault(); }
+  },{passive:false});
+  function upd(){
+    var max=book.scrollWidth-book.clientWidth; var x=Math.abs(book.scrollLeft);
+    prog.style.width=(max>0?Math.min(100,x/max*100):0)+'%';
+    if(x>40) hint.classList.add('gone');
+  }
+  book.addEventListener('scroll',upd); window.addEventListener('resize',upd); upd();
+  // 答えをぜんぶ見る／かくす（個別のタップはCSSだけで動く）
+  var all=document.getElementById('allbtn'),shown=false;
+  all.addEventListener('click',function(){
+    shown=!shown;
+    document.querySelectorAll('.tg').forEach(function(c){ c.checked=shown; });
+    all.textContent=shown?'答えをかくす':'答えをぜんぶ見る';
+  });
+  // 問番号ジャンプ（縦書きなので、カードの右端を画面の右端にそろえる）
+  function jump(sel,smooth){
+    var t=document.querySelector(sel); if(!t) return;
+    var pad=parseFloat(getComputedStyle(book).paddingRight)||0;
+    var d=t.getBoundingClientRect().right-(book.getBoundingClientRect().right-pad);
+    book.scrollBy({left:d,top:0,behavior:smooth?'smooth':'auto'});
+    hint.classList.add('gone');
+  }
+  document.querySelectorAll('.chip').forEach(function(a){
+    a.addEventListener('click',function(e){ e.preventDefault(); jump(a.getAttribute('href'),true); });
+  });
+  // 右端（はじまり）から表示。#q3 のように指定があればそこへ
+  function start(){ if(location.hash){ jump(location.hash,false); } else { book.scrollLeft=0; } upd(); }
+  start(); window.addEventListener('load',start);
+})();
+</script>
+</body>
+</html>
