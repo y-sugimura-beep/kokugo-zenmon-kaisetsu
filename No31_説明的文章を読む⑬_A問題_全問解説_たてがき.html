@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>「説明的文章を読む⑬」A問題｜答えの場所を見つけるところから</title>
+<style>
+:root{
+  --bg:#fff8e7; --ink:#3b3024; --sub:#7a6a55; --card:#ffffff;
+  --c1:#ff7b54; --cl1:#ffe6dc; --cd1:#c94f2c;
+  --c2:#ffb02e; --cl2:#fff1cf; --cd2:#b87400;
+  --c3:#4cc37a; --cl3:#dff7e7; --cd3:#1f8a4c;
+  --c4:#4aa8ff; --cl4:#dfefff; --cd4:#1f6fc4;
+  --c5:#9b7bff; --cl5:#ebe4ff; --cd5:#6b4fd1;
+  --c6:#ff6fa8; --cl6:#ffe1ee; --cd6:#c93d78;
+  --ans:#fff6b3; --ansb:#f2b600;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  display:flex;flex-direction:column;height:100dvh;overflow:hidden;
+  background:var(--bg);
+  background-image:radial-gradient(#ffd9a8 1.6px,transparent 1.7px),radial-gradient(#ffd9a8 1.6px,transparent 1.7px);
+  background-size:28px 28px;background-position:0 0,14px 14px;
+  color:var(--ink);
+  font-family:"Hiragino Maru Gothic ProN","Hiragino Maru Gothic Pro","Hiragino Sans","BIZ UDPGothic","Yu Gothic","YuGothic","Meiryo","Noto Sans CJK JP",sans-serif;
+  -webkit-text-size-adjust:100%;
+}
+/* ===== 上のバー（横書き） ===== */
+header.top{
+  flex:none;writing-mode:horizontal-tb;background:#fff;border-bottom:3px dashed #ffd27a;
+  padding:calc(8px + env(safe-area-inset-top,0px)) 16px 8px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;
+}
+.ttl{font-weight:800;font-size:clamp(15px,2.4vmin,20px);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.ttl .badge{background:#ff7b54;color:#fff;border-radius:999px;padding:2px 10px;font-size:.8em}
+nav.chips{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.chip{white-space:nowrap;text-decoration:none;color:#fff;background:var(--c);border-radius:999px;padding:3px 11px;font-weight:700;font-size:13px;box-shadow:0 2px 0 rgba(0,0,0,.12)}
+.chip:active{transform:translateY(2px);box-shadow:none}
+#allbtn{font:inherit;font-weight:700;font-size:13px;border:2px solid #f2b600;background:var(--ans);color:#6b4f00;border-radius:999px;padding:4px 12px;cursor:pointer}
+.bar{flex:none;height:6px;background:#ffe8c2}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff7b54,#ffb02e,#4cc37a,#4aa8ff,#9b7bff,#ff6fa8);transition:width .15s}
+/* ===== 本文（縦書き） ===== */
+main.book{
+  flex:1;min-height:0;writing-mode:vertical-rl;text-orientation:mixed;
+  overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;
+  padding:18px 22px 18px 22px;
+  font-size:clamp(16px,2.3vmin,21px);line-height:2;letter-spacing:.05em;
+  font-feature-settings:"palt" 0;
+}
+.card{
+  background:var(--card);border:3px solid var(--c,#ffb02e);border-radius:22px;
+  padding:26px 28px;margin-left:30px;box-shadow:0 6px 0 var(--cl,#ffe6c7),0 10px 24px rgba(120,80,20,.08);
+}
+.card:last-child{margin-left:4px}
+.intro{--c:#ffb02e;--cl:#fff1cf}
+.outro{--c:#4cc37a;--cl:#dff7e7}
+.mascot{font-size:2.6em;line-height:1;text-orientation:upright;margin-left:.3em}
+h2{margin:0 0 0 1.2em;font-size:1.25em;line-height:1.6}
+.intro-h{color:#b87400;background:var(--cl);border-radius:999px;padding:.5em .35em;inline-size:fit-content}
+.q h2{display:flex;flex-direction:row;align-items:center;gap:.7em;background:var(--c);color:#fff;border-radius:999px;padding:.6em .45em;margin-left:1.4em}
+.qnum{background:#fff;color:var(--cd);border-radius:999px;padding:.35em .2em;font-weight:900;display:inline-flex;flex-direction:row;align-items:center;gap:.2em}
+.qe{text-orientation:upright;font-size:1.3em;line-height:1}
+.qtitle{font-weight:800;text-shadow:0 1px 0 rgba(0,0,0,.15)}
+h3{font-size:1.05em;margin:.6em 0 .2em 1em;color:var(--cd,#b87400);background:var(--cl,#fff1cf);border-radius:999px;padding:.35em .3em;inline-size:fit-content;line-height:1.7;font-weight:800}
+.h3e{text-orientation:upright;margin-bottom:.3em}
+p{margin:0 0 0 .9em}
+strong{color:var(--cd,#c94f2c);font-weight:900;background:linear-gradient(to right,transparent 55%,var(--cl,#ffe6dc) 55%)}
+.tcy{text-combine-upright:all;-webkit-text-combine:horizontal}
+ruby{ruby-align:center} rt{font-size:.5em;color:var(--sub);letter-spacing:0;opacity:.95}
+blockquote{
+  margin:.2em 0 .2em 1em;padding:.6em .7em;background:#f7f4ee;border-right:6px solid var(--c,#ffb02e);border-radius:14px;
+  color:#4a3f33;font-weight:600;
+}
+blockquote p{margin-left:1em} blockquote p:first-child{margin-left:0}
+ul{margin:.2em 0 .2em 1em;padding:0;list-style:none}
+ul.plain li{margin-left:.6em;padding-right:1.1em;position:relative}
+ul.plain li::before{content:"●";position:absolute;right:0;top:.05em;color:var(--c,#ffb02e);font-size:.7em}
+ul.choices li{margin-left:.8em;background:#faf9f6;border-radius:16px;padding:.7em .6em;border:2px dashed #e5ddd0}
+.opt-head{display:flex;flex-direction:row;align-items:center;gap:.5em}
+.kana{display:inline-block;background:var(--c,#ffb02e);color:#fff;font-weight:900;border-radius:50%;width:1.7em;height:1.7em;line-height:1.7em;text-align:center;text-orientation:upright;letter-spacing:0;flex:none}
+.opt{font-weight:700}
+.opt-body{margin-left:.7em;color:#5a4d3e}
+/* 答え */
+.answer{margin:.4em 0 .4em 1.1em;display:flex;flex-direction:column;align-items:stretch}
+.ans-tag{background:var(--ansb);color:#fff;font-weight:900;border-radius:999px;padding:.4em .2em;inline-size:fit-content;margin-left:.5em;text-align:center}
+.ans-wrap{position:relative;background:var(--ans);border:3px solid var(--ansb);border-radius:18px;padding:.8em .7em;}
+.ans-body{font-weight:900;font-size:1.08em;color:#5a3d00;transition:filter .35s;}
+.ans-body .note{display:block;margin-left:.6em;font-size:.8em;font-weight:700;color:#8a6a1a}
+ol.num{margin:0;padding:0;list-style:none} ol.num li{margin-left:.5em} ol.num li:first-child{margin-left:0}
+.ans-body ol.num li{margin-left:.9em} .ans-body ol.num li:first-child{margin-left:0}
+ol.num .n{text-orientation:upright;color:var(--cd,#b87400);font-weight:900;margin-bottom:.2em}
+.tg{position:absolute;opacity:0;width:0;height:0;margin:0;pointer-events:none}
+.tg:not(:checked) ~ .ans-body{filter:blur(7px);user-select:none}
+.tg:checked ~ .reveal{display:none}
+.reveal{position:absolute;inset:0;margin:auto;display:block;inline-size:fit-content;block-size:fit-content;font:inherit;font-weight:800;font-size:.9em;
+  writing-mode:horizontal-tb;background:#fff;border:2px solid var(--ansb);border-radius:999px;padding:8px 14px;cursor:pointer;box-shadow:0 3px 0 var(--ansb);white-space:nowrap}
+.reveal:active{transform:translateY(2px);box-shadow:none}
+/* まとめ */
+ul.timeline li{margin-left:.8em;background:var(--cl);border-radius:16px;padding:.6em .5em;font-weight:700}
+.feel{text-orientation:upright;font-size:1.4em;line-height:1;margin-bottom:.35em;display:inline-block}
+.ending{margin-left:1.2em;font-weight:900;color:#1f8a4c;font-size:1.1em}
+/* ヒント */
+.hint{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);writing-mode:horizontal-tb;
+  background:#3b3024;color:#fff;border-radius:999px;padding:8px 16px;font-size:13px;font-weight:700;opacity:.92;animation:bob 1.2s ease-in-out infinite;pointer-events:none;white-space:nowrap}
+.hint.gone{display:none}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-6px)}}
+@media (max-width:600px){
+  header.top{gap:6px 8px}
+  .ttl{flex-basis:100%}
+  nav.chips{margin-left:0;flex:1 1 0;min-width:0;flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+  nav.chips::-webkit-scrollbar{display:none}
+  #allbtn{flex:none;font-size:12px;padding:4px 10px}
+  main.book{padding:12px 14px}
+  .card{padding:18px 18px;border-radius:18px;margin-left:18px}
+  .ttl{font-size:15px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="ttl"><span class="badge">国語 No.31</span>「説明的文章を読む⑬」A問題</div>
+  <nav class="chips"><a class="chip" href="#q1" style="--c:var(--c1)">問1</a><a class="chip" href="#q2" style="--c:var(--c2)">問2</a><a class="chip" href="#q3" style="--c:var(--c3)">問3</a><a class="chip" href="#q4" style="--c:var(--c4)">問4</a><a class="chip" href="#q5" style="--c:var(--c5)">問5</a><a class="chip" href="#q6" style="--c:var(--c6)">問6</a><a class="chip" href="#q7" style="--c:var(--c1)">問7</a></nav>
+  <button id="allbtn" type="button">答えをぜんぶ見る</button>
+</header>
+<div class="bar"><i id="prog"></i></div>
+<main class="book" id="book">
+<section class="card intro"><div class="mascot">🧒💭</div><h2 class="intro-h">答えの場所を見つけるところから</h2><p>長い文章を見ると、「どこに答えがあるんやろ」と、最初から読み直したくなるよな。でも、この文章には大きく二つの話がある。前半は<strong>時代によって食事・健康・寿命がどう違ったか</strong>。後半は<strong>昔の医学が何をもとにし、外国の知識をどう取り入れたか</strong>。<ruby>設問<rt>せつもん</rt></ruby>の言葉がどちらの話を聞いているか分かると、探す範囲を半分にできるで。</p><p>本文には、行を追うための数字が付いている。下で「<span class="tcy">20</span>行目前後」のように書いたところは、ページの下にある数字を目印にしてみてな。ぴったり一行を当てるより、<strong>その近くにある話題の言葉</strong>を見つけるための目印やで。</p></section><section class="card q" id="q1" style="--c:var(--c1);--cl:var(--cl1);--cd:var(--cd1)"><h2><span class="qnum"><span class="qe">🔍</span>問<span class="tcy">1</span></span><span class="qtitle">Ａ〜Ｄのつなぎ言葉、どうやって四つとも決める？</span></h2><h3><span class="h3e">📖</span>問題文のどこを読む？</h3><p>「Ａ〜Ｄを補うことばの<strong>組み合わせ</strong>を、ア〜エから選ぶ」とある。一つの<ruby>空欄<rt>くうらん</rt></ruby>だけの問題やない。たとえばＡが合っていても、Ｂが合わなければその<ruby>選択肢<rt>せんたくし</rt></ruby>は消える。ここでやることは、まずＡ・Ｂ・Ｃ・Ｄを<strong>一か所ずつ</strong>決めて、最後にその並びと同じ<ruby>選択肢<rt>せんたくし</rt></ruby>を探すことやで。</p><p>候補の言葉も先に短くしておこう。「また」は話を足す。「しかし」は前と逆向きの話になる。「したがって」は前に書いたことから考えた結果が来る。<ruby>空欄<rt>くうらん</rt></ruby>の前後を読むときは、「同じ向き？　反対？　結果？」だけ考えればええ。</p><h3><span class="h3e">💡</span>Ａ――動物の話の次に何が来た？</h3><p>まず本文の最初のほう、動物や植物を集めて食べていた時代へ戻る。Ａの前は、気象の変化や動物の移動によって、<strong>動物が手に入らないこともある</strong>という話。Ａの後は、<strong>植物の量にも限界がある</strong>という話やね。</p><p>動物だけでなく植物にも食料の限界がある、と一つ付け足している。後ろが前を否定しているわけでも、動物が手に入らないことから植物の量が決まるわけでもない。だからＡは「<strong>また</strong>」。</p><h3><span class="h3e">💡</span>Ｂ――骨の調査から、食べ物のことを考えている</h3><p>Ｂは<span class="tcy">10</span>行目前後。<ruby>空欄<rt>くうらん</rt></ruby>の<strong>すぐ前</strong>に、<ruby>旧石器時代<rt>きゅうせっきじだい</rt></ruby>人の骨はよく育ち、現代人より健康な体質だったとある。<strong>すぐ後</strong>には「私たちが考えるほど、食物がなくて困ったり、栄養がかたよったりすることは少なく」と続く。</p><p>ここで<ruby>筆者<rt>ひっしゃ</rt></ruby>は、骨が健康だったという<strong>調査で分かったこと</strong>から、食べ物も思ったほど不足していなかったのだろう、と<strong>考えている</strong>んやね。「骨が健康だった。だから、食料不足は思うほどひどくなかったはず」というつながり。Ｂは「<strong>したがって</strong>」になる。</p><p>「昔は食料が足りなかったはず」という自分のイメージで「しかし」を選びたくなるかもしれへん。でも接続語は、自分のイメージではなく、<strong>空欄の前の文と後ろの文</strong>をつないで決めるで。</p><h3><span class="h3e">💡</span>Ｃ――寿命と骨で、向きが変わる</h3><p>Ｃは<ruby>古墳時代<rt>こふんじだい</rt></ruby>のところ。前には、支配階級の生活が安定して<strong>寿命がのびた</strong>とある。後ろには、<strong>骨格は石器時代人より弱くなった</strong>とある。</p><p>「長生きできるようになった」というよい面を読んだところで、「でも骨は弱くなった」と向きが変わる。ここは「<strong>しかし</strong>」が合う。</p><h3><span class="h3e">💡</span>Ｄ――お<ruby>灸<rt>きゅう</rt></ruby>の次に<ruby>漢方薬<rt>かんぽうやく</rt></ruby>を足す</h3><p>Ｄは後半、<ruby>灸<rt>きゅう</rt></ruby>や<ruby>鍼<rt>はり</rt></ruby>の効き目を説明するところ。直前まで<ruby>灸<rt>きゅう</rt></ruby>の刺激と<ruby>白血球<rt>はっけっきゅう</rt></ruby>の話をしている。Ｄの後ろは「<ruby>東洋医学<rt>とうよういがく</rt></ruby>で使う<ruby>漢方薬<rt>かんぽうやく</rt></ruby>は」と始まる。<strong>別の治療法もある</strong>と足すところやから、Ｄは「<strong>また</strong>」。<ruby>灸<rt>きゅう</rt></ruby>の説明から<ruby>漢方薬<rt>かんぽうやく</rt></ruby>の話が結論として出たわけではないで。</p><h3><span class="h3e">📖</span><ruby>選択肢<rt>せんたくし</rt></ruby>の表へ戻る</h3><p>自分で決めた順番は、<strong>Ａまた／Ｂしたがって／Ｃしかし／Ｄまた</strong>。この並びを、<ruby>設問<rt>せつもん</rt></ruby>のア〜エと比べる。</p><ul class="choices"><li><div class="opt-head"><span class="kana">ア</span><span class="opt">はＢ・Ｃ・Ｄが合っていても、Ａが「しかし」。動物に加えて植物の話をするＡに合わへん。</span></div><div class="opt-body"></div></li><li><div class="opt-head"><span class="kana">イ</span><span class="opt">はＡが「しかし」、Ｂも「しかし」。動物と植物は付け足しで、骨の調査と食料の話は結果の関係やった。</span></div><div class="opt-body"></div></li><li><div class="opt-head"><span class="kana">ウ</span><span class="opt">は四か所とも今の並びと同じ。</span></div><div class="opt-body"></div></li><li><div class="opt-head"><span class="kana">エ</span><span class="opt">はＡ・Ｃが合うけど、Ｂが「しかし」、Ｄが「したがって」。ＢとＤで文のつながりが崩れる。</span></div><div class="opt-body"></div></li></ul><p>一つだけ合う<ruby>選択肢<rt>せんたくし</rt></ruby>を探すのでなく、<strong>四つとも合うもの</strong>を選ぶ。だからウやで。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans1"><div class="ans-body">ウ</div><label class="reveal" for="ans1">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q2" style="--c:var(--c2);--cl:var(--cl2);--cd:var(--cd2)"><h2><span class="qnum"><span class="qe">✏️</span>問<span class="tcy">2</span></span><span class="qtitle"><ruby>空欄<rt>くうらん</rt></ruby>Ⅰのあとにある「たとえば」は、何の例？</span></h2><h3><span class="h3e">💡</span><ruby>空欄<rt>くうらん</rt></ruby>に入れるのはどんな文？</h3><p>問<span class="tcy">2</span>は【Ⅰ】に入る文を、ア〜エから選ぶ問題。まず<ruby>空欄<rt>くうらん</rt></ruby>の周りをそのまま読むと、「それは<ruby>原始社会<rt>げんししゃかい</rt></ruby>においては、【Ⅰ】。<strong>たとえば</strong>……」となっている。「たとえば」の後ろは、<ruby>空欄<rt>くうらん</rt></ruby>に入る考えを<strong>実例で説明する部分</strong>やね。つまり、答えを選ぶために読む場所は、<ruby>空欄<rt>くうらん</rt></ruby>の<strong>後ろ</strong>。</p><p><ruby>選択肢<rt>せんたくし</rt></ruby>を先に眺めると、「健康」「長生き」「体力」「幸福」が混ざっていて迷いやすい。まだ選ばず、まず「たとえば」の後ろの例で<strong>何と何を比べているか</strong>を探そう。</p><h3><span class="h3e">💡</span>例の中を、二つに分ける</h3><p>本文には、狩りや集落どうしの争いで命を落とすことがあった、病気が広まれば村が全滅することもあった、とある。さらに、<ruby>旧石器時代<rt>きゅうせっきじだい</rt></ruby>人の骨は<strong>健康な体を示している</strong>のに、<strong>寿命はたいへん短かった</strong>という説明もある。</p><p>ここで「健康」と「長生き」を別々に並べると、こうなる。</p><ul class="plain"><li>骨から分かる体の状態――健康だった。</li><li><ruby>実際<rt>じっさい</rt></ruby>に生きた長さ――短かった。</li></ul><p>健康そうな体でも、事故や病気などで長く生きられない場合がある。だから「健康なら必ず長生きする」とは言えへん。<ruby>空欄<rt>くうらん</rt></ruby>には、<strong>健康と長生きが必ず一緒になるわけではない</strong>という文が入るはずやで。</p><h3><span class="h3e">💡</span>四つの<ruby>選択肢<rt>せんたくし</rt></ruby>を、この例に当てる</h3><ul class="choices"><li><div class="opt-head"><span class="kana">ア</span><span class="opt">は「体力」との関係に話を変える。骨の状態は出てくるけど、例が対比している中心は<strong>健康だったことと寿命が短かったこと</strong>。聞かれている二つがずれてしまう。</span></div><div class="opt-body"></div></li><li><div class="opt-head"><span class="kana">イ</span><span class="opt">は「幸福」を持ち込む。長生きしたら幸せかどうかは、この例からは分からへん。</span></div><div class="opt-body"></div></li><li><div class="opt-head"><span class="kana">ウ</span><span class="opt">は「健康と長生きとは、必ずしも関係がない」。健康だったのに短命だった例と合う。「必ずしも」は、<strong>いつもそうとは限らない</strong>という意味やで。</span></div><div class="opt-body"></div></li><li><div class="opt-head"><span class="kana">エ</span><span class="opt">は「必ず関係がある」。本文の「健康な骨」と「短い寿命」が両立しているから、これは言い切れへん。</span></div><div class="opt-body"></div></li></ul><p>最後にウを<ruby>空欄<rt>くうらん</rt></ruby>へ入れ、「たとえば」以下がその例になっているか読み直す。ちゃんとつながるで。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans2"><div class="ans-body">ウ</div><label class="reveal" for="ans2">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q3" style="--c:var(--c3);--cl:var(--cl3);--cd:var(--cd3)"><h2><span class="qnum"><span class="qe">🔥</span>問<span class="tcy">3</span></span><span class="qtitle">「形式的な食事」の反対の言葉は、どう探す？</span></h2><h3><span class="h3e">💡</span><ruby>設問<rt>せつもん</rt></ruby>を小さく分ける</h3><p>問われているのは、<ruby>傍線<rt>ぼうせん</rt></ruby>①「形式的な食事」と<strong>反対の内容</strong>を表す言葉。<ruby>条件<rt>じょうけん</rt></ruby>は、<strong>②の本文から</strong>、<strong>六字で</strong>、<strong>抜き出す</strong>こと。ここで自分の言葉で「好きな物を食べること」と作っても、抜き出しにはならへん。本文に書かれた六字を探す問題やね。</p><p>「反対の内容」やから、<ruby>傍線<rt>ぼうせん</rt></ruby>の直後だけを見ても見つからないかもしれへん。まず「形式的な食事」が<strong>誰の、どんな食事</strong>かをつかんで、それと違う食べ方をする人が出るところまで読む。</p><h3><span class="h3e">💡</span><ruby>傍線<rt>ぼうせん</rt></ruby>の意味を、前後からつかむ</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>の近くは平安貴族の話。優美な生活に見えても、「形式的な食事」のために<ruby>栄養失調<rt>えいようしっちょう</rt></ruby>の人も多かった、と書かれている。「形式的」は、ここでは<strong>決まった形にとらわれる</strong>感じやね。</p><p>それから本文の時代が進む。中世を経て江戸時代の一般の町人や農民のところに、<strong>「自由な食生活」</strong>という言葉が出てくる。同じ食事の話で、「決まった形にしばられる」と「自由に食べる」が反対になっている。ここなら<ruby>傍線<rt>ぼうせん</rt></ruby>と比べられる。</p><p>「町人や農民は健康であった」も近くにあるけど、これは<strong>食べ方の結果</strong>。<ruby>設問<rt>せつもん</rt></ruby>は食事の反対表現を聞いているから、健康という結果では答えにならへんで。</p><h3><span class="h3e">💡</span>最後は文字数と写し方</h3><p>「自由な食生活」を一字ずつ数えると、<strong>自①由②な③食④生⑤活⑥</strong>。ちょうど六字。本文にある「をした」まで写すと八字になるので、そこでは止める。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans3"><div class="ans-body">自由な食生活</div><label class="reveal" for="ans3">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q4" style="--c:var(--c4);--cl:var(--cl4);--cd:var(--cd4)"><h2><span class="qnum"><span class="qe">👉</span>問<span class="tcy">4</span></span><span class="qtitle">「手のひらの効力」は、何を全部書けばいい？</span></h2><h3><span class="h3e">💡</span>「何が」と「どんな結果」を分ける</h3><p>問<span class="tcy">4</span>には、「<ruby>傍線<rt>ぼうせん</rt></ruby>②『手のひらの効力』」「<strong>手のひらの何が</strong>『効力』を発揮するのか」「②の本文中にあげられている語句を<strong>すべて</strong>ぬき出す」とある。答えは、手当てをすると何がよくなるかではなく、<strong>手のひらから出たり伝わったりするもの</strong>やね。「すべて」とあるから、一語だけ見つけて終わると足りない。</p><h3><span class="h3e">📖</span><ruby>傍線<rt>ぼうせん</rt></ruby>の前後、両方を探すわけ</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>のすぐ前に、手のひらは「<strong>湿気と熱を発散する</strong>」とある。これで二つ見つかる。<strong>湿気</strong>と<strong>熱</strong>やね。</p><p>すぐ後ろにも「手のひらから<strong>軽い静電気</strong>が出て」と続く。これが三つ目。答えになる言葉が<ruby>傍線<rt>ぼうせん</rt></ruby>の<strong>前と後ろに分かれている</strong>から、片側だけでは足りへん。</p><p>その後には、血行をよくしたり細胞の活力をふやしたりする、と書かれる。これは<ruby>湿気<rt>しっけ</rt></ruby>・熱・<ruby>静電気<rt>せいでんき</rt></ruby>が働いた<strong>あとの効果</strong>。<ruby>設問<rt>せつもん</rt></ruby>は「手のひらの<strong>何が</strong>」と聞いているから、血行や細胞を並べるのとは違うで。</p><h3><span class="h3e">💡</span><ruby>答案<rt>とうあん</rt></ruby>にする</h3><p>前から二つ、後ろから一つを取る。三つとも本文の言葉のまま書けば、<strong>湿気・熱・軽い静電気</strong>。読点や中点で分けて、三つあることが分かる形にすればええ。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans4"><div class="ans-body">湿気・熱・軽い静電気</div><label class="reveal" for="ans4">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q5" style="--c:var(--c5);--cl:var(--cl5);--cd:var(--cd5)"><h2><span class="qnum"><span class="qe">🕳️</span>問<span class="tcy">5</span></span><span class="qtitle">「そのこと」は、どの三十一字を指す？</span></h2><h3><span class="h3e">📖</span>まず、書くものと探すものは違う</h3><p>問<span class="tcy">5</span>の<ruby>条件<rt>じょうけん</rt></ruby>は少し多い。「<ruby>傍線<rt>ぼうせん</rt></ruby>③『そのこと』とは何か」「文中から<strong>三十一字</strong>で探す」「その三十一字の<strong>初めと終わりの三字</strong>を答える」「後ろの『<strong>こと。</strong>』につながるようにする」。答えの欄へ三十一字全部を書く問題やないで。三十一字の場所を正確に決めてから、両端の三字だけ書く問題やね。</p><h3><span class="h3e">📖</span>「その」は、どちらへ戻る？</h3><p>「そのこと」の「その」は、すでに話に出た内容を指すことが多い。だから<ruby>傍線<rt>ぼうせん</rt></ruby>③から<strong>前へ戻る</strong>。近くに「病は気から」という言葉がある。「心配や気がかりなど、気持ちのことが病気に関係する」という考えやね。</p><p>でも「病は気から」だけでは四字で、指定の三十一字にならへん。そこで同じ段落の少し前にある、<strong>その考えを長い文で説明したところ</strong>を探す。</p><blockquote><p>病気は心配ごとや気がかりなことなど、精神的なことが原因でおこることが多く</p></blockquote><p>ここなら「病は気から」を、何が原因で何が起こるかまで言い直している。「そのこと」が指す内容として合うで。</p><h3><span class="h3e">📖</span>どこからどこまで切る？</h3><p>答えの後ろには、問題がすでに「こと。」と印刷してある。だから本文の「……おこる<strong>ことが多く</strong>」を全部取ると、「こと」が重なったり、文が続きすぎたりする。<strong>「おこる」で止めて、問題の「こと。」につなぐ</strong>んやね。</p><p>取り出すのは「病気は心配ごとや気がかりなことなど、精神的なことが原因でおこる」。読点の「、」も一字に数えると三十一字。十字ずつ区切ると、こんなふうになる。</p><ul class="plain"><li><span class="tcy">1</span>〜<span class="tcy">10</span>字目：病気は心配ごとや気が</li><li><span class="tcy">11</span>〜<span class="tcy">20</span>字目：かりなことなど、精神</li><li><span class="tcy">21</span>〜<span class="tcy">30</span>字目：的なことが原因でおこ</li><li><span class="tcy">31</span>字目：る</li></ul><p>最初の三字は「<strong>病気は</strong>」。最後の三字は「<strong>おこる</strong>」。この両端を答えるで。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans5"><div class="ans-body">病気は／おこる</div><label class="reveal" for="ans5">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q6" style="--c:var(--c6);--cl:var(--cl6);--cd:var(--cd6)"><h2><span class="qnum"><span class="qe">🎉</span>問<span class="tcy">6</span></span><span class="qtitle">二か所の【Ⅱ】に、同じ二字が入る？</span></h2><h3><span class="h3e">💡</span>問題文で先に決めること</h3><p>問<span class="tcy">6</span>は、【Ⅱ】に入る<strong>二字熟語</strong>を、<strong>②の本文に使われている言葉から抜き出す</strong>問題。<ruby>空欄<rt>くうらん</rt></ruby>に合いそうな言葉を自分で作るのではない。しかも【Ⅱ】は二か所あるから、両方へ入れて自然に読める語を探すんやね。</p><h3><span class="h3e">💡</span>一つ目の<ruby>空欄<rt>くうらん</rt></ruby>の前後</h3><p>後半のお<ruby>灸<rt>きゅう</rt></ruby>と<ruby>鍼<rt>はり</rt></ruby>の話へ戻る。そこには、昔の人が「【Ⅱ】から効果のあるものを知って、それを受けついできた」とある。これは、昔の人が<strong>実際に使って効き目を知った</strong>という流れやね。いきなり難しい医学の名前を当てる必要はない。「何から効果を知ったんやろ」と考えるところ。</p><h3><span class="h3e">💡</span>二つ目の<ruby>空欄<rt>くうらん</rt></ruby>で同じ語を試す</h3><p>すぐ後ろの<ruby>漢方薬<rt>かんぽうやく</rt></ruby>の話には、「植物の根、皮、葉など、昔からの【Ⅱ】によってつくられてきた」とある。ここも、長く使って効き目を知り、その知識を受け継ぐという意味になる。</p><p>二か所とも「<strong>経験</strong>」を入れると、「<ruby>経験<rt>けいけん</rt></ruby>から効果のあるものを知って」「昔からの<ruby>経験<rt>けいけん</rt></ruby>によってつくられてきた」と自然につながるで。</p><h3><span class="h3e">📖</span>その二字は本文のどこにある？</h3><p>まだ意味が合うだけでは足りへん。<ruby>設問<rt>せつもん</rt></ruby>には<strong>本文から抜き出す</strong>とあるから、同じ②の少し前へ目を戻す。<ruby>東洋医学<rt>とうよういがく</rt></ruby>の説明に「<strong>経験による医学</strong>」という言葉がある。ここに「<ruby>経験<rt>けいけん</rt></ruby>」の二字がそのまま書かれている。</p><p>「<ruby>灸<rt>きゅう</rt></ruby>」や「<ruby>鍼<rt>はり</rt></ruby>」は<ruby>具体的<rt>ぐたいてき</rt></ruby>な治療法の名前。「効果」は、治療をした結果。二つの<ruby>空欄<rt>くうらん</rt></ruby>に入り、本文にもある二字は「<ruby>経験<rt>けいけん</rt></ruby>」やね。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans6"><div class="ans-body">経験</div><label class="reveal" for="ans6">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q7" style="--c:var(--c1);--cl:var(--cl1);--cd:var(--cd1)"><h2><span class="qnum"><span class="qe">⭐</span>問<span class="tcy">7</span></span><span class="qtitle">三つの時代に共通する医学の発展を、どう四十字にする？</span></h2><h3><span class="h3e">💡</span><ruby>設問<rt>せつもん</rt></ruby>を三つに分ける</h3><p>「奈良時代・平安時代・江戸時代」「<strong>共通</strong>していること」「<strong>四十字以内</strong>」。聞かれているのは、三時代の<ruby>出来事<rt>できごと</rt></ruby>を一つずつ長く説明することやない。三つを読んで、<strong>どれにも当てはまる発展のしかた</strong>を一文にする問題やで。</p><p>「医学」という言葉が何度も出るから、ただ「医学が発展した」と書きたくなる。でも、それだけなら問題文を言い換えただけ。「<strong>どうやって</strong>発展したか」を本文から探さないと答えにならへん。</p><h3><span class="h3e">💡</span>時代名を目印に、必要なところだけ拾う</h3><p>②の後半に「奈良時代」「平安時代」、終わり近くに「江戸時代」がある。三か所を探したら、それぞれの<strong>外国とのつながり</strong>に印を付ける。</p><ol class="num"><li><span class="n">①</span><strong>奈良時代</strong>――日本の医学は「中国の影響を受けており」とある。医者を養成する学校もできた。外からの影響を受けている。</li><li><span class="n">②</span><strong>平安時代</strong>――<ruby>丹波康頼<rt>たんばのやすより</rt></ruby>の『<ruby>医心方<rt>いしんぽう</rt></ruby>』は「<ruby>東洋医学<rt>とうよういがく</rt></ruby>の知識をもとに」書かれた。すでに伝わっていた医学の知識を学び、まとめたんやね。</li><li><span class="n">③</span><strong>江戸時代</strong>――オランダ人によって西洋医学が伝わり、長崎へ学びに行く人が増えた。『解体新書』の<ruby>翻訳<rt>ほんやく</rt></ruby>も出てくる。</li></ol><p>奈良・平安は東洋の知識、江戸は西洋の知識。<strong>どこの国か</strong>は違っても、外からの知識や技術を学んで医学を発展させた、という部分は共通している。</p><h3><span class="h3e">💡</span>そのまま並べず、一段まとめる</h3><p>「奈良時代は中国、平安時代は<ruby>東洋医学<rt>とうよういがく</rt></ruby>、江戸時代はオランダ」と並べるだけだと、三つの<strong>違い</strong>を説明して終わる。共通点を答えるなら、中国やオランダをまとめて「<strong>外国</strong>」、医学書や西洋医学をまとめて「<strong>知識や技術</strong>」と言い換える。そこに「熱心に学んで発展した」をつなげれば、<ruby>設問<rt>せつもん</rt></ruby>が聞く「どう発展したか」に答えられるで。</p><h3><span class="h3e">💡</span>四十字に収める</h3><p>必要なのは、①外国の影響を受けたこと、②伝わった知識や技術を学んだこと、③その結果発展したこと。この三つを一文にする。下の答えは、読点と<ruby>句点<rt>くてん</rt></ruby>を一字ずつ数えて<strong>三十九字</strong>。四十字以内に入る。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans7"><div class="ans-body">外国の影響を受けたり、外国から伝わった知識や技術を熱心に学んだりして発展した。</div><label class="reveal" for="ans7">👆 タップして答えを見る</label></div></div></section><section class="card outro" id="outro"><h2 class="intro-h">🧭 七問をならべてみると</h2><p>この七問でやっていることは、本文を最初から全部読み直すことやない。<strong>設問の言葉で探す場所を決める</strong>んやで。「たとえば」があれば、その後ろにある例を見る。「そのこと」なら、前にある説明へ戻る。「反対」なら、比べられる別の場面や時代を探す。見つかったら、<ruby>設問<rt>せつもん</rt></ruby>の字数や「抜き出し」の<ruby>条件<rt>じょうけん</rt></ruby>に合わせて答えを整える。ここまでできたら、長い文章でも一問ずつ手がかりを持って進めるで。</p><div class="ending">🎊 おつかれさま！　ここまで読めたらバッチリやで 🎊</div></section>
+</main>
+<div class="hint" id="hint">👈 左にスクロールして読んでいこう</div>
+<script>
+(function(){
+  var book=document.getElementById('book'),prog=document.getElementById('prog'),hint=document.getElementById('hint');
+  // マウスホイールの上下 → 左右スクロール
+  book.addEventListener('wheel',function(e){
+    if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){ book.scrollLeft-=e.deltaY; e.preventDefault(); }
+  },{passive:false});
+  function upd(){
+    var max=book.scrollWidth-book.clientWidth; var x=Math.abs(book.scrollLeft);
+    prog.style.width=(max>0?Math.min(100,x/max*100):0)+'%';
+    if(x>40) hint.classList.add('gone');
+  }
+  book.addEventListener('scroll',upd); window.addEventListener('resize',upd); upd();
+  // 答えをぜんぶ見る／かくす（個別のタップはCSSだけで動く）
+  var all=document.getElementById('allbtn'),shown=false;
+  all.addEventListener('click',function(){
+    shown=!shown;
+    document.querySelectorAll('.tg').forEach(function(c){ c.checked=shown; });
+    all.textContent=shown?'答えをかくす':'答えをぜんぶ見る';
+  });
+  // 問番号ジャンプ（縦書きなので、カードの右端を画面の右端にそろえる）
+  function jump(sel,smooth){
+    var t=document.querySelector(sel); if(!t) return;
+    var pad=parseFloat(getComputedStyle(book).paddingRight)||0;
+    var d=t.getBoundingClientRect().right-(book.getBoundingClientRect().right-pad);
+    book.scrollBy({left:d,top:0,behavior:smooth?'smooth':'auto'});
+    hint.classList.add('gone');
+  }
+  document.querySelectorAll('.chip').forEach(function(a){
+    a.addEventListener('click',function(e){ e.preventDefault(); jump(a.getAttribute('href'),true); });
+  });
+  // 右端（はじまり）から表示。#q3 のように指定があればそこへ
+  function start(){ if(location.hash){ jump(location.hash,false); } else { book.scrollLeft=0; } upd(); }
+  start(); window.addEventListener('load',start);
+})();
+</script>
+</body>
+</html>
