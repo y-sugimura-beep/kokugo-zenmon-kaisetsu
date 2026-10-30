@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>「説明的文章を読む⑭」A問題｜ことばが人と人の間をつなぐ</title>
+<style>
+:root{
+  --bg:#fff8e7; --ink:#3b3024; --sub:#7a6a55; --card:#ffffff;
+  --c1:#ff7b54; --cl1:#ffe6dc; --cd1:#c94f2c;
+  --c2:#ffb02e; --cl2:#fff1cf; --cd2:#b87400;
+  --c3:#4cc37a; --cl3:#dff7e7; --cd3:#1f8a4c;
+  --c4:#4aa8ff; --cl4:#dfefff; --cd4:#1f6fc4;
+  --c5:#9b7bff; --cl5:#ebe4ff; --cd5:#6b4fd1;
+  --c6:#ff6fa8; --cl6:#ffe1ee; --cd6:#c93d78;
+  --ans:#fff6b3; --ansb:#f2b600;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  display:flex;flex-direction:column;height:100dvh;overflow:hidden;
+  background:var(--bg);
+  background-image:radial-gradient(#ffd9a8 1.6px,transparent 1.7px),radial-gradient(#ffd9a8 1.6px,transparent 1.7px);
+  background-size:28px 28px;background-position:0 0,14px 14px;
+  color:var(--ink);
+  font-family:"Hiragino Maru Gothic ProN","Hiragino Maru Gothic Pro","Hiragino Sans","BIZ UDPGothic","Yu Gothic","YuGothic","Meiryo","Noto Sans CJK JP",sans-serif;
+  -webkit-text-size-adjust:100%;
+}
+/* ===== 上のバー（横書き） ===== */
+header.top{
+  flex:none;writing-mode:horizontal-tb;background:#fff;border-bottom:3px dashed #ffd27a;
+  padding:calc(8px + env(safe-area-inset-top,0px)) 16px 8px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;
+}
+.ttl{font-weight:800;font-size:clamp(15px,2.4vmin,20px);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.ttl .badge{background:#ff7b54;color:#fff;border-radius:999px;padding:2px 10px;font-size:.8em}
+nav.chips{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.chip{white-space:nowrap;text-decoration:none;color:#fff;background:var(--c);border-radius:999px;padding:3px 11px;font-weight:700;font-size:13px;box-shadow:0 2px 0 rgba(0,0,0,.12)}
+.chip:active{transform:translateY(2px);box-shadow:none}
+#allbtn{font:inherit;font-weight:700;font-size:13px;border:2px solid #f2b600;background:var(--ans);color:#6b4f00;border-radius:999px;padding:4px 12px;cursor:pointer}
+.bar{flex:none;height:6px;background:#ffe8c2}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff7b54,#ffb02e,#4cc37a,#4aa8ff,#9b7bff,#ff6fa8);transition:width .15s}
+/* ===== 本文（縦書き） ===== */
+main.book{
+  flex:1;min-height:0;writing-mode:vertical-rl;text-orientation:mixed;
+  overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;
+  padding:18px 22px 18px 22px;
+  font-size:clamp(16px,2.3vmin,21px);line-height:2;letter-spacing:.05em;
+  font-feature-settings:"palt" 0;
+}
+.card{
+  background:var(--card);border:3px solid var(--c,#ffb02e);border-radius:22px;
+  padding:26px 28px;margin-left:30px;box-shadow:0 6px 0 var(--cl,#ffe6c7),0 10px 24px rgba(120,80,20,.08);
+}
+.card:last-child{margin-left:4px}
+.intro{--c:#ffb02e;--cl:#fff1cf}
+.outro{--c:#4cc37a;--cl:#dff7e7}
+.mascot{font-size:2.6em;line-height:1;text-orientation:upright;margin-left:.3em}
+h2{margin:0 0 0 1.2em;font-size:1.25em;line-height:1.6}
+.intro-h{color:#b87400;background:var(--cl);border-radius:999px;padding:.5em .35em;inline-size:fit-content}
+.q h2{display:flex;flex-direction:row;align-items:center;gap:.7em;background:var(--c);color:#fff;border-radius:999px;padding:.6em .45em;margin-left:1.4em}
+.qnum{background:#fff;color:var(--cd);border-radius:999px;padding:.35em .2em;font-weight:900;display:inline-flex;flex-direction:row;align-items:center;gap:.2em}
+.qe{text-orientation:upright;font-size:1.3em;line-height:1}
+.qtitle{font-weight:800;text-shadow:0 1px 0 rgba(0,0,0,.15)}
+h3{font-size:1.05em;margin:.6em 0 .2em 1em;color:var(--cd,#b87400);background:var(--cl,#fff1cf);border-radius:999px;padding:.35em .3em;inline-size:fit-content;line-height:1.7;font-weight:800}
+.h3e{text-orientation:upright;margin-bottom:.3em}
+p{margin:0 0 0 .9em}
+strong{color:var(--cd,#c94f2c);font-weight:900;background:linear-gradient(to right,transparent 55%,var(--cl,#ffe6dc) 55%)}
+.tcy{text-combine-upright:all;-webkit-text-combine:horizontal}
+ruby{ruby-align:center} rt{font-size:.5em;color:var(--sub);letter-spacing:0;opacity:.95}
+blockquote{
+  margin:.2em 0 .2em 1em;padding:.6em .7em;background:#f7f4ee;border-right:6px solid var(--c,#ffb02e);border-radius:14px;
+  color:#4a3f33;font-weight:600;
+}
+blockquote p{margin-left:1em} blockquote p:first-child{margin-left:0}
+ul{margin:.2em 0 .2em 1em;padding:0;list-style:none}
+ul.plain li{margin-left:.6em;padding-right:1.1em;position:relative}
+ul.plain li::before{content:"●";position:absolute;right:0;top:.05em;color:var(--c,#ffb02e);font-size:.7em}
+ul.choices li{margin-left:.8em;background:#faf9f6;border-radius:16px;padding:.7em .6em;border:2px dashed #e5ddd0}
+.opt-head{display:flex;flex-direction:row;align-items:center;gap:.5em}
+.kana{display:inline-block;background:var(--c,#ffb02e);color:#fff;font-weight:900;border-radius:50%;width:1.7em;height:1.7em;line-height:1.7em;text-align:center;text-orientation:upright;letter-spacing:0;flex:none}
+.opt{font-weight:700}
+.opt-body{margin-left:.7em;color:#5a4d3e}
+/* 答え */
+.answer{margin:.4em 0 .4em 1.1em;display:flex;flex-direction:column;align-items:stretch}
+.ans-tag{background:var(--ansb);color:#fff;font-weight:900;border-radius:999px;padding:.4em .2em;inline-size:fit-content;margin-left:.5em;text-align:center}
+.ans-wrap{position:relative;background:var(--ans);border:3px solid var(--ansb);border-radius:18px;padding:.8em .7em;}
+.ans-body{font-weight:900;font-size:1.08em;color:#5a3d00;transition:filter .35s;}
+.ans-body .note{display:block;margin-left:.6em;font-size:.8em;font-weight:700;color:#8a6a1a}
+ol.num{margin:0;padding:0;list-style:none} ol.num li{margin-left:.5em} ol.num li:first-child{margin-left:0}
+.ans-body ol.num li{margin-left:.9em} .ans-body ol.num li:first-child{margin-left:0}
+ol.num .n{text-orientation:upright;color:var(--cd,#b87400);font-weight:900;margin-bottom:.2em}
+.tg{position:absolute;opacity:0;width:0;height:0;margin:0;pointer-events:none}
+.tg:not(:checked) ~ .ans-body{filter:blur(7px);user-select:none}
+.tg:checked ~ .reveal{display:none}
+.reveal{position:absolute;inset:0;margin:auto;display:block;inline-size:fit-content;block-size:fit-content;font:inherit;font-weight:800;font-size:.9em;
+  writing-mode:horizontal-tb;background:#fff;border:2px solid var(--ansb);border-radius:999px;padding:8px 14px;cursor:pointer;box-shadow:0 3px 0 var(--ansb);white-space:nowrap}
+.reveal:active{transform:translateY(2px);box-shadow:none}
+/* まとめ */
+ul.timeline li{margin-left:.8em;background:var(--cl);border-radius:16px;padding:.6em .5em;font-weight:700}
+.feel{text-orientation:upright;font-size:1.4em;line-height:1;margin-bottom:.35em;display:inline-block}
+.ending{margin-left:1.2em;font-weight:900;color:#1f8a4c;font-size:1.1em}
+/* ヒント */
+.hint{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);writing-mode:horizontal-tb;
+  background:#3b3024;color:#fff;border-radius:999px;padding:8px 16px;font-size:13px;font-weight:700;opacity:.92;animation:bob 1.2s ease-in-out infinite;pointer-events:none;white-space:nowrap}
+.hint.gone{display:none}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-6px)}}
+@media (max-width:600px){
+  header.top{gap:6px 8px}
+  .ttl{flex-basis:100%}
+  nav.chips{margin-left:0;flex:1 1 0;min-width:0;flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+  nav.chips::-webkit-scrollbar{display:none}
+  #allbtn{flex:none;font-size:12px;padding:4px 10px}
+  main.book{padding:12px 14px}
+  .card{padding:18px 18px;border-radius:18px;margin-left:18px}
+  .ttl{font-size:15px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="ttl"><span class="badge">国語 No.32</span>「説明的文章を読む⑭」A問題</div>
+  <nav class="chips"><a class="chip" href="#q1" style="--c:var(--c1)">問1</a><a class="chip" href="#q2" style="--c:var(--c2)">問2</a><a class="chip" href="#q3" style="--c:var(--c3)">問3</a><a class="chip" href="#q4" style="--c:var(--c4)">問4</a><a class="chip" href="#q5" style="--c:var(--c5)">問5</a><a class="chip" href="#q6" style="--c:var(--c6)">問6</a><a class="chip" href="#q7" style="--c:var(--c1)">問7</a><a class="chip" href="#q8" style="--c:var(--c2)">問8</a><a class="chip" href="#q9" style="--c:var(--c3)">問9</a><a class="chip" href="#q10" style="--c:var(--c4)">問10</a><a class="chip" href="#q" style="--c:var(--c5)">問</a></nav>
+  <button id="allbtn" type="button">答えをぜんぶ見る</button>
+</header>
+<div class="bar"><i id="prog"></i></div>
+<main class="book" id="book">
+<section class="card intro"><div class="mascot">🧒💭</div><h2 class="intro-h">ことばが人と人の間をつなぐ</h2><p>喫茶店の話から始まって、あいさつと言葉の<ruby>役割<rt>やくわり</rt></ruby>へ進む文章やね。<ruby>筆者<rt>ひっしゃ</rt></ruby>は、用事がないときのひとことにも、人と人の摩擦を防ぐ働きがあると考えているで。</p></section><section class="card q" id="q1" style="--c:var(--c1);--cl:var(--cl1);--cd:var(--cd1)"><h2><span class="qnum"><span class="qe">🔍</span>問<span class="tcy">1</span></span><span class="qtitle">「果たせるかな」の意味</span></h2><h3><span class="h3e">🤔</span>何を聞いてる？</h3><p>言葉の意味を、場面に合う<ruby>選択肢<rt>せんたくし</rt></ruby>から選ぶ問題やね。</p><h3><span class="h3e">📖</span>本文に戻ると</h3><p>ウエートレスが乱暴にカップを置き、コーヒーがこぼれた場面。「果たせるかな」は予想していたとおりに起こった、という意味やで。</p><h3><span class="h3e">💡</span><ruby>選択肢<rt>せんたくし</rt></ruby>を比べる</h3><ul class="choices"><li><div class="opt-head"><span class="kana">ア</span></div><div class="opt-body">予想どおり。場面に合う。</div></li></ul><ul class="choices"><li><div class="opt-head"><span class="kana">イ</span></div><div class="opt-body">あろうことか。予想外の驚きになってしまう。</div></li></ul><ul class="choices"><li><div class="opt-head"><span class="kana">ウ</span></div><div class="opt-body">期待とうらはらに。期待と反対になったという意味で違う。</div></li></ul><ul class="choices"><li><div class="opt-head"><span class="kana">エ</span></div><div class="opt-body">驚くべきことに。予想どおりという意味ではないな。</div></li></ul><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans1"><div class="ans-body">ア</div><label class="reveal" for="ans1">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q2" style="--c:var(--c2);--cl:var(--cl2);--cd:var(--cd2)"><h2><span class="qnum"><span class="qe">✏️</span>問<span class="tcy">2</span></span><span class="qtitle">受けざらの存在理由</span></h2><h3><span class="h3e">🤔</span>何を答える？</h3><p>「受けざらは」に続けて、指定の「そえもの」「役立つ」を使い、<span class="tcy">35</span>字以内で説明するで。</p><h3><span class="h3e">📖</span>どこに戻る？</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>の直前ではコーヒーがこぼれて受けざらに入った。直後の<ruby>筆者<rt>ひっしゃ</rt></ruby>の言葉は、こぼしたことを皮肉っぽく言っているんやね。</p><h3><span class="h3e">💡</span>答えにすると</h3><p>単なる飾りや付け足しではなく、こぼれたコーヒーを受け止める役目がある、という意味にまとめる。「受けざらは」は<ruby>答案<rt>とうあん</rt></ruby>の外にあるから重ねなくてええ。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans2"><div class="ans-body">単なるそえものではなく、役立つ面があることをはっきりさせること。</div><label class="reveal" for="ans2">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q3" style="--c:var(--c3);--cl:var(--cl3);--cd:var(--cd3)"><h2><span class="qnum"><span class="qe">🔥</span>問<span class="tcy">3</span></span><span class="qtitle">「出□をくじく」</span></h2><h3><span class="h3e">🤔</span>何を探す？</h3><p>体の一部を表す漢字一字で、慣用句を完成させるで。</p><h3><span class="h3e">💡</span>意味から考える</h3><p>「出ばなをくじく」は、何かを始めようとしたところで邪魔をすること。コーヒーを楽しもうとした最初に気分を損ねた場面に合うな。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans3"><div class="ans-body">鼻</div><label class="reveal" for="ans3">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q4" style="--c:var(--c4);--cl:var(--cl4);--cd:var(--cd4)"><h2><span class="qnum"><span class="qe">👉</span>問<span class="tcy">4</span></span><span class="qtitle">「誇り高き」にこめた気持ち</span></h2><h3><span class="h3e">💡</span><ruby>設問<rt>せつもん</rt></ruby>の<ruby>条件<rt>じょうけん</rt></ruby></h3><p><ruby>筆者<rt>ひっしゃ</rt></ruby>の気持ちを二字熟語で答える。二字の画数の合計は<span class="tcy">11</span>画や。</p><h3><span class="h3e">💡</span>本文を見直す</h3><p>こぼしても謝らず、ミルクを乱暴に入れるウエートレスを、文字どおりほめているわけやない。反対に、悪い対応を遠回しにからかっている。</p><h3><span class="h3e">✍️</span>答えの形</h3><p>このような言い方は「皮肉」。皮<span class="tcy">5</span>画、肉<span class="tcy">6</span>画で合わせて<span class="tcy">11</span>画やで。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans4"><div class="ans-body">皮肉</div><label class="reveal" for="ans4">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q5" style="--c:var(--c5);--cl:var(--cl5);--cd:var(--cd5)"><h2><span class="qnum"><span class="qe">🕳️</span>問<span class="tcy">5</span></span><span class="qtitle">かつての閉鎖的社会に生きた人々</span></h2><h3><span class="h3e">🤔</span>何を答える？</h3><p>「必要」「配慮」を使い、<span class="tcy">25</span>字以内で、後ろの「ことができる人。」につながる部分を書く。</p><h3><span class="h3e">📖</span>本文へ戻る</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>の後で、新しい社会の人は「正しいことをいうのに遠慮はいらない」と考えるとある。かつての人々はそれと正反対やから、必要なことでも相手を思って言わずにおく人やね。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans5"><div class="ans-body">必要であっても相手に配慮してだまっている</div><label class="reveal" for="ans5">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q6" style="--c:var(--c6);--cl:var(--cl6);--cd:var(--cd6)"><h2><span class="qnum"><span class="qe">🎉</span>問<span class="tcy">6</span></span><span class="qtitle">人間関係の「うるおい」</span></h2><h3><span class="h3e">💡</span>探し方</h3><p><span class="tcy">5</span>字以内の抜き出し。<ruby>傍線<rt>ぼうせん</rt></ruby>の「うるおい」がなくなる前の、対人関係を表す言葉を探すで。</p><h3><span class="h3e">💡</span><ruby>根拠<rt>こんきょ</rt></ruby>をつなぐ</h3><p>少し前に「よけいな義理や人情はよくない」と考える話があり、つき合いが「乾燥する」と続く。乾燥の反対のうるおいに当たるのは、人を思う義理や人情や。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans6"><div class="ans-body">義理や人情</div><label class="reveal" for="ans6">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q7" style="--c:var(--c1);--cl:var(--cl1);--cd:var(--cd1)"><h2><span class="qnum"><span class="qe">⭐</span>問<span class="tcy">7</span></span><span class="qtitle">砂漠のような生活空間</span></h2><h3><span class="h3e">🤔</span>何を聞いてる？</h3><p>比喩を<ruby>具体的<rt>ぐたいてき</rt></ruby>な人間の行動に直し、<span class="tcy">40</span>字以内で答える問題やで。</p><h3><span class="h3e">📖</span>本文へ戻る</h3><p>後半に「人間砂漠のような社会」が再び出る。その直後に、知った人同士が会っても知らぬ顔をし、対立感情があるわけではないと説明されている。</p><h3><span class="h3e">💡</span>答えにする</h3><p>ただ「仲が悪い」とするのは違う。知り合いなのに知らぬ顔をすることと、対立感情が特にないことを両方入れるで。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans7"><div class="ans-body">知り合いが会っても、特に対立感情があるわけでもないのに知らぬ顔をしていること。</div><label class="reveal" for="ans7">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q8" style="--c:var(--c2);--cl:var(--cl2);--cd:var(--cd2)"><h2><span class="qnum"><span class="qe">🌈</span>問<span class="tcy">8</span></span><span class="qtitle">「関係ない」まま安定する</span></h2><h3><span class="h3e">📖</span>本文のどこ？</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>直前の、顔見知りに「やあ」と言う場面と、少し前の乾燥と摩擦の話を合わせて読む。</p><h3><span class="h3e">💡</span><ruby>選択肢<rt>せんたくし</rt></ruby>を比べる</h3><ul class="choices"><li><div class="opt-head"><span class="kana">ア</span></div><div class="opt-body">対立を避けるために親しく交際しない、という目的は書かれていない。</div></li></ul><ul class="choices"><li><div class="opt-head"><span class="kana">イ</span></div><div class="opt-body">あまり親しくなくても、ひとことのあいさつで対立せずにすむ。本文に合う。</div></li></ul><ul class="choices"><li><div class="opt-head"><span class="kana">ウ</span></div><div class="opt-body">心が通じるほど親しくなる話ではない。</div></li></ul><ul class="choices"><li><div class="opt-head"><span class="kana">エ</span></div><div class="opt-body">どこかでつながっているという一般論ではなく、関係の安定を説明している。</div></li></ul><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans8"><div class="ans-body">イ</div><label class="reveal" for="ans8">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q9" style="--c:var(--c3);--cl:var(--cl3);--cd:var(--cd3)"><h2><span class="qnum"><span class="qe">🎯</span>問<span class="tcy">9</span></span><span class="qtitle">二種類の摩擦</span></h2><h3><span class="h3e">🤔</span>何を探す？</h3><p>A・Bに入る二字熟語を本文から抜き出す。<ruby>空欄<rt>くうらん</rt></ruby>の前後の関係に注目や。</p><h3><span class="h3e">💡</span><ruby>根拠<rt>こんきょ</rt></ruby></h3><p>最初は人がすれ違うときの「物理的摩擦」。あいさつを交わさずに繰り返すと、それが「心理的摩擦」に変質する。文では物理的摩擦がA的性格を帯び、人がすれ違えばB的摩擦が起こるとあるから、順番に気をつける。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans9"><div class="ans-body">A 心理　B 物理</div><label class="reveal" for="ans9">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q10" style="--c:var(--c4);--cl:var(--cl4);--cd:var(--cd4)"><h2><span class="qnum"><span class="qe">🚀</span>問<span class="tcy">10</span></span><span class="qtitle">対立と沈黙の因果関係</span></h2><h3><span class="h3e">🤔</span>何を答える？</h3><p><ruby>空欄<rt>くうらん</rt></ruby>に入る言葉を<span class="tcy">20</span>字以内で考える。「対立があるから口をきかないのではなくて」の続きを作るで。</p><h3><span class="h3e">📖</span>本文へ戻る</h3><p>直前では、あいさつをしないまま心理的摩擦が高まり、本当の対立になるとある。つまり原因と結果を逆にして読むのがポイントや。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans10"><div class="ans-body">口をきかないでいるから対立してしまう</div><label class="reveal" for="ans10">👆 タップして答えを見る</label></div></div></section><section class="card outro" id="outro"><h2 class="intro-h">🧭 11問をならべてみると</h2><div class="ending">🎊 おつかれさま！　ここまで読めたらバッチリやで 🎊</div></section><section class="card q" id="q" style="--c:var(--c5);--cl:var(--cl5);--cd:var(--cd5)"><h2><span class="qnum"><span class="qe">🔍</span>問<span class="tcy"></span></span><span class="qtitle">まとめ</span></h2><blockquote><p>たとえ話は、後ろの具体的な説明に戻して考える。<br>あいさつは、用事がなくても摩擦を防ぐことがある。<br>「AだからBではなく」の後ろは、因果の向きを確かめる。</p></blockquote></section>
+</main>
+<div class="hint" id="hint">👈 左にスクロールして読んでいこう</div>
+<script>
+(function(){
+  var book=document.getElementById('book'),prog=document.getElementById('prog'),hint=document.getElementById('hint');
+  // マウスホイールの上下 → 左右スクロール
+  book.addEventListener('wheel',function(e){
+    if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){ book.scrollLeft-=e.deltaY; e.preventDefault(); }
+  },{passive:false});
+  function upd(){
+    var max=book.scrollWidth-book.clientWidth; var x=Math.abs(book.scrollLeft);
+    prog.style.width=(max>0?Math.min(100,x/max*100):0)+'%';
+    if(x>40) hint.classList.add('gone');
+  }
+  book.addEventListener('scroll',upd); window.addEventListener('resize',upd); upd();
+  // 答えをぜんぶ見る／かくす（個別のタップはCSSだけで動く）
+  var all=document.getElementById('allbtn'),shown=false;
+  all.addEventListener('click',function(){
+    shown=!shown;
+    document.querySelectorAll('.tg').forEach(function(c){ c.checked=shown; });
+    all.textContent=shown?'答えをかくす':'答えをぜんぶ見る';
+  });
+  // 問番号ジャンプ（縦書きなので、カードの右端を画面の右端にそろえる）
+  function jump(sel,smooth){
+    var t=document.querySelector(sel); if(!t) return;
+    var pad=parseFloat(getComputedStyle(book).paddingRight)||0;
+    var d=t.getBoundingClientRect().right-(book.getBoundingClientRect().right-pad);
+    book.scrollBy({left:d,top:0,behavior:smooth?'smooth':'auto'});
+    hint.classList.add('gone');
+  }
+  document.querySelectorAll('.chip').forEach(function(a){
+    a.addEventListener('click',function(e){ e.preventDefault(); jump(a.getAttribute('href'),true); });
+  });
+  // 右端（はじまり）から表示。#q3 のように指定があればそこへ
+  function start(){ if(location.hash){ jump(location.hash,false); } else { book.scrollLeft=0; } upd(); }
+  start(); window.addEventListener('load',start);
+})();
+</script>
+</body>
+</html>

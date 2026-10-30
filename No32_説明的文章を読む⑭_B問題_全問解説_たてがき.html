@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>「説明的文章を読む⑭」B問題｜ことば以外にも目を向ける</title>
+<style>
+:root{
+  --bg:#fff8e7; --ink:#3b3024; --sub:#7a6a55; --card:#ffffff;
+  --c1:#ff7b54; --cl1:#ffe6dc; --cd1:#c94f2c;
+  --c2:#ffb02e; --cl2:#fff1cf; --cd2:#b87400;
+  --c3:#4cc37a; --cl3:#dff7e7; --cd3:#1f8a4c;
+  --c4:#4aa8ff; --cl4:#dfefff; --cd4:#1f6fc4;
+  --c5:#9b7bff; --cl5:#ebe4ff; --cd5:#6b4fd1;
+  --c6:#ff6fa8; --cl6:#ffe1ee; --cd6:#c93d78;
+  --ans:#fff6b3; --ansb:#f2b600;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  display:flex;flex-direction:column;height:100dvh;overflow:hidden;
+  background:var(--bg);
+  background-image:radial-gradient(#ffd9a8 1.6px,transparent 1.7px),radial-gradient(#ffd9a8 1.6px,transparent 1.7px);
+  background-size:28px 28px;background-position:0 0,14px 14px;
+  color:var(--ink);
+  font-family:"Hiragino Maru Gothic ProN","Hiragino Maru Gothic Pro","Hiragino Sans","BIZ UDPGothic","Yu Gothic","YuGothic","Meiryo","Noto Sans CJK JP",sans-serif;
+  -webkit-text-size-adjust:100%;
+}
+/* ===== 上のバー（横書き） ===== */
+header.top{
+  flex:none;writing-mode:horizontal-tb;background:#fff;border-bottom:3px dashed #ffd27a;
+  padding:calc(8px + env(safe-area-inset-top,0px)) 16px 8px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;
+}
+.ttl{font-weight:800;font-size:clamp(15px,2.4vmin,20px);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.ttl .badge{background:#ff7b54;color:#fff;border-radius:999px;padding:2px 10px;font-size:.8em}
+nav.chips{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.chip{white-space:nowrap;text-decoration:none;color:#fff;background:var(--c);border-radius:999px;padding:3px 11px;font-weight:700;font-size:13px;box-shadow:0 2px 0 rgba(0,0,0,.12)}
+.chip:active{transform:translateY(2px);box-shadow:none}
+#allbtn{font:inherit;font-weight:700;font-size:13px;border:2px solid #f2b600;background:var(--ans);color:#6b4f00;border-radius:999px;padding:4px 12px;cursor:pointer}
+.bar{flex:none;height:6px;background:#ffe8c2}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff7b54,#ffb02e,#4cc37a,#4aa8ff,#9b7bff,#ff6fa8);transition:width .15s}
+/* ===== 本文（縦書き） ===== */
+main.book{
+  flex:1;min-height:0;writing-mode:vertical-rl;text-orientation:mixed;
+  overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;
+  padding:18px 22px 18px 22px;
+  font-size:clamp(16px,2.3vmin,21px);line-height:2;letter-spacing:.05em;
+  font-feature-settings:"palt" 0;
+}
+.card{
+  background:var(--card);border:3px solid var(--c,#ffb02e);border-radius:22px;
+  padding:26px 28px;margin-left:30px;box-shadow:0 6px 0 var(--cl,#ffe6c7),0 10px 24px rgba(120,80,20,.08);
+}
+.card:last-child{margin-left:4px}
+.intro{--c:#ffb02e;--cl:#fff1cf}
+.outro{--c:#4cc37a;--cl:#dff7e7}
+.mascot{font-size:2.6em;line-height:1;text-orientation:upright;margin-left:.3em}
+h2{margin:0 0 0 1.2em;font-size:1.25em;line-height:1.6}
+.intro-h{color:#b87400;background:var(--cl);border-radius:999px;padding:.5em .35em;inline-size:fit-content}
+.q h2{display:flex;flex-direction:row;align-items:center;gap:.7em;background:var(--c);color:#fff;border-radius:999px;padding:.6em .45em;margin-left:1.4em}
+.qnum{background:#fff;color:var(--cd);border-radius:999px;padding:.35em .2em;font-weight:900;display:inline-flex;flex-direction:row;align-items:center;gap:.2em}
+.qe{text-orientation:upright;font-size:1.3em;line-height:1}
+.qtitle{font-weight:800;text-shadow:0 1px 0 rgba(0,0,0,.15)}
+h3{font-size:1.05em;margin:.6em 0 .2em 1em;color:var(--cd,#b87400);background:var(--cl,#fff1cf);border-radius:999px;padding:.35em .3em;inline-size:fit-content;line-height:1.7;font-weight:800}
+.h3e{text-orientation:upright;margin-bottom:.3em}
+p{margin:0 0 0 .9em}
+strong{color:var(--cd,#c94f2c);font-weight:900;background:linear-gradient(to right,transparent 55%,var(--cl,#ffe6dc) 55%)}
+.tcy{text-combine-upright:all;-webkit-text-combine:horizontal}
+ruby{ruby-align:center} rt{font-size:.5em;color:var(--sub);letter-spacing:0;opacity:.95}
+blockquote{
+  margin:.2em 0 .2em 1em;padding:.6em .7em;background:#f7f4ee;border-right:6px solid var(--c,#ffb02e);border-radius:14px;
+  color:#4a3f33;font-weight:600;
+}
+blockquote p{margin-left:1em} blockquote p:first-child{margin-left:0}
+ul{margin:.2em 0 .2em 1em;padding:0;list-style:none}
+ul.plain li{margin-left:.6em;padding-right:1.1em;position:relative}
+ul.plain li::before{content:"●";position:absolute;right:0;top:.05em;color:var(--c,#ffb02e);font-size:.7em}
+ul.choices li{margin-left:.8em;background:#faf9f6;border-radius:16px;padding:.7em .6em;border:2px dashed #e5ddd0}
+.opt-head{display:flex;flex-direction:row;align-items:center;gap:.5em}
+.kana{display:inline-block;background:var(--c,#ffb02e);color:#fff;font-weight:900;border-radius:50%;width:1.7em;height:1.7em;line-height:1.7em;text-align:center;text-orientation:upright;letter-spacing:0;flex:none}
+.opt{font-weight:700}
+.opt-body{margin-left:.7em;color:#5a4d3e}
+/* 答え */
+.answer{margin:.4em 0 .4em 1.1em;display:flex;flex-direction:column;align-items:stretch}
+.ans-tag{background:var(--ansb);color:#fff;font-weight:900;border-radius:999px;padding:.4em .2em;inline-size:fit-content;margin-left:.5em;text-align:center}
+.ans-wrap{position:relative;background:var(--ans);border:3px solid var(--ansb);border-radius:18px;padding:.8em .7em;}
+.ans-body{font-weight:900;font-size:1.08em;color:#5a3d00;transition:filter .35s;}
+.ans-body .note{display:block;margin-left:.6em;font-size:.8em;font-weight:700;color:#8a6a1a}
+ol.num{margin:0;padding:0;list-style:none} ol.num li{margin-left:.5em} ol.num li:first-child{margin-left:0}
+.ans-body ol.num li{margin-left:.9em} .ans-body ol.num li:first-child{margin-left:0}
+ol.num .n{text-orientation:upright;color:var(--cd,#b87400);font-weight:900;margin-bottom:.2em}
+.tg{position:absolute;opacity:0;width:0;height:0;margin:0;pointer-events:none}
+.tg:not(:checked) ~ .ans-body{filter:blur(7px);user-select:none}
+.tg:checked ~ .reveal{display:none}
+.reveal{position:absolute;inset:0;margin:auto;display:block;inline-size:fit-content;block-size:fit-content;font:inherit;font-weight:800;font-size:.9em;
+  writing-mode:horizontal-tb;background:#fff;border:2px solid var(--ansb);border-radius:999px;padding:8px 14px;cursor:pointer;box-shadow:0 3px 0 var(--ansb);white-space:nowrap}
+.reveal:active{transform:translateY(2px);box-shadow:none}
+/* まとめ */
+ul.timeline li{margin-left:.8em;background:var(--cl);border-radius:16px;padding:.6em .5em;font-weight:700}
+.feel{text-orientation:upright;font-size:1.4em;line-height:1;margin-bottom:.35em;display:inline-block}
+.ending{margin-left:1.2em;font-weight:900;color:#1f8a4c;font-size:1.1em}
+/* ヒント */
+.hint{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);writing-mode:horizontal-tb;
+  background:#3b3024;color:#fff;border-radius:999px;padding:8px 16px;font-size:13px;font-weight:700;opacity:.92;animation:bob 1.2s ease-in-out infinite;pointer-events:none;white-space:nowrap}
+.hint.gone{display:none}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-6px)}}
+@media (max-width:600px){
+  header.top{gap:6px 8px}
+  .ttl{flex-basis:100%}
+  nav.chips{margin-left:0;flex:1 1 0;min-width:0;flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+  nav.chips::-webkit-scrollbar{display:none}
+  #allbtn{flex:none;font-size:12px;padding:4px 10px}
+  main.book{padding:12px 14px}
+  .card{padding:18px 18px;border-radius:18px;margin-left:18px}
+  .ttl{font-size:15px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="ttl"><span class="badge">国語 No.32</span>「説明的文章を読む⑭」B問題</div>
+  <nav class="chips"><a class="chip" href="#q1" style="--c:var(--c1)">問1</a><a class="chip" href="#q2" style="--c:var(--c2)">問2</a><a class="chip" href="#q3" style="--c:var(--c3)">問3</a><a class="chip" href="#q4" style="--c:var(--c4)">問4</a><a class="chip" href="#q5" style="--c:var(--c5)">問5</a><a class="chip" href="#q6" style="--c:var(--c6)">問6</a><a class="chip" href="#q7" style="--c:var(--c1)">問7</a><a class="chip" href="#q" style="--c:var(--c2)">問</a></nav>
+  <button id="allbtn" type="button">答えをぜんぶ見る</button>
+</header>
+<div class="bar"><i id="prog"></i></div>
+<main class="book" id="book">
+<section class="card intro"><div class="mascot">🧒💭</div><h2 class="intro-h">ことば以外にも目を向ける</h2><p>外国の言葉を訳せば、それだけで文化が分かるんやろか。この文章は、<ruby>表情<rt>ひょうじょう</rt></ruby>や習慣、ものを思い浮かべるイメージまで含めて考えているで。</p></section><section class="card q" id="q1" style="--c:var(--c1);--cl:var(--cl1);--cd:var(--cd1)"><h2><span class="qnum"><span class="qe">🔍</span>問<span class="tcy">1</span></span><span class="qtitle">異文化理解のまとめ</span></h2><h3><span class="h3e">🤔</span>何をする？</h3><p>まとめ文のAは<span class="tcy">2</span>字、Bは<span class="tcy">7</span>字、Cは<span class="tcy">8</span>字を本文から抜き出す。<ruby>空欄<rt>くうらん</rt></ruby>の後ろに続く言葉も見ておくで。</p><h3><span class="h3e">📖</span>どこを探す？</h3><p>冒頭の<ruby>翻訳<rt>ほんやく</rt></ruby>文学は具体例や。文章全体のまとめは最後の段落にあり、理解の過程、言葉以外の部分、イメージについて順に書いてある。</p><h3><span class="h3e">💡</span>答えを入れる</h3><p>「過程は複雑」「非言語的な部分も」「イメージとか表象も」とある。まとめ文に入れてつながること、指定字数も確かめる。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans1"><div class="ans-body">A 複雑　B 非言語的な部分　C イメージとか表象</div><label class="reveal" for="ans1">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q2" style="--c:var(--c2);--cl:var(--cl2);--cd:var(--cd2)"><h2><span class="qnum"><span class="qe">✏️</span>問<span class="tcy">2</span></span><span class="qtitle"><ruby>翻訳<rt>ほんやく</rt></ruby>の例は何を示す？</span></h2><h3><span class="h3e">📖</span>探す目印</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>の直前の「異文化理解とはどういう形でできるのでしょうか」と、その後の「たとえば」に注目。<ruby>翻訳<rt>ほんやく</rt></ruby>文学は、その問いに答えるための一例やで。</p><h3><span class="h3e">💡</span><ruby>選択肢<rt>せんたくし</rt></ruby>を比べる</h3><ul class="choices"><li><div class="opt-head"><span class="kana">ア</span></div><div class="opt-body">外国語を理解する困難さが主題ではない。</div></li></ul><ul class="choices"><li><div class="opt-head"><span class="kana">イ</span></div><div class="opt-body">違う文化を理解する一つのあり方を具体的に示す。問いと例の関係に合う。</div></li></ul><ul class="choices"><li><div class="opt-head"><span class="kana">ウ</span></div><div class="opt-body">最善の方法とまでは言っていない。</div></li></ul><ul class="choices"><li><div class="opt-head"><span class="kana">エ</span></div><div class="opt-body">最も困難な作業という説明もない。</div></li></ul><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans2"><div class="ans-body">イ</div><label class="reveal" for="ans2">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q3" style="--c:var(--c3);--cl:var(--cl3);--cd:var(--cd3)"><h2><span class="qnum"><span class="qe">🔥</span>問<span class="tcy">3</span></span><span class="qtitle">言語だけでは理解できない理由</span></h2><h3><span class="h3e">💡</span><ruby>条件<rt>じょうけん</rt></ruby>をばらす</h3><p>「コミュニケーション」を必ず使い、<span class="tcy">40</span>字以内で理由を答える。「なぜ」に合うよう「から」で結ぶで。</p><h3><span class="h3e">📖</span>本文を探す</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>の後に、言語的なコミュニケーションと同時に、<ruby>表情<rt>ひょうじょう</rt></ruby>や身ぶりなどの非言語的なコミュニケーションを行っているとある。</p><h3><span class="h3e">💡</span>答えにする</h3><p>言葉だけでなく、言葉以外も必要、という二つの関係を残す。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans3"><div class="ans-body">異文化の理解は言語だけでなく、非言語的なコミュニケーションも必要とするから。</div><label class="reveal" for="ans3">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q4" style="--c:var(--c4);--cl:var(--cl4);--cd:var(--cd4)"><h2><span class="qnum"><span class="qe">👉</span>問<span class="tcy">4</span></span><span class="qtitle">言語と非言語を区別する</span></h2><h3><span class="h3e">🤔</span>何を選ぶ？</h3><p>A〜Eのうち「非言語」が入るものをすべて選ぶ。<span class="tcy">1</span>個だけに決めず、<ruby>空欄<rt>くうらん</rt></ruby>ごとの前後を読む。</p><h3><span class="h3e">💡</span>一つずつたどる</h3><p><strong>A</strong> 音声だけを記録すると意味が通じにくい。音声以外の部分なので非言語。</p><p><strong>B</strong> 人々が取り交わし、文法的におかしくても通じるもの。言語や。</p><p><strong>C</strong> 文法的におかしい言語を補う部分。非言語。</p><p><strong>D</strong> 外国でできないと戸惑うものとして、社会や文化になじまないことと対比される。言語。</p><p><strong>E</strong> 習俗や習慣、泣く・笑う場面にかかわる部分。非言語。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans4"><div class="ans-body">A・C・E</div><label class="reveal" for="ans4">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q5" style="--c:var(--c5);--cl:var(--cl5);--cd:var(--cd5)"><h2><span class="qnum"><span class="qe">🕳️</span>問<span class="tcy">5</span></span><span class="qtitle">「当事者」と反対の言葉</span></h2><h3><span class="h3e">🤔</span>何を探す？</h3><p>本文中から一単語を抜き出す。当事者は、<ruby>出来事<rt>できごと</rt></ruby>に<ruby>直接<rt>ちょくせつ</rt></ruby>かかわる人やね。</p><h3><span class="h3e">💡</span><ruby>傍線<rt>ぼうせん</rt></ruby>の前後</h3><p>話す当事者の関係が分からない、居合わせた人のことを「第三者」と呼んでいる。<ruby>直接<rt>ちょくせつ</rt></ruby>かかわる人と、外から見る人の対比や。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans5"><div class="ans-body">第三者</div><label class="reveal" for="ans5">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q6" style="--c:var(--c6);--cl:var(--cl6);--cd:var(--cd6)"><h2><span class="qnum"><span class="qe">🎉</span>問<span class="tcy">6</span></span><span class="qtitle">「そういう対応」の具体例</span></h2><h3><span class="h3e">💡</span><ruby>条件<rt>じょうけん</rt></ruby></h3><p><ruby>指示語<rt>しじご</rt></ruby>の内容を、<ruby>具体的<rt>ぐたいてき</rt></ruby>に<span class="tcy">45</span>字以内で答える。「そういう」の前へ戻るで。</p><h3><span class="h3e">💡</span>何があった？</h3><p>中国の家庭では主人の親が亡くなった直後だった。それでも訪問を受け入れ、主人は笑顔でもてなした。後には外国からの客を笑顔でもてなす習慣の説明が続く。</p><h3><span class="h3e">✍️</span>答えの形</h3><p>単に「笑顔で迎える」だけやと、<ruby>筆者<rt>ひっしゃ</rt></ruby>が驚いた事情が抜ける。親が亡くなった直後という<ruby>状況<rt>じょうきょう</rt></ruby>も入れる。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans6"><div class="ans-body">親が死んだ直後にもかかわらず訪問を受け入れ、そこの主人がにこやかにもてなしてくれたこと。</div><label class="reveal" for="ans6">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q7" style="--c:var(--c1);--cl:var(--cl1);--cd:var(--cd1)"><h2><span class="qnum"><span class="qe">⭐</span>問<span class="tcy">7</span></span><span class="qtitle">反対の意味になっている語</span></h2><h3><span class="h3e">📖</span>探す手がかり</h3><p>一単語の抜き出し。中国での<ruby>出来事<rt>できごと</rt></ruby>を読んだ作家の感情と、その後の反省に注目するで。</p><h3><span class="h3e">💡</span>比べると</h3><p>親の死後に笑顔で迎えられ、作家は「おかしい」と感じた。喜んだわけではないから、その文の「快感」は文意に合わない。模範解答もこの語を挙げている。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans7"><div class="ans-body">快感</div><label class="reveal" for="ans7">👆 タップして答えを見る</label></div></div></section><section class="card outro" id="outro"><h2 class="intro-h">🧭 八問をならべてみると</h2><div class="ending">🎊 おつかれさま！　ここまで読めたらバッチリやで 🎊</div></section><section class="card q" id="q" style="--c:var(--c2);--cl:var(--cl2);--cd:var(--cd2)"><h2><span class="qnum"><span class="qe">🌈</span>問<span class="tcy"></span></span><span class="qtitle">まとめ</span></h2><blockquote><p>具体例と、文章全体のまとめを分けて読む。<br>言語だけでなく、表情や習慣も文化の理解にかかわる。<br>指示語は直前の具体的な出来事へ戻す。</p></blockquote></section>
+</main>
+<div class="hint" id="hint">👈 左にスクロールして読んでいこう</div>
+<script>
+(function(){
+  var book=document.getElementById('book'),prog=document.getElementById('prog'),hint=document.getElementById('hint');
+  // マウスホイールの上下 → 左右スクロール
+  book.addEventListener('wheel',function(e){
+    if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){ book.scrollLeft-=e.deltaY; e.preventDefault(); }
+  },{passive:false});
+  function upd(){
+    var max=book.scrollWidth-book.clientWidth; var x=Math.abs(book.scrollLeft);
+    prog.style.width=(max>0?Math.min(100,x/max*100):0)+'%';
+    if(x>40) hint.classList.add('gone');
+  }
+  book.addEventListener('scroll',upd); window.addEventListener('resize',upd); upd();
+  // 答えをぜんぶ見る／かくす（個別のタップはCSSだけで動く）
+  var all=document.getElementById('allbtn'),shown=false;
+  all.addEventListener('click',function(){
+    shown=!shown;
+    document.querySelectorAll('.tg').forEach(function(c){ c.checked=shown; });
+    all.textContent=shown?'答えをかくす':'答えをぜんぶ見る';
+  });
+  // 問番号ジャンプ（縦書きなので、カードの右端を画面の右端にそろえる）
+  function jump(sel,smooth){
+    var t=document.querySelector(sel); if(!t) return;
+    var pad=parseFloat(getComputedStyle(book).paddingRight)||0;
+    var d=t.getBoundingClientRect().right-(book.getBoundingClientRect().right-pad);
+    book.scrollBy({left:d,top:0,behavior:smooth?'smooth':'auto'});
+    hint.classList.add('gone');
+  }
+  document.querySelectorAll('.chip').forEach(function(a){
+    a.addEventListener('click',function(e){ e.preventDefault(); jump(a.getAttribute('href'),true); });
+  });
+  // 右端（はじまり）から表示。#q3 のように指定があればそこへ
+  function start(){ if(location.hash){ jump(location.hash,false); } else { book.scrollLeft=0; } upd(); }
+  start(); window.addEventListener('load',start);
+})();
+</script>
+</body>
+</html>
