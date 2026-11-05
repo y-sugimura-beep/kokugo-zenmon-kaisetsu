@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>「文学的文章を読む⑮」A問題｜手塚治虫は、どんな思いで描きつづけたんやろ</title>
+<style>
+:root{
+  --bg:#fff8e7; --ink:#3b3024; --sub:#7a6a55; --card:#ffffff;
+  --c1:#ff7b54; --cl1:#ffe6dc; --cd1:#c94f2c;
+  --c2:#ffb02e; --cl2:#fff1cf; --cd2:#b87400;
+  --c3:#4cc37a; --cl3:#dff7e7; --cd3:#1f8a4c;
+  --c4:#4aa8ff; --cl4:#dfefff; --cd4:#1f6fc4;
+  --c5:#9b7bff; --cl5:#ebe4ff; --cd5:#6b4fd1;
+  --c6:#ff6fa8; --cl6:#ffe1ee; --cd6:#c93d78;
+  --ans:#fff6b3; --ansb:#f2b600;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  display:flex;flex-direction:column;height:100dvh;overflow:hidden;
+  background:var(--bg);
+  background-image:radial-gradient(#ffd9a8 1.6px,transparent 1.7px),radial-gradient(#ffd9a8 1.6px,transparent 1.7px);
+  background-size:28px 28px;background-position:0 0,14px 14px;
+  color:var(--ink);
+  font-family:"Hiragino Maru Gothic ProN","Hiragino Maru Gothic Pro","Hiragino Sans","BIZ UDPGothic","Yu Gothic","YuGothic","Meiryo","Noto Sans CJK JP",sans-serif;
+  -webkit-text-size-adjust:100%;
+}
+/* ===== 上のバー（横書き） ===== */
+header.top{
+  flex:none;writing-mode:horizontal-tb;background:#fff;border-bottom:3px dashed #ffd27a;
+  padding:calc(8px + env(safe-area-inset-top,0px)) 16px 8px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;
+}
+.ttl{font-weight:800;font-size:clamp(15px,2.4vmin,20px);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.ttl .badge{background:#ff7b54;color:#fff;border-radius:999px;padding:2px 10px;font-size:.8em}
+nav.chips{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.chip{white-space:nowrap;text-decoration:none;color:#fff;background:var(--c);border-radius:999px;padding:3px 11px;font-weight:700;font-size:13px;box-shadow:0 2px 0 rgba(0,0,0,.12)}
+.chip:active{transform:translateY(2px);box-shadow:none}
+#allbtn{font:inherit;font-weight:700;font-size:13px;border:2px solid #f2b600;background:var(--ans);color:#6b4f00;border-radius:999px;padding:4px 12px;cursor:pointer}
+.bar{flex:none;height:6px;background:#ffe8c2}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff7b54,#ffb02e,#4cc37a,#4aa8ff,#9b7bff,#ff6fa8);transition:width .15s}
+/* ===== 本文（縦書き） ===== */
+main.book{
+  flex:1;min-height:0;writing-mode:vertical-rl;text-orientation:mixed;
+  overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;
+  padding:18px 22px 18px 22px;
+  font-size:clamp(16px,2.3vmin,21px);line-height:2;letter-spacing:.05em;
+  font-feature-settings:"palt" 0;
+}
+.card{
+  background:var(--card);border:3px solid var(--c,#ffb02e);border-radius:22px;
+  padding:26px 28px;margin-left:30px;box-shadow:0 6px 0 var(--cl,#ffe6c7),0 10px 24px rgba(120,80,20,.08);
+}
+.card:last-child{margin-left:4px}
+.intro{--c:#ffb02e;--cl:#fff1cf}
+.outro{--c:#4cc37a;--cl:#dff7e7}
+.mascot{font-size:2.6em;line-height:1;text-orientation:upright;margin-left:.3em}
+h2{margin:0 0 0 1.2em;font-size:1.25em;line-height:1.6}
+.intro-h{color:#b87400;background:var(--cl);border-radius:999px;padding:.5em .35em;inline-size:fit-content}
+.q h2{display:flex;flex-direction:row;align-items:center;gap:.7em;background:var(--c);color:#fff;border-radius:999px;padding:.6em .45em;margin-left:1.4em}
+.qnum{background:#fff;color:var(--cd);border-radius:999px;padding:.35em .2em;font-weight:900;display:inline-flex;flex-direction:row;align-items:center;gap:.2em}
+.qe{text-orientation:upright;font-size:1.3em;line-height:1}
+.qtitle{font-weight:800;text-shadow:0 1px 0 rgba(0,0,0,.15)}
+h3{font-size:1.05em;margin:.6em 0 .2em 1em;color:var(--cd,#b87400);background:var(--cl,#fff1cf);border-radius:999px;padding:.35em .3em;inline-size:fit-content;line-height:1.7;font-weight:800}
+.h3e{text-orientation:upright;margin-bottom:.3em}
+p{margin:0 0 0 .9em}
+strong{color:var(--cd,#c94f2c);font-weight:900;background:linear-gradient(to right,transparent 55%,var(--cl,#ffe6dc) 55%)}
+.tcy{text-combine-upright:all;-webkit-text-combine:horizontal}
+ruby{ruby-align:center} rt{font-size:.5em;color:var(--sub);letter-spacing:0;opacity:.95}
+blockquote{
+  margin:.2em 0 .2em 1em;padding:.6em .7em;background:#f7f4ee;border-right:6px solid var(--c,#ffb02e);border-radius:14px;
+  color:#4a3f33;font-weight:600;
+}
+blockquote p{margin-left:1em} blockquote p:first-child{margin-left:0}
+ul{margin:.2em 0 .2em 1em;padding:0;list-style:none}
+ul.plain li{margin-left:.6em;padding-right:1.1em;position:relative}
+ul.plain li::before{content:"●";position:absolute;right:0;top:.05em;color:var(--c,#ffb02e);font-size:.7em}
+ul.choices li{margin-left:.8em;background:#faf9f6;border-radius:16px;padding:.7em .6em;border:2px dashed #e5ddd0}
+.opt-head{display:flex;flex-direction:row;align-items:center;gap:.5em}
+.kana{display:inline-block;background:var(--c,#ffb02e);color:#fff;font-weight:900;border-radius:50%;width:1.7em;height:1.7em;line-height:1.7em;text-align:center;text-orientation:upright;letter-spacing:0;flex:none}
+.opt{font-weight:700}
+.opt-body{margin-left:.7em;color:#5a4d3e}
+/* 答え */
+.answer{margin:.4em 0 .4em 1.1em;display:flex;flex-direction:column;align-items:stretch}
+.ans-tag{background:var(--ansb);color:#fff;font-weight:900;border-radius:999px;padding:.4em .2em;inline-size:fit-content;margin-left:.5em;text-align:center}
+.ans-wrap{position:relative;background:var(--ans);border:3px solid var(--ansb);border-radius:18px;padding:.8em .7em;}
+.ans-body{font-weight:900;font-size:1.08em;color:#5a3d00;transition:filter .35s;}
+.ans-body .note{display:block;margin-left:.6em;font-size:.8em;font-weight:700;color:#8a6a1a}
+ol.num{margin:0;padding:0;list-style:none} ol.num li{margin-left:.5em} ol.num li:first-child{margin-left:0}
+.ans-body ol.num li{margin-left:.9em} .ans-body ol.num li:first-child{margin-left:0}
+ol.num .n{text-orientation:upright;color:var(--cd,#b87400);font-weight:900;margin-bottom:.2em}
+.tg{position:absolute;opacity:0;width:0;height:0;margin:0;pointer-events:none}
+.tg:not(:checked) ~ .ans-body{filter:blur(7px);user-select:none}
+.tg:checked ~ .reveal{display:none}
+.reveal{position:absolute;inset:0;margin:auto;display:block;inline-size:fit-content;block-size:fit-content;font:inherit;font-weight:800;font-size:.9em;
+  writing-mode:horizontal-tb;background:#fff;border:2px solid var(--ansb);border-radius:999px;padding:8px 14px;cursor:pointer;box-shadow:0 3px 0 var(--ansb);white-space:nowrap}
+.reveal:active{transform:translateY(2px);box-shadow:none}
+/* まとめ */
+ul.timeline li{margin-left:.8em;background:var(--cl);border-radius:16px;padding:.6em .5em;font-weight:700}
+.feel{text-orientation:upright;font-size:1.4em;line-height:1;margin-bottom:.35em;display:inline-block}
+.ending{margin-left:1.2em;font-weight:900;color:#1f8a4c;font-size:1.1em}
+/* ヒント */
+.hint{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);writing-mode:horizontal-tb;
+  background:#3b3024;color:#fff;border-radius:999px;padding:8px 16px;font-size:13px;font-weight:700;opacity:.92;animation:bob 1.2s ease-in-out infinite;pointer-events:none;white-space:nowrap}
+.hint.gone{display:none}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-6px)}}
+@media (max-width:600px){
+  header.top{gap:6px 8px}
+  .ttl{flex-basis:100%}
+  nav.chips{margin-left:0;flex:1 1 0;min-width:0;flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+  nav.chips::-webkit-scrollbar{display:none}
+  #allbtn{flex:none;font-size:12px;padding:4px 10px}
+  main.book{padding:12px 14px}
+  .card{padding:18px 18px;border-radius:18px;margin-left:18px}
+  .ttl{font-size:15px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="ttl"><span class="badge">国語 No.33</span>「文学的文章を読む⑮」A問題</div>
+  <nav class="chips"><a class="chip" href="#q1" style="--c:var(--c1)">問1</a><a class="chip" href="#q2" style="--c:var(--c2)">問2</a><a class="chip" href="#q3" style="--c:var(--c3)">問3</a><a class="chip" href="#q4" style="--c:var(--c4)">問4</a><a class="chip" href="#q5" style="--c:var(--c5)">問5</a></nav>
+  <button id="allbtn" type="button">答えをぜんぶ見る</button>
+</header>
+<div class="bar"><i id="prog"></i></div>
+<main class="book" id="book">
+<section class="card intro"><div class="mascot">🧒💭</div><h2 class="intro-h"><ruby>手塚治虫<rt>てづかおさむ</rt></ruby>は、どんな思いで描きつづけたんやろ</h2><p>マンガが好きで描いている。それはほんまやけど、好きなことを仕事にしていたら、ずっと自信いっぱいでいられるんかな。<ruby>手塚治虫<rt>てづかおさむ</rt></ruby>は、自分の中に残っている<ruby>劣等感<rt>れっとうかん</rt></ruby>や<ruby>脅え<rt>おびえ</rt></ruby>も、隠さずに書いているんや。</p><p>この文章は、前と後で話の中心が少し変わるで。</p><ul class="plain"><li>前半：自分に自信が持てなかった<ruby>経験<rt>けいけん</rt></ruby>と、それでもマンガを描きつづけられた理由。</li><li>後半：流行に合わせて使い捨てられるマンガへの<ruby>疑問<rt>ぎもん</rt></ruby>と、これから自分が描きたいマンガ。</li></ul><p>「それでも続けたのはなぜ？」と「これから何を描きたい？」を分けて読むと、問<span class="tcy">2</span>と問<span class="tcy">5</span>の答えも混ざりにくくなる。今回は<span class="tcy">5</span>問とも、本文の言葉を使ったり、本文からそのまま抜き出したりする問題や。見つけた言葉をすぐ答えにせず、何を聞かれているかに合わせて形を整えていくで。</p></section><section class="card q" id="q1" style="--c:var(--c1);--cl:var(--cl1);--cd:var(--cd1)"><h2><span class="qnum"><span class="qe">🔍</span>問<span class="tcy">1</span></span><span class="qtitle">「そんな具合」って、どんな二つのこと？</span></h2><h3><span class="h3e">💡</span>二つ答える、ってところが目印やな</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>①の「そんな具合」が、<ruby>具体的<rt>ぐたいてき</rt></ruby>に何を指すかを<strong>二つ</strong>答える。「文中の言葉を使って」やから、<ruby>筆者<rt>ひっしゃ</rt></ruby>の様子を自分の想像で足すんやなくて、本文に書いてある二つの内容を拾う問題やね。</p><p>「そんな」は、ここまでに出た話を受ける言葉や。だから、答えの候補は<ruby>傍線<rt>ぼうせん</rt></ruby>の前にありそう。ただし、文章の最初まで全部戻る前に、すぐ前の段落から見てみると探しやすいで。</p><h3><span class="h3e">💡</span>「そんな」のすぐ前には、何が並んでる？</h3><p>前の段落は、「しかし、すべてのコンプレックスが<ruby>雲散霧消<rt>うんさんむしょう</rt></ruby>するわけではありません」で始まっている。「<ruby>雲散霧消<rt>うんさんむしょう</rt></ruby>」は、すっかり消えてなくなること。アメリカでアニメをほめられて一つのコンプレックスは消えたけど、不安が全部なくなったわけではない、と話を切り替えているんや。</p><p>そのあとに、こんな二つが続く。</p><blockquote><p>ぼくは読者の人気投票にも脅えていますし、生涯一新人のつもりでいます。</p></blockquote><p>「〜し」で二つの内容がつながってるな。</p><ol class="num"><li><span class="n">①</span>読者の人気投票にも<ruby>脅え<rt>おびえ</rt></ruby>ている。</li><li><span class="n">②</span>生涯一新人のつもりでいる。</li></ol><p>一つ目は、人気投票の結果を怖がっていること。二つ目は、長く描いてきた自分を、もう安心できる大先生やと思っていないことやね。この二つを受けて、「ぼくはそんな具合ですが」と言っている。</p><h3><span class="h3e">💡</span>子どものころの話まで戻らんでええの？</h3><p>前のほうには、チビでメガネでくせ毛だったことや、アメリカ兵へのコンプレックスも出てくる。どれも関係はあるけど、「そんな具合」が受けているのは、すぐ前に並んだ<strong>今の筆者の様子</strong>なんや。</p><p>とくにアメリカについては、アトムをほめられたときに<ruby>劣等感<rt>れっとうかん</rt></ruby>がなくなった、と一度説明している。それを、そのまま今も残る二つの内容として答えると、話の順番が合わなくなるで。</p><h3><span class="h3e">💡</span>二つとも「こと」でそろえると</h3><p>「<ruby>脅え<rt>おびえ</rt></ruby>ています」を「<ruby>脅え<rt>おびえ</rt></ruby>ていること」、「つもりでいます」を「つもりでいること」に直せば、「どのようなこと？」という聞かれ方につながる。字数指定はないから、人気投票と生涯一新人の両方が分かるように書けばええな。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans1"><div class="ans-body">①読者の人気投票に脅えていること。　②生涯一新人のつもりでいること。</div><label class="reveal" for="ans1">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q2" style="--c:var(--c2);--cl:var(--cl2);--cd:var(--cd2)"><h2><span class="qnum"><span class="qe">✏️</span>問<span class="tcy">2</span></span><span class="qtitle">四十年以上、描きつづけられたのはなぜ？</span></h2><h3><span class="h3e">💡</span>長く描けた「理由」を三十字以内で</h3><p>聞かれているのは、何年描いたかでも、どの作品が売れたかでもなく、<strong>四十年以上も描くことができた理由</strong>やね。「文中の言葉を使って」「三十字以内」という<ruby>条件<rt>じょうけん</rt></ruby>もある。</p><p>理由を答えるから、最後は「〜から。」にすると収まりがええ。先にそれを決めておくと、本文からどんな材料を集めればいいかも見えてくるで。</p><h3><span class="h3e">📖</span>同じ段落の「からこそ」を探す</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>②のある段落を、そのまま後ろまで読んでみる。「続けた理由」を探しているから、「だから」「〜から」といった理由を表す言葉が目印になるんや。</p><p>前半には、こう書いてある。</p><blockquote><p>めげそうになるたびに、いわゆる“主流”というようなものに敵愾心を抱いて、コンチクショウと思ってやってきたのです。</p></blockquote><p>「<ruby>敵愾心<rt>てきがいしん</rt></ruby>」は、相手に負けたくない、<ruby>対抗<rt>たいこう</rt></ruby>したいという気持ち。「<ruby>主流<rt>しゅりゅう</rt></ruby>」は、その世界で中心になっているやり方や勢力のことやね。<ruby>筆者<rt>ひっしゃ</rt></ruby>は、くじけそうになっても、その<ruby>主流<rt>しゅりゅう</rt></ruby>に負けたくないと思って続けてきたんや。</p><p>そのあとの「若手のマンガ家に対しては<ruby>闘争心<rt>とうそうしん</rt></ruby>をかきたてて」も、同じく競争する気持ちを表している。さらに後ろには、理由をはっきり言う箇所があるで。</p><blockquote><p>逆にいえば、劣等感や脅えがあったからこそ続いたともいえそうです。</p></blockquote><h3><span class="h3e">💡</span>「負けん気」と「<ruby>脅え<rt>おびえ</rt></ruby>」、両方いるんやな</h3><p>ここまでをつなぐと、続けられた理由は二つの側面から見える。</p><ul class="plain"><li><ruby>主流<rt>しゅりゅう</rt></ruby>や若手に対する、<ruby>敵愾心<rt>てきがいしん</rt></ruby>・<ruby>闘争心<rt>とうそうしん</rt></ruby>・負けん気。</li><li>自分への自信のなさにつながる、<ruby>劣等感<rt>れっとうかん</rt></ruby>や<ruby>脅え<rt>おびえ</rt></ruby>。</li></ul><p>「負けたくない」だけで終わると、段落の後半にわざわざ書かれた<ruby>劣等感<rt>れっとうかん</rt></ruby>や<ruby>脅え<rt>おびえ</rt></ruby>が落ちてしまう。逆に、「<ruby>劣等感<rt>れっとうかん</rt></ruby>や<ruby>脅え<rt>おびえ</rt></ruby>」だけを拾うと、前半から続く<ruby>対抗<rt>たいこう</rt></ruby>する気持ちをまとめきれない。模範解答も、この両方を入れているで。</p><p>最初の段落にある「マンガが好きだから」を答えたくなるかもしれん。でも、あそこは「なぜマンガを描くのか」の理由。ここは「くじけそうでも、四十年以上続けられたのはなぜか」やから、<ruby>傍線<rt>ぼうせん</rt></ruby>と同じ段落で説明される気持ちを使うんやね。</p><h3><span class="h3e">💡</span>三十字に入る形へつなぐ</h3><p>拾った五つの言葉を並べ、「あったから。」で結ぶ。</p><p>「<ruby>敵愾心<rt>てきがいしん</rt></ruby>、<ruby>闘争心<rt>とうそうしん</rt></ruby>、負けん気や<ruby>劣等感<rt>れっとうかん</rt></ruby>や<ruby>脅え<rt>おびえ</rt></ruby>があったから。」で、句読点を含めて<strong><span class="tcy">26</span>字</strong>。三十字以内に収まるで。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans2"><div class="ans-body">敵愾心、闘争心、負けん気や劣等感や脅えがあったから。</div><label class="reveal" for="ans2">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q3" style="--c:var(--c3);--cl:var(--cl3);--cd:var(--cd3)"><h2><span class="qnum"><span class="qe">🔥</span>問<span class="tcy">3</span></span><span class="qtitle">「いま当たっているマンガ」を別の言い方で探す</span></h2><h3><span class="h3e">💡</span>今度は、そのまま抜き出す問題や</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>③の「いま当たっているマンガ」と、ほぼ同じ内容を述べている部分を、<strong>二十字以内で抜き出す</strong>。「文中の言葉を使って」より<ruby>条件<rt>じょうけん</rt></ruby>が厳しいな。見つけた部分の言葉や順番を、自分で変えずに写すんや。</p><p>ここでの「当たっている」は、何かにぶつかるという意味やなくて、人気が出ている、ということ。探すのは、「今、人気があるマンガ」を<ruby>筆者<rt>ひっしゃ</rt></ruby>がどう見ているかを表した言い方やで。</p><h3><span class="h3e">💡</span>「おもしろい」と「人気がある」を分けて読む</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>の前後に、「あまり信じないことにしています」「ところが」「つまらんというか」とある。人気のマンガを、そのまま「本当におもしろいマンガ」と言い換えたら、<ruby>筆者<rt>ひっしゃ</rt></ruby>の考えと合わなそうやな。</p><p>そのあとを読むと、<ruby>筆者<rt>ひっしゃ</rt></ruby>は自分が望むものを「<ruby>本来<rt>ほんらい</rt></ruby>おもしろいマンガ」と言い、続いてこう比べている。</p><blockquote><p>ほんとうにおもしろいという感覚より、流行のウエイトのほうが大きいマンガ</p></blockquote><p>「ウエイト」は、ここでは重み、大きな割合のこと。本当のおもしろさより、流行していることのほうが、人気を支える大きな理由になっている、という意味やね。</p><h3><span class="h3e">💡</span>似た言葉が見つかっても、比べる側を取り違えない</h3><p>「<ruby>本来<rt>ほんらい</rt></ruby>おもしろいマンガ」も近くにあるけど、それは<ruby>筆者<rt>ひっしゃ</rt></ruby>が望んでいるマンガのほう。問われている「いま当たっているマンガ」は、<ruby>筆者<rt>ひっしゃ</rt></ruby>があまり信じないと言っている側や。</p><p>だから、「ほんとうにおもしろいという感覚より」のあとにある、<strong>流行のほうが大きい側</strong>を取ると、<ruby>傍線<rt>ぼうせん</rt></ruby>の意味につながる。人気があることと、本当におもしろいことを同じにしないのが、この問の分かれ目やな。</p><h3><span class="h3e">💡</span>抜き出す始まりと終わりはここ</h3><p>「流行の」から「マンガ」まで取ると、「どんなマンガか」が一まとまりになる。</p><ul class="plain"><li>「流行の」＝<span class="tcy">3</span>字</li><li>「ウエイトのほうが」＝<span class="tcy">8</span>字</li><li>「大きいマンガ」＝<span class="tcy">6</span>字</li></ul><p>合わせて<strong><span class="tcy">17</span>字</strong>で、二十字以内。「ウエイト」を「ウェイト」に直したり、「流行の影響が強いマンガ」と言い換えたりせず、本文どおりに写すで。抜き出す部分には<ruby>句点<rt>くてん</rt></ruby>がないから、答えにも足さない。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans3"><div class="ans-body">流行のウエイトのほうが大きいマンガ</div><label class="reveal" for="ans3">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q4" style="--c:var(--c4);--cl:var(--cl4);--cd:var(--cd4)"><h2><span class="qnum"><span class="qe">👉</span>問<span class="tcy">4</span></span><span class="qtitle">「少々怖いこと」は、何を指している？</span></h2><h3><span class="h3e">💡</span>怖い「気持ち」の理由とは、ちょっと違う</h3><p>「少々怖いこと」とあるけど、「<ruby>筆者<rt>ひっしゃ</rt></ruby>が何を怖がっているか」を、<strong>文中の言葉を使って三十五字以内</strong>で説明する問題や。「怖いから」のように気持ちを言い直すだけやと、何が怖いのかが分からへんな。</p><p>ここは「これは何を指していますか」と聞かれている。「これ」が受ける前の話と、怖さを説明する後ろの話を、両方つなぐ必要がありそうや。</p><h3><span class="h3e">💡</span>前には使い捨ての話、後ろには自分の命の話</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>の前で、<ruby>筆者<rt>ひっしゃ</rt></ruby>はマンガを使い捨てのもののように考えてしまうことを述べている。「どうせ使い捨て」「次に新しいものを買って使えばいい」という考え方やね。</p><p>でも、ここだけで止まると、「マンガをすぐ捨てること」と答えたくなる。<ruby>傍線<rt>ぼうせん</rt></ruby>のあとには、その考え方がどこへ広がるのかが書いてあるで。</p><blockquote><p>自分のからだを乱暴に扱って、命を縮めている。</p></blockquote><p>さらに、そのあとの『火の鳥』との比較にも手がかりがある。</p><blockquote><p>「火の鳥」は永遠の命だから、どうもそれにたぶらかされてしまったかもしれません。</p></blockquote><p>『火の鳥』の<ruby>永遠<rt>えいえん</rt></ruby>の命と違って、<ruby>筆者<rt>ひっしゃ</rt></ruby>自身の体や命は、失ったら新しいものを買って取り替えられるわけやない。ところが、ものは使い捨てでよいという考え方が、自分の体を大切にしないことにもつながっている。それを「少々怖い」と考えているんや。</p><h3><span class="h3e">💡</span>答えには、考え方と行動をつなげたい</h3><p>必要な材料を分けると、こうなる。</p><ol class="num"><li><span class="n">①</span>行動：自分の体を乱暴に扱う。</li><li><span class="n">②</span>そのもとになる考え：使い捨てだから、また買えばいいと思う。</li></ol><p>「体を乱暴に扱っていること」だけなら、<ruby>傍線<rt>ぼうせん</rt></ruby>直後の一部は拾える。でも、何がその行動につながっているのかが落ちてしまうな。「マンガが流行のあとに消えること」だけでも、自分の体や命へ話が進んだ部分が入らへん。</p><p>模範解答は、<strong>体まで使い捨てのように考えてしまうこと</strong>が分かるように、この二つをつないでいる。<ruby>筆者<rt>ひっしゃ</rt></ruby>が<ruby>実際<rt>じっさい</rt></ruby>に新しい体を買った、という事実を述べているんやないで。「買えばいい」という考え方で体を粗末に扱ってしまう、その怖さの話や。</p><h3><span class="h3e">💡</span>三十五字以内にまとめると</h3><p>「自分の体を乱暴に扱っても」と「使い捨てだから、また買えばいいと思うこと。」をつなぐと、句読点を含めて<strong><span class="tcy">33</span>字</strong>。「何を指すか」への答えやから、「こと。」で終えると形も合うな。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans4"><div class="ans-body">自分の体を乱暴に扱っても使い捨てだから、また買えばいいと思うこと。</div><label class="reveal" for="ans4">👆 タップして答えを見る</label></div></div></section><section class="card q" id="q5" style="--c:var(--c5);--cl:var(--cl5);--cd:var(--cd5)"><h2><span class="qnum"><span class="qe">🕳️</span>問<span class="tcy">5</span></span><span class="qtitle">これから、どんなマンガを描きたい？</span></h2><h3><span class="h3e">💡</span>「描きつづけたい」の中身を四十字以内で</h3><p>最後は、<ruby>筆者<rt>ひっしゃ</rt></ruby>がこれから描こうとしているマンガを、<strong>文中の言葉を使って四十字以内</strong>で答える。続けたい理由を聞かれた問<span class="tcy">2</span>とは違って、ここでは「どのようなマンガか」が答えになるんや。</p><p>文末も「〜から。」やなく、「〜マンガ。」にすると、聞かれ方とつながるな。作品名を一つ挙げる問題でもないで。</p><h3><span class="h3e">📖</span>「だから」の直前に、描きたいものがありそう</h3><p><ruby>傍線<rt>ぼうせん</rt></ruby>⑤は、「だからぼくは、これからもマンガを、ぼくの真剣なメッセージをこめて描きつづけていきたいと思っているのです」の中にある。「だから」は、それまでの話を受けて結論を出す言葉やね。</p><p>そのすぐ前の段落へ戻ると、最初にこう書かれている。</p><blockquote><p>子どもは大人からの真剣なメッセージにはかならず、耳を傾けてくる感性をちゃんと持っています。</p></blockquote><p>「耳を傾ける」は、しっかり聞こうとすること。<ruby>筆者<rt>ひっしゃ</rt></ruby>は、子どもには、大人が真剣に伝えようとするものを受け止める力がある、と考えているんや。</p><p>続いて、こうある。</p><blockquote><p>しかも、それが夢をかきたてるおもしろいものであれば、どんなに目を輝かせてくれることでしょう。</p></blockquote><p>「しかも」で、もう一つ<ruby>条件<rt>じょうけん</rt></ruby>が加わってる。「夢をかきたてる」は、こんなことをしてみたい、こんな世界があるんや、という夢をふくらませることやね。</p><h3><span class="h3e">💡</span>「真剣」だけでも「おもしろい」だけでも足りないんやな</h3><p>この二文を合わせると、<ruby>筆者<rt>ひっしゃ</rt></ruby>が描きたいマンガの材料は三つになる。</p><ul class="plain"><li>読む相手は、子ども。</li><li>伝えるのは、大人からの真剣なメッセージ。</li><li>その伝え方は、夢をかきたてるほどおもしろいもの。</li></ul><p>「大人のメッセージがあるマンガ」だけやと、後ろの「しかも」から加わったおもしろさが抜ける。「夢のあるおもしろいマンガ」だけやと、<ruby>筆者<rt>ひっしゃ</rt></ruby>が最後にもう一度言っている真剣なメッセージが抜ける。この二つを一つのマンガの特徴としてまとめたいんや。</p><p>また、後半に出てきた「流行のウエイトのほうが大きいマンガ」は、<ruby>筆者<rt>ひっしゃ</rt></ruby>が<ruby>疑問<rt>ぎもん</rt></ruby>を持っている側やったな。ここで「流行して売れるマンガ」と書くと、その対比が逆になってしまうで。</p><h3><span class="h3e">💡</span>本文の二文を、一つの答えにすると</h3><p>最初の文から「子どもに」「大人からの真剣なメッセージを伝え」を取り、次の文から「夢をかきたてるおもしろい」をつなぐ。最後に、問われているものの名前である「マンガ」を置けば、一つの答えになる。</p><p>「子どもに大人からの真剣なメッセージを伝え、夢をかきたてるおもしろいマンガ。」で、句読点を含めて<strong><span class="tcy">37</span>字</strong>。四十字以内で、誰に何をどう伝えるマンガなのかまで入ったな。</p><div class="answer"><div class="ans-tag">答え</div><div class="ans-wrap"><input type="checkbox" class="tg" id="ans5"><div class="ans-body">子どもに大人からの真剣なメッセージを伝え、夢をかきたてるおもしろいマンガ。</div><label class="reveal" for="ans5">👆 タップして答えを見る</label></div></div></section><section class="card outro" id="outro"><h2 class="intro-h">🧭 五問をならべてみると</h2><p>「そんな具合」なら、すぐ前に並んだ内容。「なぜ続けられたか」なら、同じ段落の「〜からこそ」。「だから描きたい」なら、結論のもとになった直前の段落。<ruby>設問<rt>せつもん</rt></ruby>の言葉と、本文のつなぎ言葉を合わせると、戻る場所を絞れるんやね。</p><p>一方、問<span class="tcy">4</span>みたいに、前の話を受けながら後ろで中身が詳しく説明されることもある。前だけで答えが決まりきらなかったら、後ろの<ruby>具体的<rt>ぐたいてき</rt></ruby>な説明までつないで読めばええ。</p><ul class="timeline"><li><span class="feel">💭</span>何を答えるかと、字数・個数・答え方を分ける。</li><li><span class="feel">💭</span>本文へ戻る目印を見つけ、その場所を読む理由まで考える。</li><li><span class="feel">💭</span>根拠をつなぎ、近くにある別の内容と取り違えていないか比べる。</li><li><span class="feel">💭</span>抜き出しはそのまま、記述は聞かれた形に整えて、最後に字数を数える。</li></ul><div class="ending">🎊 おつかれさま！　ここまで読めたらバッチリやで 🎊</div></section>
+</main>
+<div class="hint" id="hint">👈 左にスクロールして読んでいこう</div>
+<script>
+(function(){
+  var book=document.getElementById('book'),prog=document.getElementById('prog'),hint=document.getElementById('hint');
+  // マウスホイールの上下 → 左右スクロール
+  book.addEventListener('wheel',function(e){
+    if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){ book.scrollLeft-=e.deltaY; e.preventDefault(); }
+  },{passive:false});
+  function upd(){
+    var max=book.scrollWidth-book.clientWidth; var x=Math.abs(book.scrollLeft);
+    prog.style.width=(max>0?Math.min(100,x/max*100):0)+'%';
+    if(x>40) hint.classList.add('gone');
+  }
+  book.addEventListener('scroll',upd); window.addEventListener('resize',upd); upd();
+  // 答えをぜんぶ見る／かくす（個別のタップはCSSだけで動く）
+  var all=document.getElementById('allbtn'),shown=false;
+  all.addEventListener('click',function(){
+    shown=!shown;
+    document.querySelectorAll('.tg').forEach(function(c){ c.checked=shown; });
+    all.textContent=shown?'答えをかくす':'答えをぜんぶ見る';
+  });
+  // 問番号ジャンプ（縦書きなので、カードの右端を画面の右端にそろえる）
+  function jump(sel,smooth){
+    var t=document.querySelector(sel); if(!t) return;
+    var pad=parseFloat(getComputedStyle(book).paddingRight)||0;
+    var d=t.getBoundingClientRect().right-(book.getBoundingClientRect().right-pad);
+    book.scrollBy({left:d,top:0,behavior:smooth?'smooth':'auto'});
+    hint.classList.add('gone');
+  }
+  document.querySelectorAll('.chip').forEach(function(a){
+    a.addEventListener('click',function(e){ e.preventDefault(); jump(a.getAttribute('href'),true); });
+  });
+  // 右端（はじまり）から表示。#q3 のように指定があればそこへ
+  function start(){ if(location.hash){ jump(location.hash,false); } else { book.scrollLeft=0; } upd(); }
+  start(); window.addEventListener('load',start);
+})();
+</script>
+</body>
+</html>
